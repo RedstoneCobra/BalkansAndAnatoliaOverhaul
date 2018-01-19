@@ -1,0 +1,70 @@
+# CNK - Canik
+
+government = ottoman_government government_rank = 1
+mercantilism = 0.0
+primary_culture = yorouk
+religion = sunni
+technology_group = muslim
+capital = 1326
+historical_rival = BYZ
+historical_neutral = MAM
+
+1000.1.1 = {
+	add_country_modifier = { name = title_1 duration = -1 }
+	set_country_flag = title_1
+	# add_country_modifier = { name = turkish_beylik duration = -1 }
+	add_country_modifier = { name = obstacle_traditional_military duration = -1 }
+	#set_variable = { which = "centralization_decentralization" value = 0 }
+	add_absolutism = -100
+	add_absolutism = 20
+}
+
+1356.1.1   = {
+	monarch = {
+		name = "Kutlu?ah"
+		dynasty = "Canik"
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}
+
+1381.1.1   = {
+	monarch = {
+		name = "Ta?ano?ul"
+		dynasty = "Canik"
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}
+
+1398.1.1   = {
+	monarch = {
+		name = "Tacettino?ul"
+		dynasty = "Canik"
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}
+
+1415.1.1   = {
+	monarch = {
+		name = "Kubato?ullar?"
+		dynasty = "Canik"
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}
+
+1428.1.1   = {
+	monarch = {
+		name = "Hac?emiro?ull"
+		dynasty = "Canik"
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}

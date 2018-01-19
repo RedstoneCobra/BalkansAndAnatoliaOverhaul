@@ -1,0 +1,42 @@
+# TRC - Triarchy of Negroponte
+
+government = feudal_monarchy government_rank = 1
+mercantilism = 0.0
+technology_group = eastern
+unit_type = western
+primary_culture = lombard
+add_accepted_culture = greek
+religion = catholic
+capital = 1434	# Euboia
+historical_enemy = ATH
+
+1000.1.1 = {
+	add_country_modifier = { name = title_3 duration = -1 }
+	set_country_flag = title_3
+	#set_variable = { which = "centralization_decentralization" value = 0 }
+	add_absolutism = -100
+	add_absolutism = 20
+	set_country_flag = crusader_kingdom
+}
+
+1340.1.1 = {
+	monarch = {
+		name = "Giovanni"
+		dynasty = "Carceri"
+		DIP = 2
+		ADM = 2
+		MIL = 3
+	}
+
+1358.1.1 = {
+	heir = {
+		name = "Nicholas"
+		dynasty = "Carceri"
+		birth_date = 1358.1.1
+		death_date = 1383.1.1
+		claim = 95
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}

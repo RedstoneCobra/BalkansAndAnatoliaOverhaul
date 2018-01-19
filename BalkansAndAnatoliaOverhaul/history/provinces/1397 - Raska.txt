@@ -1,0 +1,78 @@
+# 1397 - Raska
+
+owner = VUK
+controller = VUK
+add_core = VUK
+
+capital = "Ras"
+trade_goods = wool
+culture = serbian
+religion = orthodox
+
+hre = no
+
+base_tax = 5
+base_production = 0
+base_manpower = 0
+
+is_city = yes
+town_hall = yes
+road_network = yes
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = turkishtech
+
+450.1.1 = {
+	set_province_flag = mined_goods
+	set_province_flag = iron
+}
+1356.1.1 = {
+	owner = SER
+	controller = SER
+	add_core = VUK
+	add_core = SER
+}
+1444.1.1 = {
+	add_core = TUR
+}
+1455.1.1 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+	set_province_flag = subtract_local_autonomy_15
+}
+1520.5.5 = {
+	base_tax = 7
+	base_production = 0
+	base_manpower = 0
+}
+1688.11.7 = {
+	unrest = 7
+} # Serb rebellion under D. Brankovic
+1750.1.1 = {
+	fort_14th = yes
+}
+1806.1.8 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 0
+	}
+	controller = REB
+} # The first Serbian uprising
+1813.1.1 = {
+	revolt = { }
+	controller = TUR
+}
+1815.4.23 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 0
+	}
+	controller = REB
+} # The second Serbian uprising
+1817.1.1 = {
+	revolt = { }
+	controller = TUR
+}

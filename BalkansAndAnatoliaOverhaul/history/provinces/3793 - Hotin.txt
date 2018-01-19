@@ -1,0 +1,47 @@
+# No previous file for Hotin
+
+owner = MOL
+controller = MOL
+add_core = MOL
+
+capital = "Hotin"
+trade_goods = wine
+culture = moldovian
+religion = orthodox
+
+hre = no
+
+base_tax = 2
+base_production = 0
+base_manpower = 0
+
+is_city = yes
+local_fortification_1 = yes
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = steppestech
+discovered_by = turkishtech
+
+1356.1.1 = {
+	add_claim = MOL
+}
+1359.7.1 = {
+	owner = MOL #Transferred to Moldavia when Moldavia became a vassal of Poland
+	controller = MOL
+	add_core = MOL
+}
+
+#1498.1.1 = {
+#	add_core = TUR
+#} # Bayezid II forces Stephen the Great to accept Ottoman suzereignty.
+1501.1.1 = {
+	base_tax = 3
+}
+1812.5.28 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = TUR
+} # Treaty of Bucarest ending the Russo-Turkidh War

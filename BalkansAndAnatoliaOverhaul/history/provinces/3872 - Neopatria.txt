@@ -1,0 +1,98 @@
+# 3872 - Neopatria
+
+owner = NEO
+controller = NEO
+add_core = NEO
+
+capital = "Neopatras"
+trade_goods = olive
+culture = greek
+religion = orthodox
+
+hre = no
+
+base_tax = 4
+base_production = 0
+base_manpower = 0
+
+is_city = yes
+road_network = yes
+
+discovered_by = muslim
+discovered_by = eastern
+discovered_by = western
+discovered_by = turkishtech
+
+1356.1.1 = {
+#	owner = SIC
+#	controller = SIC
+#	add_core = SIC
+	add_permanent_claim = BYZ
+}
+#1388.1.1 = {
+#	owner = ATH
+#	controller = ATH
+#}
+1444.1.1 = {
+	add_core = TUR
+}
+1453.5.29 = {
+	remove_core = BYZ
+#	remove_core = SIC
+	add_core = TUR
+} # Constantinople has fallen
+1456.1.1 = {
+	owner = TUR
+	controller = TUR
+}
+1466.1.1 = {
+	owner = VEN
+	controller = VEN
+} # Brief control
+1466.11.1 = {
+	owner = TUR
+	controller = TUR
+} # Estimated
+1481.6.1 = {
+	controller = REB
+} # Civil war, Bayezid & Jem
+1482.7.26 = {
+	controller = TUR
+} # Jem escapes to Rhodes
+1520.5.5 = {
+	base_tax = 6
+	base_production = 0
+	base_manpower = 0
+}
+1530.1.3 = {
+	road_network = no
+	paved_road_network = yes
+}
+1555.1.1 = {
+	unrest = 5
+} # General discontent with the Janissaries' dominance
+1556.1.1 = {
+	unrest = 0
+}
+1620.1.1 = {
+	unrest = 5
+} # General discontent and occasional rebellions
+1640.1.1 = {
+	unrest = 2
+}
+1660.1.1 = {
+	unrest = 0
+}
+1750.1.1 = {
+	add_core = GRE
+}
+1821.3.1 = {
+	controller = REB
+}
+1829.1.1 = {
+	owner = GRE
+	controller = GRE
+}
+1832.5.7 = {
+	remove_core = TUR
+} # Treaty of Constantinople

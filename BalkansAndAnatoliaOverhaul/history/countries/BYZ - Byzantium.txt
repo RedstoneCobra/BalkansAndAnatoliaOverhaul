@@ -1,0 +1,230 @@
+# BYZ - Byzantium
+
+government = despotic_monarchy government_rank = 1 #EMPIRE
+mercantilism = 0.0
+technology_group = eastern
+primary_culture = greek
+add_accepted_culture = pontic
+add_accepted_culture = ge_armenian
+add_accepted_culture = cilician
+add_accepted_culture = cappadocian
+religion = orthodox
+capital = 1402
+fixed_capital = 1402
+historical_rival = BUL
+historical_rival = OTT
+historical_rival = SER
+historical_rival = TUR
+historical_neutral = ARA
+historical_neutral = KNP
+historical_neutral = VEN
+historical_neutral = GEN
+
+1000.1.1 = {
+	add_country_modifier = { name = title_6 duration = -1 }
+	set_country_flag = title_6
+	#set_variable = { which = "centralization_decentralization" value = -5 }
+	add_absolutism = -100
+	add_absolutism = 40
+	add_country_modifier = { name = obstacle_succession duration = -1 }
+	set_country_flag = native_greek_state
+	set_country_flag = pre_set_privileges
+}
+
+1328.05.24 = {
+	monarch = {
+		name = "Andronikos III"
+		dynasty = "Palaiologos"
+		ADM = 3
+		DIP = 3
+		MIL = 3 #Recovered Epirus and Thessaly, defeated by the Ottomans
+	}
+	#Replaced by zillions of privileges
+	#And by replaced she meant replaced a bag of potatoes with a lecture on Kant
+	#Therefore I'm adding back in
+	add_country_modifier = { name = obstacle_military_administration duration = -1 }
+}
+1332.06.18 = {
+	heir = {
+		name = "Ioannes"
+		monarch_name = "Ioannes V"
+		dynasty = "Palaiologos"
+		claim = 75
+		ADM = 3
+		DIP = 2
+		MIL = 3
+		birth_date = 1332.6.18
+		death_date = 1391.02.16
+	}
+}
+1341.06.15 = { #Andronikos dies; John Kantakouzenos becomes regent for John V; civil war begins
+	monarch = {
+		name = "Ioannes"
+		dynasty = "Kantakouzenos"
+		ADM = 2 #Raised taxes to pay for his military adventures; favored his son
+		DIP = 2 #Raised the ire of the empress and patriarch against him
+		MIL = 2 #Military defeats; relied on his son
+		regent = yes
+		birth_date = 1332.6.18
+	}
+}
+1347.02.08 = { #Civil war ends with John K victorious and John V the heir
+	monarch = {
+		name = "Ioannes" #Won against John V; made him co-emperor
+		dynasty = "Kantakouzenos"
+		ADM = 2
+		DIP = 2
+		MIL = 2 #Deposed by John V after a civil war
+	}
+}
+#1352.01.01 = { } #John V P comes of age and starts a civil war
+1353.01.01 = {
+	#John VI K makes his son Matthew co-emperor
+	set_country_flag = matthew_kantakouzenos
+}
+1354.12.04 = { #John V P seizes Constantinople and tonsures John VI K
+	monarch = {
+		name = "Ioannes V"
+		dynasty = "Palaiologos"
+#		birth_date = 1332.6.18
+		ADM = 3
+		DIP = 2 #Appealed for help to the West but did not recieve any
+		MIL = 3 #Forced to recognize Ottoman suzerainty; overthrown by his son, but managed to defeat two rivals to the throne and regain it
+	}
+	add_legitimacy = -30
+	queen = {
+		country_of_origin = BYZ
+		name = "Helena"
+		dynasty = "Kantakouzenos"
+		birth_date = 1333.1.1
+		death_date = 1396.12.10
+		female = yes
+		ADM = 3
+		DIP = 4
+		MIL = 2
+	}
+	heir = {
+		name = "Andronikos IV"
+		dynasty = "Palaiologos"
+		birth_date = 1348.4.2
+		death_date = 1385.6.28
+		ADM = 3
+		DIP = 3
+		MIL = 3
+		claim = 95
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = proud_personality
+	add_queen_personality = grey_eminence_personality
+}
+1356.1.1 = { leader = {	name = "Nikephoros II Orsini"	type = general		fire = 1	shock = 1	manuever = 0	siege = 2	death_date = 1359.4.1 } }
+1356.12.01 = {
+	#Matthew is captured by the Serbians and imprisoned by John V
+	clr_country_flag = matthew_kantakouzenos
+	add_legitimacy = 30
+}
+1376.08.12 = {
+	monarch = {
+		name = "Andronikos IV"
+		dynasty = "Palaiologos"
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}
+
+1379.07.01 = {
+	monarch = {
+		name = "Ioannes V"
+		dynasty = "Palaiologos"
+		ADM = 3
+		DIP = 2 #Appealed for help to the West but did not recieve any
+		MIL = 3 #Forced to recognize Ottoman suzerainty; overthrown by his son, but managed to defeat two rivals to the throne and regain it
+	}
+}
+
+1383.4.26 = {
+	set_country_flag = seized_morea
+}
+
+1390.04.14 = {
+	monarch = {
+		name = "Ioannes VII"
+		dynasty = "Palaiologos"
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}
+
+1390.09.17 = {
+	monarch = {
+		name = "Ioannes V"
+		dynasty = "Palaiologos"
+		ADM = 3
+		DIP = 2 #Appealed for help to the West but did not recieve any
+		MIL = 3 #Forced to recognize Ottoman suzerainty; overthrown by his son, but managed to defeat two rivals to the throne and regain it
+	}
+}
+
+1391.02.16 = {
+	monarch = {
+		name = "Manouel II"
+		dynasty = "Palaiologos"
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}
+
+1392.12.18 = {
+	heir = {
+		name = "Ioannes"
+		monarch_name = "Ioannes VIII"
+		dynasty = "Palaiologos"
+		birth_date = 1392.12.18
+		death_date = 1448.10.31
+		claim = 95
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}
+
+1425.07.21 = {
+	monarch = {
+		name = "Ioannes VIII"
+		dynasty = "Palaiologos"
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}
+
+1425.07.21 = {
+	heir = {
+		name = "Konstantinos"
+		monarch_name = "Konstantinos XI"
+		dynasty = "Palaiologos"
+		birth_date = 1405.11.08
+		death_date = 1453.05.29
+		claim = 95
+		ADM = 4
+		DIP = 3
+		MIL = 3
+	}
+}
+
+# 1439.1.1 - Council of Florence attempt at reunion with Rome
+
+1448.1.1 = {
+	monarch = {
+		name = "Konstantinos XI"
+		dynasty = "Palaiologos"
+		ADM = 4
+		DIP = 3
+		MIL = 3
+	}
+}
+
+# 1453.5.29 - Termination of attempts made at the Council of Florence due to call of the city

@@ -1,0 +1,30 @@
+# ERZ - Erzincan
+
+government = ottoman_government government_rank = 1
+mercantilism = 0.0
+primary_culture = yorouk
+religion = sunni
+technology_group = muslim
+#unit_type = muslim #dharper
+capital = 1442
+historical_rival = BYZ
+
+1000.1.1 = {
+	add_country_modifier = { name = title_1 duration = -1 }
+	set_country_flag = title_1
+	#set_variable = { which = "centralization_decentralization" value = 0 }
+	add_absolutism = -100
+	add_absolutism = 30
+}
+
+1355.11.22 = {
+	# add_country_modifier = { name = turkish_beylik duration = -1 }
+	add_country_modifier = { name = obstacle_traditional_military duration = -1 }
+	monarch = {
+		name = "Mohammed"
+		dynasty = "Ardin"
+		ADM = 2
+		DIP = 2
+		MIL = 2
+	}
+}

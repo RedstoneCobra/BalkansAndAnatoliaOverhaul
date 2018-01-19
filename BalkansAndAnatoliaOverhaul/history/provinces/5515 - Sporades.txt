@@ -1,0 +1,32 @@
+# 5515 Sporades
+
+owner = BYZ
+controller = BYZ
+add_core = BYZ
+culture = greek
+religion = orthodox
+capital = "Kastro"
+trade_goods = fish
+hre = no
+base_tax = 1
+base_production = 0
+base_manpower = 0
+is_city = yes
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = turkishtech
+
+1000.1.1 = {
+ 	add_permanent_province_modifier = {
+		name = "aegean_island"
+		duration = -1
+	}
+}
+
+1267.1.1 = {
+	owner = BYZ
+	controller = BYZ
+}
+
+1453.1.1 = { remove_core = BYZ }

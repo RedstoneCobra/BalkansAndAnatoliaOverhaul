@@ -1,0 +1,11 @@
+name="M&T 2.02 - Balkans and Anatolia Overhaul"
+path="mod/BalkansAndAnatoliaOverhaul"
+replace_path="common/countries"
+replace_path="common/province_names"
+replace_path="gfx/flags"
+replace_path="history/countries"
+replace_path="history/provinces"
+replace_path="map"
+dependencies={ "MEIOU and Taxes 2.02" }
+tags={ "MEIOU and Taxes" }
+supported_version="1.24.*.*"
