@@ -70,8 +70,7 @@ union = {
 	end_date = 1385.1.1
 }
 
-# Despotate of Morea #removed due to screwy diplomatic actions, can be gained as an ally by event. Guarantee keeps abuse from happening
-guarantee = {
+vassal = {
 	first = BYZ
 	second = MOE
 	start_date = 1356.1.1
