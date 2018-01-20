@@ -938,7 +938,7 @@ east_bulgaria_area = {
 }
 
 west_bulgaria_area = {
-	2382 1426 3779 1591 157 
+	2382 1426 3779 1591 5525 157 
 }
 
 dobrogea_area = {
