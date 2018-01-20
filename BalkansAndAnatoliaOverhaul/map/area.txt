@@ -930,15 +930,15 @@ thessalia_area = {
 }
 
 thrace_area = {
-	2501 3876 151 1402 2238 5518
+	2501 3876 151 1402 2238 5518 1427
 }
 
-east_bulgaria_area = {
-	150 1848 3780 1427 3781
+north_bulgaria_area = {
+	2382 157 150 1848 3781
 }
 
-west_bulgaria_area = {
-	2382 1426 3779 1591 5525 157 
+south_bulgaria_area = {
+	3780 1591 5525 1426 3779
 }
 
 dobrogea_area = {

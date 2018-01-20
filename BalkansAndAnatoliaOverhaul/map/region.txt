@@ -312,6 +312,7 @@ greece_region = {
 		thessalia_area
 		morea_area
 		aegean_area
+		thrace_area
 	}
 }
 
@@ -349,10 +350,9 @@ central_balkan_region = {
 
 east_balkan_region = {
 	areas = {
-		east_bulgaria_area
-		west_bulgaria_area
+		north_bulgaria_area
+		south_bulgaria_area
 		dobrogea_area
-		thrace_area
 	}
 }
 
