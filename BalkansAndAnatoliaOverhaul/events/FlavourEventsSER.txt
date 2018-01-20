@@ -4,8 +4,8 @@
 # Scripted by GiGau
 ########################################
 
-# John Orsini-Doukas takes control over Epirus 
-country_event = {
+# Nikephoros II Orsini-Doukas takes control over Epirus 
+	country_event = {
 	id = flavor_ser.1
 	title = "flavor_ser.1.n"
 	desc = "flavor_ser.1.t"
@@ -52,14 +52,16 @@ country_event = {
 	}
 	
 	option = {
-		name = "flavor_ser.2.a"
-		add_treasury = 50
-				}
-			}
-		}
+		name = "flavor_ser.1.a"
+		add_prestige = -10
 	}
-
-	# Simeon Uros proclaims himself Tsar of the Greeks, Serbs, and Albanians and marches on Serbia
+	option = {
+		name = "flavor_ser.1.b."
+		switch_tag = EPI
+	}
+}
+		
+# Simeon Uros proclaims himself Tsar of the Greeks, Serbs, and Albanians and marches on Serbia
 	country_event = {
 	id = flavor_ser.2
 	title = "flavor_ser.2.n"
@@ -88,16 +90,17 @@ country_event = {
 				fixed = yes 
 				age = 30
 				claim = 95
-				}
 			}
 		}
-	}	
+	}
 	
 	option = {
 		name = "flavor_ser.2.a"
-		add_treasury = 50
-			}
-		}
+		add_prestige = -10
+	}
+	option = {
+		name = "flavor_ser.1.b."
+		switch_tag = TSL
 	}
 }
 

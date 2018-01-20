@@ -1,0 +1,5 @@
+desintegrating_serbian_state = {
+	prestige = -0.5
+	
+	picture = "estuary_icon"
+}
