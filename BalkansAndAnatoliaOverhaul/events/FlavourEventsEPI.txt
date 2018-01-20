@@ -1,0 +1,37 @@
+# Albianian start a revolt
+	country_event = {
+	id = flavor_epi.1
+	title = "flavor_epi.1.n"
+	desc = "flavor_epi.1.t"
+	picture = SERBIA_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {									#Need to make Custom Trigger
+		tag = EPI
+	}
+	
+	mean_time_to_happen = { months = 12 }      #Need to set custom time 
+	
+	immediate = {
+		immediate = {
+			hidden_effect = {
+				1427 = {
+					set_province_flag = seperatist_rebels
+				}
+				2374 = {
+					set_province_flag = seperatist_rebels
+				}
+			}
+			1247 = {
+				create_revolt = 2
+			}
+			2374 = {
+				create_revolt = 2
+			}
+		}
+	option = {
+		name = "flavor_epi.1.a"
+		add_prestige = -10
+	}
+}
