@@ -3,6 +3,7 @@
 owner = SER
 controller = SER
 add_core = SER
+add_core = TSL
 
 capital = "Volos"
 trade_goods = olive

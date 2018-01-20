@@ -26,7 +26,6 @@ discovered_by = turkishtech
 1356.1.1 = {
 	add_core = MKO
 	add_core = BYZ
-	add_core = TSL
 } # Epirote revolt
 1386.1.1 = {
 	owner = TUR
