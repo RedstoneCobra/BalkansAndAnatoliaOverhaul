@@ -3,15 +3,21 @@
 owner = BYZ
 controller = BYZ
 add_core = BYZ
-culture = greek
-religion = orthodox
+
 capital = "Kastro"
-trade_goods = fish
+culture = grecoroman
+religion = orthodox
+
 hre = no
+
+trade_goods = fish
 base_tax = 1
 base_production = 0
 base_manpower = 0
+
 is_city = yes
+harbour_infrastructure_1 = yes
+
 discovered_by = western
 discovered_by = eastern
 discovered_by = muslim

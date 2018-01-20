@@ -6,7 +6,7 @@ add_core = BYZ
 
 capital = "Rousion"
 trade_goods = wheat
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no

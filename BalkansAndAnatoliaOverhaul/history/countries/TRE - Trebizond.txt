@@ -4,7 +4,7 @@
 
 government = despotic_monarchy government_rank = 1 #Empire
 mercantilism = 0.0
-primary_culture = pontic
+primary_culture = grecoroman
 religion = orthodox
 technology_group = eastern
 capital = 330	# Trebizond

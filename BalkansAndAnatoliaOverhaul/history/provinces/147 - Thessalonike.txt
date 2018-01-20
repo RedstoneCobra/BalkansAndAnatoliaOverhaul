@@ -4,7 +4,7 @@ add_core = BYZ
 
 capital = "Thessalonike"
 trade_goods = olive
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no

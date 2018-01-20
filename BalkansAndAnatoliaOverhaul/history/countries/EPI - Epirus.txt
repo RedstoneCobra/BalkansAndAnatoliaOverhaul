@@ -1,0 +1,101 @@
+# EPI - Epirus
+
+government = despotic_monarchy government_rank = 1 #DESPOTATE
+mercantilism = 0.0
+technology_group = eastern
+primary_culture = grecoroman
+religion = orthodox
+capital = 154
+
+1000.1.1 = {
+	add_country_modifier = { name = title_2 duration = -1 }
+	set_country_flag = title_2
+	#set_variable = { which = "centralization_decentralization" value = 5 }
+	add_absolutism = -100
+	add_absolutism = 0
+}
+1356.1.1   = {
+#	monarch = {
+#		name = "Nikephoros II"
+#		dynasty = "Orsini"
+#		DIP = 2
+#		ADM = 3
+#		MIL = 2
+#	}
+	set_country_flag = native_greek_state
+	add_country_modifier = { name = obstacle_shifting_loyalties duration = -1 }
+	add_country_modifier = { name = obstacle_feuding duration = -1 }
+}
+
+1359.1.1   = {
+#	monarch = {
+#		name = "Simeon Uroš Palaiologos"
+#		dynasty = "de Palaiologos"
+#		DIP = 2
+#		ADM = 3
+#		MIL = 2
+#	}
+}
+
+1366.1.1   = {
+	monarch = {
+		name = "Thomas II Preljubovic"
+		dynasty = "de Palaiologos"
+		DIP = 2
+		ADM = 3
+		MIL = 2
+	}
+}
+
+1384.12.23 = {
+	monarch = {
+		name = "Maria Angelina Doukaina Palaiologina"
+		dynasty = "de Palaiologos"
+		DIP = 2
+		ADM = 3
+		MIL = 2
+		female = yes
+	}
+}
+
+1385.2.1   = {
+	monarch = {
+		name = "Esau I"
+		dynasty = "de Buondelmonti"
+		DIP = 2
+		ADM = 2
+		MIL = 3
+	}
+}
+
+1411.2.6 = {
+	monarch = {
+		name = "Giorgio I"
+		dynasty = "de Buondelmonti"
+		DIP = 1
+		ADM = 1
+		MIL = 1
+	}
+}
+
+1411.2.26 = {
+	monarch = {
+		name = "Carlo I"
+		dynasty = "Tocco"
+		DIP = 5
+		ADM = 5
+		MIL = 4
+	}
+}
+
+1429.6.4 = {
+	monarch = {
+		name = "Carlo II"
+		dynasty = "Tocco"
+		DIP = 1
+		ADM = 2
+		MIL = 4
+	}
+}
+
+# Conquered by the Ottomans 1460

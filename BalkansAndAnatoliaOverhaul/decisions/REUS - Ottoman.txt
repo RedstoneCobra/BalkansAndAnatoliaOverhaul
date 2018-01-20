@@ -1,0 +1,814 @@
+country_decisions = {
+	make_thraki_capital = { #Edirne is the renamed Adrianopolis, e.g. Hevros province (development 24), not Thraki (development 10)
+		major = yes
+		potential = {
+			primary_culture = turkish
+			any_owned_province = { area = thrace_area }
+			NOT = { capital = 3876 }
+			NOT = { capital = 1402 }
+			NOT = { has_country_flag = capital_to_thraki }
+		}
+		allow = {
+			owns = 3876 # Hevros
+			controls = 3876 # Hevros
+			adm = 3
+			owns = 2238 #Gallipoli, neighboring and owned by Ottomans in 1356
+			#owns = 155 #Serres, owned by Serbia - never seems to happen
+			owns = 317 #Bergama in Anatolia, owned by Ottomans in 1356
+			owns = 1446 #Izmit in Anatolia, owned by Ottomans in 1356
+			is_at_war = no
+		}
+		effect = {
+			set_country_flag = capital_to_thraki
+			add_adm_power = -100
+			capital_scope = {
+#				if = {
+#					limit = {
+#						NOT = { has_building = bailiff }
+#						}
+#					remove_building = constable
+#					add_building = bailiff
+#					}
+			}
+			add_stability_1 = yes
+			set_capital = 3876
+#			add_core = 3876
+			greece_region = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT }
+			east_balkan_region = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT }
+			3876 = {
+				change_culture = turkish
+				custom_tooltip = sunni_50
+				hidden_effect = { change_variable = { which = converted_heathens value = 10 } }
+				change_province_name = "Trakya"
+				rename_capital = "Edirne"
+				# add_base_tax = 3
+				# add_base_manpower = 2
+				add_nationalism = -10
+#				if = {
+#					limit = {
+#						NOT = { has_building = fort_14th }
+#						NOT = { has_building = fort_15th }
+#						NOT = { has_building = fort_16th }
+#						NOT = { has_building = fort_17th }
+#						NOT = { has_building = fort_18th }
+#						num_free_building_slots = 1
+#						}
+#					add_building = fort_14th
+#					}
+#				every_neighbor_province = {
+#					limit = { owned_by = ROOT is_core = ROOT }
+#					add_local_autonomy = -25
+#					hidden_effect = { change_variable = { which = converted_heathens value = 4 } }
+#					}
+#				every_neighbor_province = {
+#					limit = { owned_by = ROOT NOT = { is_core = ROOT } }
+#					add_core = ROOT
+#					add_local_autonomy = -10
+#					hidden_effect = { change_variable = { which = converted_heathens value = 2 } }
+#					}
+#				every_neighbor_province = {
+#					limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+#					add_claim = ROOT
+#					}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	make_constantinople_capital = {
+		major = yes
+		potential = {
+			primary_culture = turkish
+			owns = 1402 # Konstantinoupolis
+			NOT = { capital = 1402 }
+			NOT = { has_country_flag = relocated_capital_constantinople }
+		}
+		allow = {
+			1402 = {
+				controlled_by = ROOT
+				NOT = { any_neighbor_province = { NOT = { owned_by = ROOT } } }
+			}
+		}
+		effect = {
+			add_adm_power = -100
+			capital_scope = {
+				#	if = {
+				#		limit = {
+				#			NOT = { has_building = bailiff }
+				#			}
+				#		remove_building = constable
+				#		add_building = bailiff
+				#		}
+			}
+			set_country_flag = relocated_capital_constantinople
+			add_stability_1 = yes
+			set_capital = 1402
+			add_core = 1402
+			
+			1402 = {
+				add_nationalism = -10
+				change_culture = turkish
+				change_religion = sunni
+				change_province_name = "Kostantiniyye"
+				rename_capital = "Kostantiniyye"
+				# add_base_tax = 6
+				# add_base_manpower = 5
+				if = {
+					limit = {
+						NOT = { has_building = fort_14th }
+						NOT = { has_building = fort_15th }
+						NOT = { has_building = fort_16th }
+						NOT = { has_building = fort_17th }
+						NOT = { has_building = fort_18th }
+						num_free_building_slots = 1
+					}
+					add_building = fort_14th
+				}
+				every_neighbor_province = {
+					limit = { owned_by = ROOT is_core = ROOT }
+					add_local_autonomy = -25
+					change_culture = turkish
+					hidden_effect = { change_variable = { which = converted_heathens value = 4 } }
+				}
+				every_neighbor_province = {
+					limit = { owned_by = ROOT NOT = { is_core = ROOT } }
+					add_core = ROOT
+					add_local_autonomy = -10
+					hidden_effect = { change_variable = { which = converted_heathens value = 2 } }
+				}
+			}
+			add_absolutism = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	claim_on_rum = {
+		potential = {
+			primary_culture = turkish
+			num_of_owned_provinces_with = {
+				value = 3
+				OR = {
+					region = north_anatolia_region
+					region = south_anatolia_region
+				}
+			}
+			NOT = { owns = 1402 }
+			NOT = { 1402 = { is_claim = ROOT } }
+		}
+		allow = {
+			num_of_owned_provinces_with = {
+				value = 7
+				OR = {
+					region = north_anatolia_region
+					region = south_anatolia_region
+				}
+			}
+			is_at_war = no
+			dip_power = 150
+		}
+		effect = {
+			BYZ = {
+				every_owned_province = {
+					add_claim = ROOT
+				}
+			}
+			add_dip_power = -100
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	claim_the_sultanate_of_rum = {
+		potential = {
+			primary_culture = turkish
+			NOT = { has_country_flag = rum_sultanate_claimed }
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					region = north_anatolia_region
+					region = south_anatolia_region
+				}
+			}
+		}
+		allow = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					region = north_anatolia_region
+					region = south_anatolia_region
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				area = thrace_area
+			}
+			owns = 1402 # Konstantinoupolis
+			is_at_war = no
+		}
+		effect = {
+			set_country_flag = rum_sultanate_claimed
+			if = {
+				limit = {
+					government = monarchy
+					NOT = {
+						OR = {
+							has_country_modifier = title_5
+							has_country_modifier = title_6
+						}
+					}
+				}
+				change_title_5 = yes
+			}
+			add_country_modifier = { name = rum_sultanate_claimed	duration = 7500 }
+			#add_dip_power = 100
+			#add_mil_power = 100
+			#add_adm_power = 100
+			add_prestige = 25
+			add_legitimacy = 10
+			#add_republican_tradition = 10 #WTF?
+			#add_devotion = 10
+			north_anatolia_region = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT }
+			south_anatolia_region = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT }
+			hidden_effect = { # Oddball provinces within Anatolia
+				1333 = { if = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT } }
+				3392 = { if = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT } }
+				3875 = { if = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT } }
+				1427 = { if = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT } }
+				1435 = { if = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT } }
+				2572 = { if = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT } }
+				320 = { if = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT } }
+			}
+			thrace_area = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } } add_claim = ROOT }
+			#every_province = {
+			#	limit = {
+			#		OR = {
+			#			region = north_anatolia_region
+			#			region = south_anatolia_region
+			#			AND = { region = greece_region NOT = { area = macedonia_area } }
+			#			area = thrace_area # region = east_balkan_region
+			#			# area = albania_area
+			#		}
+			#		NOT = { is_core = ROOT }
+			#		NOT = { is_claim = ROOT }
+			#		NOT = { owned_by = ROOT }
+			#		}
+			#	add_permanent_claim = ROOT
+			#	}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { total_development = 500 }
+			}
+			modifier = {
+				factor = 0
+				average_autonomy = 40
+			}
+		}
+	}
+	
+	disband_the_janissaries = {
+		potential = {
+			OR = {
+				has_country_modifier = tur_janissary_1
+				has_country_modifier = tur_janissary_2
+				has_country_modifier = tur_janissary_3
+				has_country_modifier = tur_janissary_4
+			}
+		}
+		allow = {
+			has_disaster = janissary_decadence
+		}
+		effect = {
+			remove_country_modifier = tur_janissary_1
+			remove_country_modifier = tur_janissary_2
+			remove_country_modifier = tur_janissary_3
+			remove_country_modifier = tur_janissary_4
+			end_disaster = janissary_decadence
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#	abrogate_beylik_of_karasi = {
+#		potential = {
+#			any_owned_province = {
+#				has_province_modifier = beylik_of_karasi
+#				any_neighbor_province = {
+#					owned_by = ROOT
+#				}
+#			}
+#			num_of_owned_provinces_with = {
+#				value = 5
+#				OR = {
+#					region = north_anatolia_region
+#					region = south_anatolia_region
+#				}
+#			}
+#		}
+#		allow = {
+#			OR = {
+#				absolutism = 60
+#				NOT = { religion_group = muslim }
+#			}
+#			mil_power = 150
+#			num_of_owned_provinces_with = {
+#				value = 10
+#				OR = {
+#					region = north_anatolia_region
+#					region = south_anatolia_region
+#				}
+#			}
+#			num_of_owned_provinces_with = {
+#				value = 3
+#				region = greece_region
+#			}
+#			owns = 1402 # Konstantinoupolis
+#			is_at_war = no
+#		}
+#		effect = {
+#			add_mil_power = -100
+#			every_owned_province = {
+#				limit = {
+#					has_province_modifier = beylik_of_karasi
+#				}
+#				remove_province_modifier = beylik_of_karasi
+#				spawn_rebels = {
+#					type = noble_rebels
+#					size = 2
+#				}
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 1
+#		}
+#		ai_importance = 100
+#	}
+	
+	abrogate_beylik_of_saruhan = {
+		potential = {
+			any_owned_province = {
+				has_province_modifier = beylik_of_saruhan
+				any_neighbor_province = {
+					owned_by = ROOT
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					region = north_anatolia_region
+					region = south_anatolia_region
+				}
+			}
+		}
+		allow = {
+			OR = {
+				absolutism = 60
+				NOT = { religion_group = muslim }
+			}
+			mil_power = 150
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					region = north_anatolia_region
+					region = south_anatolia_region
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				region = greece_region
+			}
+			owns = 1402 # Konstantinoupolis
+			is_at_war = no
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = beylik_of_saruhan
+				}
+				remove_province_modifier = beylik_of_saruhan
+				spawn_rebels = {
+					type = noble_rebels
+					size = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+	abrogate_beylik_of_isfendiyar = {
+		potential = {
+			any_owned_province = {
+				has_province_modifier = beylik_of_isfendiyar
+				any_neighbor_province = {
+					owned_by = ROOT
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					region = north_anatolia_region
+					region = south_anatolia_region
+				}
+			}
+		}
+		allow = {
+			OR = {
+				absolutism = 60
+				NOT = { religion_group = muslim }
+			}
+			mil_power = 150
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					region = north_anatolia_region
+					region = south_anatolia_region
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				region = greece_region
+			}
+			owns = 1402 # Konstantinoupolis
+			is_at_war = no
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = beylik_of_isfendiyar
+				}
+				remove_province_modifier = beylik_of_isfendiyar
+				spawn_rebels = {
+					type = noble_rebels
+					size = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+	abrogate_beylik_of_artuqids = {
+		potential = {
+			any_owned_province = {
+				has_province_modifier = beylik_of_artuqids
+				any_neighbor_province = {
+					owned_by = ROOT
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					region = north_anatolia_region
+					region = south_anatolia_region
+				}
+			}
+		}
+		allow = {
+			OR = {
+				absolutism = 60
+				NOT = { religion_group = muslim }
+			}
+			mil_power = 150
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					region = north_anatolia_region
+					region = south_anatolia_region
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				region = greece_region
+			}
+			owns = 1402 # Konstantinoupolis
+			is_at_war = no
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = beylik_of_artuqids
+				}
+				remove_province_modifier = beylik_of_artuqids
+				spawn_rebels = {
+					type = noble_rebels
+					size = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+#	abrogate_beylik_of_ankara = {
+#		potential = {
+#			any_owned_province = {
+#				has_province_modifier = beylik_of_ankara
+#				any_neighbor_province = {
+#					owned_by = ROOT
+#				}
+#			}
+#			num_of_owned_provinces_with = {
+#				value = 5
+#				OR = {
+#					region = north_anatolia_region
+#					region = south_anatolia_region
+#				}
+#			}
+#		}
+#		allow = {
+#			OR = {
+#				absolutism = 60
+#				NOT = { religion_group = muslim }
+#			}
+#			mil_power = 150
+#			num_of_owned_provinces_with = {
+#				value = 10
+#				OR = {
+#					region = north_anatolia_region
+#					region = south_anatolia_region
+#				}
+#			}
+#			num_of_owned_provinces_with = {
+#				value = 3
+#				region = greece_region
+#			}
+#			owns = 1402 # Konstantinoupolis
+#			is_at_war = no
+#		}
+#		effect = {
+#			add_mil_power = -100
+#			every_owned_province = {
+#				limit = {
+#					has_province_modifier = beylik_of_ankara
+#				}
+#				remove_province_modifier = beylik_of_ankara
+#				spawn_rebels = {\
+#					type = noble_rebels
+#					size = 2
+#				}
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 1
+#		}
+#		ai_importance = 100
+#	}
+	
+	order_expedition_lebanon = {
+		potential = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = mount_lebanon_emirate_disloyal
+					has_province_modifier = mount_lebanon_emirate_rebellious
+				}
+				any_neighbor_province = {
+					owned_by = ROOT
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 2
+				OR = {
+					area = aleppo_area
+					area = syria_area
+				}
+			}
+		}
+		allow = {
+			mil_power = 150
+			NOT = { has_country_flag = expedition_under_way }
+			OR = {
+				NOT = { has_country_flag = expedition_cooldown }
+				had_country_flag = { flag = expedition_cooldown days = 1000 }
+			}
+			any_owned_province = {
+				OR = {
+					AND = {
+						OR = {
+							owner = { legitimacy = 95 }
+							owner = { devotion = 95 }
+							owner = { republican_tradition = 95 }
+						}
+						has_province_modifier = mount_lebanon_emirate_disloyal
+					}
+					AND = {
+						OR = {
+							owner = { legitimacy = 50 }
+							owner = { devotion = 50 }
+							owner = { republican_tradition = 50 }
+						}
+						has_province_modifier = mount_lebanon_emirate_rebellious
+					}
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					area = aleppo_area
+					area = syria_area
+				}
+			}
+			is_at_war = no
+		}
+		effect = {
+			set_country_flag = expedition_under_way
+			clr_country_flag = expedition_cooldown
+			country_event = { id = flavor_syr.1001 days = 0 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+	abrogate_lebanon_emirate = {
+		potential = {
+			any_owned_province = {
+				has_province_modifier = mount_lebanon_emirate_loyal
+				any_neighbor_province = {
+					owned_by = ROOT
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				OR = {
+					area = aleppo_area
+					area = syria_area
+				}
+			}
+		}
+		allow = {
+			OR = {
+				absolutism = 60
+				religion_group = christian
+			}
+			mil_power = 150
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					area = aleppo_area
+					area = syria_area
+				}
+			}
+			is_at_war = no
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = mount_lebanon_emirate_loyal
+				}
+				remove_province_modifier = mount_lebanon_emirate_loyal
+				spawn_rebels = {
+					type = druze_rebels
+					size = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+	
+	# End of Gattilusi Family
+	end_gattilusi_family = {
+		
+		potential = {
+			owns = 3875 # Aigaiou Pelagous
+			3875 = {
+				OR = {
+					has_province_modifier = gattilusi_fief_loyal
+					has_province_modifier = gattilusi_fief_disloyal
+					has_province_modifier = gattilusi_fief_rebellious
+				}
+			}
+			has_any_disaster = no
+		}
+		allow = {
+			stability = 1
+			is_core = 3875
+			adm = 3
+		}
+		effect = {
+			add_prestige = 5
+			3875 = {
+				if = {
+					limit = {
+						has_province_modifier = gattilusi_fief_loyal
+					}
+					remove_province_modifier = gattilusi_fief_loyal
+				}
+				if = {
+					limit = {
+						has_province_modifier = gattilusi_fief_disloyal
+					}
+					remove_province_modifier = gattilusi_fief_disloyal
+				}
+				if = {
+					limit = {
+						has_province_modifier = gattilusi_fief_rebellious
+					}
+					remove_province_modifier = gattilusi_fief_rebellious
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	# The Provincial System
+	establish_provincial_system = {
+		potential = {
+			OR = {
+				has_country_flag = GN_authority_to_govern_locally_1
+				has_country_flag = GN_authority_to_govern_locally_2
+			}
+			primary_culture = turkish
+			is_free_or_tributary_trigger = yes
+			NOT = { has_country_flag = the_provincial_system }
+		}
+		allow = {
+			capital = 1402
+			OR = {
+				check_variable = {   which = "Demesne_in_Anatolia"  value = 25 }
+				check_variable = {   which = "Cores_on_Anatolia"  value = 15 }
+			}
+			is_at_war = no
+			check_variable = { which = estate_greater_nobles_loyalty value = 0.5 }
+			adm_tech = 10
+			adm_power = 100
+		}
+		effect = {
+			add_adm_power = -50
+			set_country_flag = the_provincial_system
+			custom_tooltip = estate_greater_nobles_loyalty_removed_a
+			hidden_effect = {
+				set_variable = { which = greater_nobles_loyalty_removed   value = 0 }
+				set_variable = { which = greater_nobles_loyalty_removed   value = 50 }
+				estate_greater_nobles_loyalty_removed = yes
+			}
+			if = {
+				limit = {
+					has_country_flag = GN_authority_to_govern_locally_1
+				}
+				custom_tooltip = GN_authority_to_govern_locally_1_privilege
+				remove_GN_authority_to_govern_locally_1 = yes
+				hidden_effect = {
+					set_variable = { which = greater_nobles_loyalty_removed_a value = 0 }
+					set_variable = { which = greater_nobles_loyalty_removed_a value = 25 }
+				}
+				custom_tooltip = estate_greater_nobles_loyalty_removed_a
+				hidden_effect = {
+					set_variable = { which = greater_nobles_loyalty_removed   value = 0 }
+					set_variable = { which = greater_nobles_loyalty_removed   which = greater_nobles_loyalty_removed_a }
+					estate_greater_nobles_loyalty_removed = yes
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = GN_authority_to_govern_locally_2
+				}
+				custom_tooltip = GN_authority_to_govern_locally_2_privilege
+				remove_GN_authority_to_govern_locally_2 = yes
+				GN_authority_to_govern_locally_1 = yes
+				hidden_effect = {
+					set_variable = { which = greater_nobles_loyalty_removed_a value = 0 }
+					set_variable = { which = greater_nobles_loyalty_removed_a value = 50 }
+				}
+				custom_tooltip = estate_greater_nobles_loyalty_removed_a
+				hidden_effect = {
+					set_variable = { which = greater_nobles_loyalty_removed   value = 0 }
+					set_variable = { which = greater_nobles_loyalty_removed   which = greater_nobles_loyalty_removed_a }
+					estate_greater_nobles_loyalty_removed = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { adm_power = 200 }
+			}
+		}
+	}
+}

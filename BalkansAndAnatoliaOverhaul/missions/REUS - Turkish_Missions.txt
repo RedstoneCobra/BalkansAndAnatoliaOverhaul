@@ -1,0 +1,2059 @@
+# Turkish Missions
+# Shown in order of conquest
+
+#CONQUERED BY 1359 (2800 importance, 1 province needed)
+
+#turkish_homelands = {
+#	type = country
+#	category = MIL
+#	ai_mission = yes
+#		target_provinces = {
+#		OR = {
+#			area = manisa_area
+#			area = hudavendigar_area
+#			}
+#		NOT = { owned_by = ROOT }
+#		NOT = { owner = { is_subject_of = ROOT } }
+#		is_empty = no
+#		}
+#	allow = {
+#		OR = { tag = TUR tag = OTT }
+#		singleplayer_or_ai_country_trigger = yes
+#		is_free_or_tributary_trigger = yes
+#		is_at_war = no
+#		total_development = 100
+#		num_of_owned_provinces_with = {
+#			OR = {
+#				#This region
+#				area = manisa_area
+#				area = hudavendigar_area
+#				#Border provinces
+#				any_neighbor_province = { area = manisa_area }
+#				any_neighbor_province = { area = hudavendigar_area }
+#			}
+#			value = 1
+#		}
+#		OR = {
+#			NOT = { manisa_area = { type = all country_or_vassal_holds = ROOT } }
+#			NOT = { hudavendigar_area = { type = all country_or_vassal_holds = ROOT } }
+#			}
+#		}
+#	abort = {
+#		is_subject_other_than_tributary_trigger = yes
+#	}
+#	success = {
+#		all_target_province = {
+#			OR = {
+#				owned_by = ROOT
+#				owner = { is_subject_of = ROOT }
+#				}
+#			}
+#	}
+#	chance = {
+#		factor = 2800 #Highest factor
+#		modifier = {
+#			total_development = 300
+#			factor = 1.4
+#			}
+#		modifier = {
+#			total_development = 900
+#			factor = 1.4
+#			}
+#		modifier = {
+#			army_tradition = 75
+#			factor = 1.4
+#			}
+#		modifier = {
+#			army_tradition = 50
+#			factor = 1.4
+#			}
+#		modifier = {
+#			army_size_percentage = 1
+#			factor = 1.4
+#			}
+#		modifier = {
+#			army_size_percentage = 0.75
+#			factor = 1.4
+#			}
+#		modifier = {
+#			factor = 1.4
+#			mil = 4
+#		}
+#		modifier = {
+#			factor = 1.4
+#			mil = 6
+#		}
+#	}
+#	immediate = {
+#		every_target_province = {
+#			add_permanent_claim = ROOT
+#		}
+#	}
+#	abort_effect = {
+#		add_country_modifier = { name = decreased_morale duration = 1000 }
+#		every_target_province = {
+#			remove_claim = ROOT
+#		}
+#	}
+#	effect = {
+#		FROM = {
+#			add_army_tradition = 5
+#			add_country_modifier = {
+#				name = "military_victory"
+#				duration = 5000
+#			}
+#		}
+#		every_target_province = {
+#			add_territorial_core_effect = yes
+#		}
+#	}
+#}
+
+#CONQUERED BY 1389 (2800 importance, 4 provinces needed)
+
+turkish_rumelia = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_provinces_list = {
+		3387
+		2501
+		3876
+		151
+		2238
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = thrace_area
+				#Border provinces
+				any_neighbor_province = { area = thrace_area }
+			}
+			value = 2
+		}
+		NOT = { thrace_area = { type = all OR = { province_id = 1402 owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 2800 #High factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+turkish_bulgaria = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		west_bulgaria_area
+		east_bulgaria_area
+		dobrogea_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = west_bulgaria_area
+				area = east_bulgaria_area
+				area = dobrogea_area
+				#Border provinces
+				any_neighbor_province = { area = west_bulgaria_area }
+				any_neighbor_province = { area = east_bulgaria_area }
+				any_neighbor_province = { area = dobrogea_area }
+			}
+			value = 2
+		}
+		OR = {
+			NOT = { west_bulgaria_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { east_bulgaria_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { dobrogea_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 2400 #High factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+#CONQUERED BY 1451
+turkish_greece = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		morea_area
+		thessalia_area
+		macedonia_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = morea_area
+				area = thessalia_area
+				area = macedonia_area
+				#Border provinces
+				any_neighbor_province = { area = morea_area }
+				any_neighbor_province = { area = thessalia_area }
+				any_neighbor_province = { area = macedonia_area }
+			}
+			value = 3
+		}
+		OR = {
+			NOT = { morea_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { macedonia_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { thessalia_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 2000 #High factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+turkish_northern_anatolia = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		rum_area
+		kastamonu_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = rum_area
+				area = kastamonu_area
+				#Border provinces
+				any_neighbor_province = { area = rum_area }
+				any_neighbor_province = { area = kastamonu_area }
+			}
+			value = 3
+		}
+		OR = {
+			NOT = { rum_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { kastamonu_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 2000 #High factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+turkish_coastal_anatolia = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		aydin_area
+		teke_area
+		kutahya_area
+		manisa_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = aydin_area
+				area = teke_area
+				area = kutahya_area
+				#Border provinces
+				any_neighbor_province = { area = aydin_area }
+				any_neighbor_province = { area = teke_area }
+				any_neighbor_province = { area = kutahya_area }
+			}
+			value = 3
+		}
+		OR = {
+			NOT = { aydin_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { teke_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { kutahya_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 2000 #High factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+turkish_aegean = {
+	
+	type = country
+	
+	category = DIP
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		aegean_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = aegean_area
+				#Border provinces
+				any_neighbor_province = { area = aegean_area }
+			}
+			value = 3
+		}
+		OR = {
+			NOT = { aegean_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 2000 #High factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			navy_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			navy_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			navy_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			navy_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			dip = 4
+		}
+		modifier = {
+			factor = 1.4
+			dip = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_navy_tradition = 5
+			add_country_modifier = {
+				name = "expansion_of_the_shipbuilding_industry"
+				duration = 3650
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+#CONQUERED BY 1481 (1600 importance, 4 provinces)
+
+turkish_istanbul = { #The City of Men's Desires
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_provinces_list = {
+		1402
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = thrace_area
+				#Border provinces
+				any_neighbor_province = { area = thrace_area }
+			}
+			value = 4
+		}
+		1402 = { NOT = { owned_by = ROOT } NOT = { owner = { is_subject_of = ROOT } } }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 2400 #Special high factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_prestige = 5
+			add_country_modifier = {
+				name = "defeated_byzantine_empire"
+				duration = 3650
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+turkish_western_balkans = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		albania_area
+		north_serbia_area
+		south_serbia_area
+		bosnia_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = albania_area
+				area = north_serbia_area
+				area = south_serbia_area
+				area = bosnia_area
+				#Border provinces
+				any_neighbor_province = { area = albania_area }
+				any_neighbor_province = { area = north_serbia_area }
+				any_neighbor_province = { area = south_serbia_area }
+				any_neighbor_province = { area = bosnia_area }
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { albania_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { north_serbia_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { south_serbia_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { bosnia_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 1600 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+turkish_eastern_anatolia = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		erzurum_area
+		karaman_area
+		dulkadir_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = erzurum_area
+				area = karaman_area
+				area = dulkadir_area
+				#Border provinces
+				any_neighbor_province = { area = erzurum_area }
+				any_neighbor_province = { area = karaman_area }
+				any_neighbor_province = { area = dulkadir_area }
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { erzurum_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { karaman_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { dulkadir_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 1600 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+turkish_crimea = {
+	
+	type = country
+	
+	category = DIP
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		crimea_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = crimea_area
+				#Border provinces
+				any_neighbor_province = { area = crimea_area }
+				#Nearby ports
+				AND = {
+					OR = {
+						area = thrace_area
+						area = kastamonu_area
+						area = rum_area
+					}
+					has_port = yes
+				}
+			}
+			value = 4
+		}
+		NOT = { crimea_area = { type = all country_or_vassal_holds = ROOT } }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 1600 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			navy_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			navy_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			navy_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			navy_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			dip = 4
+		}
+		modifier = {
+			factor = 1.4
+			dip = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_navy_tradition = 5
+			add_country_modifier = {
+				name = "expansion_of_the_shipbuilding_industry"
+				duration = 3650
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+#CONQUERED BY 1520 (1200/5)
+
+turkish_southeast_anatolia = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		cilicia_area
+		north_kurdistan_area
+		aleppo_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = cilicia_area
+				area = north_kurdistan_area
+				area = aleppo_area
+				#Border provinces
+				any_neighbor_province = { area = cilicia_area }
+				any_neighbor_province = { area = north_kurdistan_area }
+				any_neighbor_province = { area = aleppo_area }
+			}
+			value = 5
+		}
+		OR = {
+			NOT = { cilicia_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { north_kurdistan_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { aleppo_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 1200 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+turkish_levant = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		syria_area
+		palestine_area
+		aleppo_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = syria_area
+				area = palestine_area
+				area = aleppo_area
+				#Border provinces
+				any_neighbor_province = { area = syria_area }
+				any_neighbor_province = { area = palestine_area }
+				any_neighbor_province = { area = aleppo_area }
+			}
+			value = 5
+		}
+		OR = {
+			NOT = { syria_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { palestine_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { aleppo_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 1200 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+turkish_egypt = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		libyan_desert_area
+		gharbia_area
+		sinai_area
+		central_egypt_area
+		upper_egypt_area
+		cyrenaica_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				region = egypt_region
+				#Border provinces
+				any_neighbor_province = { region = egypt_region }
+			}
+			value = 5
+		}
+		any_province = {
+			region = egypt_region
+			NOT = { owned_by = ROOT }
+			NOT = { owner = { is_subject_of = ROOT } }
+			is_empty = no
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1200 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+turkish_hejaz = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		hejaz_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		religion_group = muslim
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = hejaz_area
+				#Border provinces
+				any_neighbor_province = { area = hejaz_area }
+			}
+			value = 5
+		}
+		NOT = { hejaz_area = { type = all country_or_vassal_holds = ROOT } }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 1200 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+turkish_algeria = {
+	
+	type = country
+	
+	category = DIP
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		algiers_area
+		kabylia_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = algiers_area
+				area = kabylia_area
+				#Border provinces
+				any_neighbor_province = { area = algiers_area }
+				any_neighbor_province = { area = kabylia_area }
+			}
+			value = 5
+		}
+		OR = {
+			NOT = { algiers_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { kabylia_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 1200 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			navy_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			navy_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			navy_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			navy_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			dip = 4
+		}
+		modifier = {
+			factor = 1.4
+			dip = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_navy_tradition = 5
+			add_country_modifier = {
+				name = "expansion_of_the_shipbuilding_industry"
+				duration = 3650
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+#CONQUERED BY 1566 (800/6)
+
+turkish_tripoli = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		tripolitania_area
+	}
+	
+	target_provinces = {
+		NOT = { country_or_vassal_holds = ROOT }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		religion_group = muslim
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = tripolitania_area
+				#Border provinces
+				any_neighbor_province = { area = tripolitania_area }
+				#Egyptian ports
+				AND = {
+					region = egypt_region
+					has_port = yes
+				}
+			}
+			value = 6
+		}
+		NOT = { tripolitania_area = { type = all country_or_vassal_holds = ROOT } }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+turkish_iraq = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		iraq_arabi_area
+		lower_iraq_area
+		basra_area
+		mosul_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		religion_group = muslim
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			#This region
+			region = al_iraq_region
+			value = 6
+		}
+		NOT = { al_iraq_region = { type = all OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+turkish_hungary = {
+	
+	type = country
+	
+	category = MIL
+	
+	ai_mission = yes
+	
+	target_areas_list = {
+		transdanubia_area
+		alfold_area
+		kisalfold_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = TUR tag = OTT }
+		religion_group = muslim
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				region = magyar_plains_region
+				#Border provinces
+				any_neighbor_province = { region = magyar_plains_region }
+			}
+			value = 6
+		}
+		NOT = { magyar_plains_region = { type = all country_or_vassal_holds = ROOT } }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			country_or_vassal_holds = ROOT
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_permanent_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}

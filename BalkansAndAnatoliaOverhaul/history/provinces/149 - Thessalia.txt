@@ -6,7 +6,7 @@ add_core = SER
 
 capital = "Lárissa"
 trade_goods = olive
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no

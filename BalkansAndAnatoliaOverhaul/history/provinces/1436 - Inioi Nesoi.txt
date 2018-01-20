@@ -4,7 +4,7 @@ add_permanent_claim = BYZ
 
 capital = "Agios Yiorgios"
 trade_goods = olive
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no

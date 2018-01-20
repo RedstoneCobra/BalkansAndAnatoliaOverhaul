@@ -8,7 +8,7 @@ add_permanent_claim = BYZ
 
 capital = "Usak"
 trade_goods = cotton #carpet
-culture = greek
+culture = grecoroman
 religion = sunni
 
 hre = no

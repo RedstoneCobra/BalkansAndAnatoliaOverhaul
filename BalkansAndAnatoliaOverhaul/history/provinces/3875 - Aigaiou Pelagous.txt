@@ -6,7 +6,7 @@ add_core = BYZ
 
 capital = "Mytilene"
 trade_goods = olive
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no
@@ -31,7 +31,6 @@ discovered_by = turkishtech
 	}
 }
 1356.1.1 = {
-	set_province_flag = greek_name
 	add_permanent_province_modifier = {
 		name = "gattilusi_fief_loyal"
 		duration = -1

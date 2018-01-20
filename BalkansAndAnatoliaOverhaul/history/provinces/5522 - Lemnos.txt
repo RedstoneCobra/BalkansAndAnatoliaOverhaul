@@ -3,7 +3,7 @@
 owner = BYZ
 controller = BYZ
 add_core = BYZ
-culture = greek
+culture = grecoroman
 religion = orthodox
 capital = "Myrina"
 trade_goods = fish

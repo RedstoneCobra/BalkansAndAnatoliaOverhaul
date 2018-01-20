@@ -3,7 +3,7 @@ controller = OTT
 add_core = BYZ
 add_core = OTT
 
-culture = greek
+culture = grecoroman
 religion = orthodox
 capital = "Scutarion"
 trade_goods = wheat

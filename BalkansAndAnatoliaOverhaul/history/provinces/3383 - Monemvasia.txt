@@ -1,12 +1,12 @@
-# 3383 - Monemvasia
+# 3383 - Kythira
 
 owner = MOE
 controller = MOE
 add_core = MOE
 
-capital = "Monemvasia"
+capital = "Kythira"
 trade_goods = wine
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no

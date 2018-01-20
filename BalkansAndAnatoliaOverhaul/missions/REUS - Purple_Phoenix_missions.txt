@@ -1,0 +1,2654 @@
+# Purple Phoenix Missions
+
+#Shown in order of loss to the empire
+
+#LAST HELD IN THE 14th CENTURY (2 provinces required, 2400 factor)
+
+byzantine_ionia = { #Smyrna lost in 1330
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		manisa_area
+		aydin_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = manisa_area
+				area = aydin_area
+				#Border provinces
+				any_neighbor_province = { area = manisa_area }
+				any_neighbor_province = { area = aydin_area }
+				#Eastern med ports
+				area = aegean_area
+			}
+			value = 2
+		}
+		OR = {
+			NOT = { manisa_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { aydin_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 2400 #Highest factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_thrace = { #Lost to the Serbs in 1330s
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		thrace_area
+		macedonia_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 100
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = thrace_area
+				area = macedonia_area
+				#Border provinces
+				any_neighbor_province = { area = thrace_area }
+				any_neighbor_province = { area = macedonia_area }
+			}
+			value = 2
+		}
+		OR = {
+			NOT = { thrace_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { macedonia_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 2400 #Highest factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+#LAST HELD IN THE 13th CENTURY (3 provinces required)
+
+byzantine_antioch = { #Antioch lost to rebels in 1078, but strong Byzantine influence until lost to the Mamluks in 1268
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		aleppo_area
+		syria_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 200
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = aleppo_area
+				area = syria_area
+				#Border provinces
+				any_neighbor_province = { area = aleppo_area }
+				any_neighbor_province = { area = syria_area }
+				#Nearby ports
+				area = cilicia_area
+			}
+			value = 3
+		}
+		OR = {
+			NOT = { aleppo_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { syria_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 2000 #High factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_albania = { #Albanian coast lost in 1258
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		albania_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 200
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = albania_area
+				#Border provinces
+				any_neighbor_province = { area = albania_area }
+				#Nearby ports
+				area = cilicia_area
+			}
+			value = 3
+		}
+		NOT = { albania_area = { type = all country_or_vassal_holds = ROOT } }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 2000 #High factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_crimea = { #controlled by Byzantium until the 13th century, then Trebizond and Theodoro until 1475
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		crimea_area
+		dobrogea_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 200
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = crimea_area
+				area = dobrogea_area
+				#Border provinces
+				any_neighbor_province = { area = crimea_area }
+				any_neighbor_province = { area = dobrogea_area }
+				#Nearby ports
+				AND = {
+					OR = {
+						area = thrace_area
+						area = kastamonu_area
+						area = rum_area
+					}
+					has_port = yes
+				}
+			}
+			value = 3
+		}
+		OR = {
+			NOT = { crimea_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { dobrogea_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 2000 #High factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_navy_tradition = 5
+			add_country_modifier = {
+				name = "expansion_of_the_shipbuilding_industry"
+				duration = 3650
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+#LAST HELD IN 12th century (4 provinces required)
+
+byzantine_west_anatolia = { #Lost in the 4th Crusade (1204)
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		teke_area
+		kutahya_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 300
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = teke_area
+				area = kutahya_area
+				#Border provinces
+				any_neighbor_province = { area = teke_area }
+				any_neighbor_province = { area = kutahya_area }
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { teke_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { kutahya_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1600 #Reasonable factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_greece = { #Lost in the 4th Crusade (1204)
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		morea_area
+		thessalia_area
+		epirus_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 300
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = morea_area
+				area = thessalia_area
+				area = epirus_area
+				#Border provinces
+				any_neighbor_province = { area = morea_area }
+				any_neighbor_province = { area = thessalia_area }
+				any_neighbor_province = { area = epirus_area }
+				#Nearby ports
+				area = aegean_area
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { morea_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { thessalia_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { epirus_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1600 #Reasonable factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_east_med = { #Crete lost to Venice in 1204; Cyprus lost to rebels in 1185
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		aegean_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 300
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = aegean_area
+				#Border provinces
+				any_neighbor_province = { area = aegean_area }
+				#Nearby ports
+				area = morea_area
+			}
+			value = 4
+		}
+		NOT = { aegean_area = { type = all country_or_vassal_holds = ROOT } }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1600 #Reasonable factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_navy_tradition = 5
+			add_country_modifier = {
+				name = "expansion_of_the_shipbuilding_industry"
+				duration = 3650
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_asia_minor = { #Lost in the 4th crusade (1204)
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		hudavendigar_area
+		kastamonu_area
+	}
+	
+	target_provinces = {
+		has_port = no
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 300
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = hudavendigar_area
+				area = kastamonu_area
+				#Border provinces
+				any_neighbor_province = { area = hudavendigar_area }
+				any_neighbor_province = { area = kastamonu_area }
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { hudavendigar_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { kastamonu_area = { type = all OR = { has_port = yes owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1600 #Reasonable factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_pontic_coast = { #Sinope lost in 1204, held by Trebizond until 1265
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		rum_area
+		erzurum_area
+		kastamonu_area
+	}
+	
+	target_provinces = {
+		has_port = yes
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 300
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = rum_area
+				area = erzurum_area
+				area = kastamonu_area
+				#Border provinces
+				any_neighbor_province = { area = rum_area }
+				any_neighbor_province = { area = erzurum_area }
+				any_neighbor_province = { area = kastamonu_area }
+				#Nearby ports
+				area = crimea_area
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { rum_area = { type = all OR = { has_port = no owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+			NOT = { erzurum_area = { type = all OR = { has_port = no owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+			NOT = { kastamonu_area = { type = all OR = { has_port = no owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1600 #Reasonable factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_eastern_anatolia = { #Lost to the Seljuks in the late 12th century
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		cilicia_area
+		karaman_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 300
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = cilicia_area
+				area = karaman_area
+				#Border provinces
+				any_neighbor_province = { area = cilicia_area }
+				any_neighbor_province = { area = karaman_area }
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { cilicia_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { karaman_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1600 #Reasonable factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_bulgaria = { #Lost to the Bulgarian Empire in 1186
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		west_bulgaria_area
+		east_bulgaria_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 300
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = west_bulgaria_area
+				area = east_bulgaria_area
+				#Border provinces
+				any_neighbor_province = { area = west_bulgaria_area }
+				any_neighbor_province = { area = east_bulgaria_area }
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { west_bulgaria_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { east_bulgaria_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1600 #Reasonable factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_istria = { #Istria lost in 599, Bosnia in 1167, Dubrovnik in 1204
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		east_adriatic_coast_area
+		croatia_area
+		carinthia_area
+	}
+	
+	target_provinces = {
+		has_port = yes
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 300
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = east_adriatic_coast_area
+				area = carinthia_area
+				area = croatia_area
+				#Border provinces
+				any_neighbor_province = { area = east_adriatic_coast_area }
+				any_neighbor_province = { area = carinthia_area }
+				any_neighbor_province = { area = croatia_area }
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { east_adriatic_coast_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { carinthia_area = { type = all OR = { has_port = no owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+			NOT = { croatia_area = { type = all OR = { has_port = no owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1200 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_navy_tradition = 5
+			add_country_modifier = {
+				name = "expansion_of_the_shipbuilding_industry"
+				duration = 3650
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+#LAST HELD IN 11th century (8 provinces required)
+
+byzantine_bari = { #Catepanate of Italy lost in 1071
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		calabria_area
+		apulia_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 400
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = calabria_area
+				area = apulia_area
+				#Border provinces
+				any_neighbor_province = { area = calabria_area }
+				any_neighbor_province = { area = apulia_area }
+				#Nearby ports
+				region = sicily_region
+				area = east_adriatic_coast_area
+				area = aegean_area
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { calabria_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { apulia_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1200 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_armenia = { #Lost at Manzikert in 1070
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		dulkadir_area
+		erzurum_area
+		rum_area
+	}
+	
+	target_provinces = {
+		has_port = no
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 400
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = dulkadir_area
+				area = erzurum_area
+				area = rum_area
+				#Border provinces
+				any_neighbor_province = { area = dulkadir_area }
+				any_neighbor_province = { area = erzurum_area }
+				any_neighbor_province = { area = rum_area }
+			}
+			value = 4
+		}
+		OR = {
+			NOT = { dulkadir_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { erzurum_area = { type = all OR = { has_port = yes owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+			NOT = { rum_area = { type = all OR = { has_port = yes owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 1200 #Moderate factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+#LAST HELD IN THE 10th CENTURY (5 provinces required + MIL/DIP 3)
+
+byzantine_west_med = { #Most lost in the 820s and 830s; Last Byzantine strongholds in Sicily lost in 965
+	
+	type = country
+	
+	category = DIP
+	
+	target_areas_list = {
+		baleares_area
+		corsica_sardinia_area
+		west_sicily_area
+		east_sicily_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 500
+		OR = {
+			DIP = 3
+			navy_tradition = 60
+		}
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				region = sicily_region
+				area = baleares_area
+				area = corsica_sardinia_area
+				#Border provinces
+				any_neighbor_province = { region = sicily_region }
+				any_neighbor_province = { area = baleares_area }
+				any_neighbor_province = { area = corsica_sardinia_area }
+				#Nearby ports
+				area = aegean_area
+				#Other Parts of the African Exarchate
+				area = tunis_area
+				area = djerba_area
+				area = kabylia_area
+			}
+			value = 5
+		}
+		OR = {
+			NOT = { sicily_region = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { baleares_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { corsica_sardinia_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_navy_tradition = 5
+			add_country_modifier = {
+				name = "expansion_of_the_shipbuilding_industry"
+				duration = 3650
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+#LAST HELD IN THE 8th CENTURY (8 provinces required + MIL/DIP 4)
+
+byzantine_ravenna = { #Exarchate of Ravenna lost in 751
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		emilia_romagna_area
+		venetia_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 700
+		OR = {
+			MIL = 4
+			army_tradition = 90
+		}
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = emilia_romagna_area
+				area = venetia_area
+				#Border provinces
+				any_neighbor_province = { area = emilia_romagna_area }
+				any_neighbor_province = { area = venetia_area }
+			}
+			value = 5
+		}
+		OR = {
+			NOT = { emilia_romagna_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { venetia_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_rome = { #The pope shook off Byzantine influence in 727
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		lazio_area
+		marche_area
+		#area = central_italy_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 700
+		OR = {
+			MIL = 4
+			army_tradition = 90
+		}
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = lazio_area
+				area = marche_area
+				#area = central_italy_area
+				#Border provinces
+				any_neighbor_province = { area = lazio_area }
+				any_neighbor_province = { area = marche_area }
+				#any_neighbor_province = { area = central_italy_area }
+				#Nearby ports
+				area = aegean_area
+			}
+			value = 5
+		}
+		OR = {
+			NOT = { lazio_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { marche_area = { type = all country_or_vassal_holds = ROOT } }
+			#NOT = { central_italy_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+#LAST HELD IN THE 7th CENTURY (6 provinces required + MIL 4)
+
+byzantine_africa = { #Exarchate of Africa based in Carthage held on until 698
+	
+	type = country
+	
+	category = DIP
+	
+	target_areas_list = {
+		tunis_area
+		djerba_area
+		kabylia_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 700
+		OR = {
+			DIP = 4
+			navy_tradition = 90
+		}
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = tunis_area
+				area = djerba_area
+				area = kabylia_area
+				#Border provinces
+				any_neighbor_province = { area = tunis_area }
+				any_neighbor_province = { area = djerba_area }
+				any_neighbor_province = { area = kabylia_area }
+				#Nearby ports
+				area = aegean_area
+				region = sicily_region
+				#Other Parts of the African Exarchate
+				area = corsica_sardinia_area
+				area = baleares_area
+			}
+			value = 6
+		}
+		OR = {
+			NOT = { tunis_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { djerba_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { kabylia_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_tripoli = { #Lost to the Arabs in 643
+	
+	type = country
+	
+	category = DIP
+	
+	target_areas_list = {
+		tripolitania_area
+		cyrenaica_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 700
+		OR = {
+			DIP = 4
+			navy_tradition = 90
+		}
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = tripolitania_area
+				area = cyrenaica_area
+				#Border provinces
+				any_neighbor_province = { area = tripolitania_area }
+				any_neighbor_province = { area = cyrenaica_area }
+				#Nearby ports
+				area = aegean_area
+			}
+			value = 6
+		}
+		OR = {
+			NOT = { tripolitania_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { cyrenaica_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_egypt = { #Lost in 641 to the Caliphate
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		gharbia_area
+		central_egypt_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 700
+		OR = {
+			MIL = 4
+			army_tradition = 90
+		}
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = gharbia_area
+				area = central_egypt_area
+				#Border provinces
+				any_neighbor_province = { area = gharbia_area }
+				any_neighbor_province = { area = central_egypt_area }
+				#Nearby ports
+				area = aegean_area
+			}
+			value = 6
+		}
+		OR = {
+			NOT = { gharbia_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { central_egypt_area = { type = all country_or_vassal_holds = ROOT } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_holy_land = { #Jerusalem lost in 638 to the Caliphate
+	
+	type = country
+	
+	category = MIL
+	
+	target_areas_list = {
+		palestine_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 700
+		OR = {
+			MIL = 4
+			army_tradition = 90
+		}
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = palestine_area
+				#Border provinces
+				any_neighbor_province = { area = palestine_area }
+				#Nearby ports
+				area = aegean_area
+				area = aleppo_area
+			}
+			value = 6
+		}
+		NOT = { palestine_area = { type = all country_or_vassal_holds = ROOT } }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+byzantine_spania = { #Spania lost to the Visigoths in the 620s; considered part of the Western Empire
+	
+	type = country
+	
+	category = DIP
+	
+	target_areas_list = {
+		lower_guadalquivir_area
+		upper_guadalquivir_area
+		upper_andalucia_area
+		murcia_area
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+		NOT = { owner = { is_subject_of = ROOT } }
+		is_empty = no
+	}
+	allow = {
+		OR = { tag = BYZ tag = TRE }
+		has_dlc = "Purple Phoenix"
+		singleplayer_or_ai_country_trigger = yes
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		total_development = 700
+		OR = {
+			DIP = 4
+			navy_tradition = 90
+		}
+		num_of_owned_provinces_with = {
+			OR = {
+				#This region
+				area = lower_guadalquivir_area
+				area = upper_guadalquivir_area
+				area = upper_andalucia_area
+				area = murcia_area
+				#Border provinces
+				any_neighbor_province = { area = lower_guadalquivir_area }
+				any_neighbor_province = { area = upper_guadalquivir_area }
+				any_neighbor_province = { area = upper_andalucia_area }
+				any_neighbor_province = { area = murcia_area }
+				#Nearby ports
+				area = baleares_area
+				area = corsica_sardinia_area
+			}
+			value = 6
+		}
+		OR = {
+			NOT = { lower_guadalquivir_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { upper_guadalquivir_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { upper_andalucia_area = { type = all country_or_vassal_holds = ROOT } }
+			NOT = { murcia_area = { type = all OR = { has_port = no owned_by = ROOT owner = { is_subject_of = ROOT } } } }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		all_target_province = {
+			OR = {
+				owned_by = ROOT
+				owner = { is_subject_of = ROOT }
+			}
+		}
+	}
+	chance = {
+		factor = 800 #Low factor
+		modifier = {
+			total_development = 300
+			factor = 1.4
+		}
+		modifier = {
+			total_development = 900
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 75
+			factor = 1.4
+		}
+		modifier = {
+			army_tradition = 50
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 1
+			factor = 1.4
+		}
+		modifier = {
+			army_size_percentage = 0.75
+			factor = 1.4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 4
+		}
+		modifier = {
+			factor = 1.4
+			mil = 6
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		add_country_modifier = { name = decreased_morale duration = 1000 }
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		FROM = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "military_victory"
+				duration = 5000
+			}
+		}
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+
+

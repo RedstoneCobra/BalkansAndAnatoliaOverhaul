@@ -6,7 +6,7 @@ add_core = AYD
 
 capital = "Urla"
 trade_goods = hemp
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no

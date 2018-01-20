@@ -1,0 +1,283 @@
+# Roman mpire Missions
+
+convert_asia_minor = {
+	
+	type = country
+	
+	category = ADM
+	
+	allow = {
+		tag = BYZ
+		religion = orthodox
+		is_at_war = no
+		OR = {
+			north_anatolia_region = {
+				owned_by = ROOT
+				NOT = { religion = orthodox }
+			}
+			south_anatolia_region = {
+				owned_by = ROOT
+				NOT = { religion = orthodox }
+			}
+		}
+	}
+	abort = {
+		NOT = { religion = orthodox }
+		NOT = {
+			OR = {
+				north_anatolia_region = { owned_by = ROOT }
+				south_anatolia_region = { owned_by = ROOT }
+			}
+		}
+	}
+	success = {
+		north_anatolia_region = {
+			type = all
+			owned_by = ROOT
+			religion = orthodox
+		}
+		south_anatolia_region = {
+			type = all
+			owned_by = ROOT
+			religion = orthodox
+		}
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			adm = 3
+		}
+		modifier = {
+			factor = 2
+			advisor = theologian
+		}
+	}
+	effect = {
+		add_prestige = 10
+		add_legitimacy = 10 #DG
+		add_republican_tradition = 5 #DG
+		add_devotion = 20 #DG
+#		add_patriarch_authority = 0.1 #DG
+	}
+}
+
+
+convert_armenian_region = {
+	
+	type = country
+	
+	category = ADM
+	
+	allow = {
+		tag = BYZ
+		religion = orthodox
+		is_at_war = no
+		armenia_region = {
+			owned_by = ROOT
+			NOT = { religion = orthodox }
+		}
+	}
+	abort = {
+		NOT = { religion = orthodox }
+		NOT = { armenia_region = { owned_by = ROOT } }
+	}
+	success = {
+		NOT = {
+			armenia_region = {
+				owned_by = ROOT
+				NOT = { religion = orthodox }
+			}
+		}
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			adm = 3
+		}
+		modifier = {
+			factor = 2
+			advisor = theologian
+		}
+	}
+	effect = {
+		add_prestige = 10
+		add_legitimacy = 10 #DG
+		add_republican_tradition = 5 #DG
+		add_devotion = 20 #DG
+#		add_patriarch_authority = 0.1 #DG
+	}
+}
+
+
+convert_caucasia_region = {
+	
+	type = country
+	
+	category = ADM
+	
+	allow = {
+		tag = BYZ
+		religion = orthodox
+		is_at_war = no
+		caucasia_region = {
+			owned_by = ROOT
+			NOT = { religion = orthodox }
+		}
+	}
+	abort = {
+		NOT = { religion = orthodox }
+		NOT = { caucasia_region = { owned_by = ROOT } }
+	}
+	success = {
+		NOT = {
+			caucasia_region = {
+				owned_by = ROOT
+				NOT = { religion = orthodox }
+			}
+		}
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			adm = 3
+		}
+		modifier = {
+			factor = 2
+			advisor = theologian
+		}
+	}
+	effect = {
+		add_prestige = 10
+		add_legitimacy = 10 #DG
+		add_republican_tradition = 5 #DG
+		add_devotion = 20 #DG
+#		add_patriarch_authority = 0.1 #DG
+	}
+}
+
+the_pentarchy = {
+	type = country
+	
+	category = MIL
+	
+	target_provinces_list = {
+		2530 #Roma
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+	}
+	allow = {
+		religion = orthodox
+		#Has restored the Greek Pentarchy already
+		owns_or_non_sovereign_subject_of = 1402
+		owns_or_non_sovereign_subject_of = 377
+		owns_or_non_sovereign_subject_of = 379
+		owns_or_non_sovereign_subject_of = 358
+		NOT = { owns_or_non_sovereign_subject_of = 2530 }
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		num_of_cities = 10
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		2530 = { owned_by = ROOT }
+	}
+	chance = {
+		factor = 4000
+		modifier = {
+			factor = 1.4
+			piety = 0.20
+		}
+		modifier = {
+			factor = 1.4
+			piety = 0.60
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		add_prestige = 20
+		every_target_province = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+destroy_venice = {
+	
+	type = country
+	
+	category = MIL
+	
+	target_provinces_list = {
+		122
+	}
+	
+	target_provinces = {
+		NOT = { owned_by = ROOT }
+	}
+	allow = {
+		tag = BYZ
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		owns = 1402			# Constantinope
+		owns = 146			# Athens
+		owns = 151			# Traki
+		owns = 163			# Crete
+		owns = 2749			# Candia
+		112 = { owned_by = VEN }
+		OR = {
+			army_size = VEN
+			navy_size = VEN
+		}
+	}
+	abort = {
+		OR = {
+			is_subject_other_than_tributary_trigger = yes
+			112 = {
+				NOT = { owned_by = VEN }
+			}
+		}
+	}
+	success = {
+		owns = 112	# Venice
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		modifier = {
+			factor = 2
+			mil = 6
+		}
+	}
+	immediate = {
+		add_claim = 112
+	}
+	abort_effect = {
+		remove_claim = 112
+	}
+	effect = {
+		add_prestige = 10
+		add_legitimacy = 30
+		112 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}

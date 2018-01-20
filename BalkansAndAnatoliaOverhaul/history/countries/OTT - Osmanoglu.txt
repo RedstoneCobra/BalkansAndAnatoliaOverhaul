@@ -6,8 +6,7 @@ government = ottoman_government government_rank = 1
 mercantilism = 0.0
 primary_culture = turkish
 add_accepted_culture = yorouk
-add_accepted_culture = greek
-add_accepted_culture = pontic
+add_accepted_culture = grecoroman
 add_accepted_culture = ge_armenian
 religion = sunni
 technology_group = turkishtech

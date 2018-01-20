@@ -3,7 +3,7 @@ owner = BYZ
 controller = BYZ
 add_core = BYZ
 
-culture = greek
+culture = grecoroman
 religion = orthodox
 capital = "Izmid" # Nicomedia
 trade_goods = wheat #linen

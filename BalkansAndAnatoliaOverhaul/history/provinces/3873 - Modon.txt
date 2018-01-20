@@ -1,0 +1,73 @@
+# 3873 - Modon
+
+owner = VEN
+controller = VEN
+add_core = VEN
+add_permanent_claim = BYZ
+
+capital = "Modone"
+trade_goods = livestock
+culture = grecoroman
+religion = orthodox
+
+hre = no
+
+base_tax = 1
+base_production = 0
+base_manpower = 0
+
+is_city = yes
+local_fortification_1 = yes
+harbour_infrastructure_1 = yes
+
+discovered_by = muslim
+discovered_by = eastern
+discovered_by = western
+discovered_by = turkishtech
+
+1356.1.1 = {
+	add_permanent_claim = MOE
+}
+1430.1.1 = {
+	owner = MOE
+	controller = MOE
+}
+1453.5.29 = {
+	add_core = TUR
+}
+1500.1.1 = {
+	owner = TUR
+	controller = TUR
+	remove_core = MOE
+}
+1522.3.20 = {
+	naval_arsenal = yes
+}
+1555.1.1 = {
+	unrest = 5
+} # General discontent against the Janissaries' dominance
+1556.1.1 = {
+	unrest = 0
+}
+1611.1.1 = {
+	unrest = 3
+} # Revolutionary movement of Dionysios, Christians driven away
+1612.1.1 = {
+	unrest = 0
+} # Estimated
+1750.1.1 = {
+	add_core = GRE
+}
+1797.1.1 = {
+	controller = REB
+} # Suliot uprising
+1821.3.1 = {
+	controller = REB
+}
+1829.1.1 = {
+	owner = GRE
+	controller = GRE
+}
+1832.5.7 = {
+	remove_core = TUR
+} # Treaty of Constantinople

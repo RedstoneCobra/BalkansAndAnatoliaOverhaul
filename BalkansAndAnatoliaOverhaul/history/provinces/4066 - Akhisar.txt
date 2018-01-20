@@ -6,7 +6,7 @@ add_core = SRN
 
 capital = "Akhisar"
 trade_goods = cotton #linen
-culture = greek
+culture = grecoroman
 religion = sunni
 
 hre = no

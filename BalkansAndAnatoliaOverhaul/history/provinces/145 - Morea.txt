@@ -6,7 +6,7 @@ add_core = MOE
 
 capital = "Mystras"
 trade_goods = wine
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no

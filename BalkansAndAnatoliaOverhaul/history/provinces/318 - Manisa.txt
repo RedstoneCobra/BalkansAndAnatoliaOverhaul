@@ -6,7 +6,7 @@ add_core = SRN
 
 capital = "Manisa"
 trade_goods = cotton
-culture = greek
+culture = grecoroman
 religion = orthodox
 hre = no
 

@@ -1,0 +1,2887 @@
+country_decisions = {
+	#Test decision
+	#rename_theme_to_nothing = {
+	#	potential = {
+	#		tag = BYZ
+	#	}
+	#	allow = {
+	#		owns = 1402 # Constantinople
+	#		check_variable = { which = "Demesne_in_Constantinople" value = 25 }
+	#	}
+	#	effect = {
+	#		every_province = {
+	#			limit = {
+	#				theme_system_trigger = yes
+	#			}
+	#			change_province_name = ""
+	#		}
+	#	}
+	#}
+	
+	reestablish_the_theme_system = {
+		potential = {
+			tag = BYZ
+			NOT = { has_country_flag = the_theme_system }
+		}
+		allow = {
+			owns = 1402 # Constantinople
+			check_variable = { which = "Demesne_in_Constantinople" value = 25 }
+		}
+		effect = {
+			1402 = {
+				change_province_name = "Konstantinoupolis"
+				rename_capital = "Konstantinoupolis"
+				# add_base_tax = 5
+				# add_base_manpower = 5
+				set_province_flag = greek_name
+				clr_province_flag = turkish_name
+			}
+			set_country_flag = the_theme_system
+			if = {
+				limit = { owns = 2552 }
+				2552 = {
+					change_province_name = "Prusa"
+					rename_capital = "Prusa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 317 }
+				317 = {
+					change_province_name = "Troad"
+					rename_capital = "Troad"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2238 }
+				2238 = {
+					change_province_name = "Kallipolis"
+					rename_capital = "Kallipolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1446 }
+				1446 = {
+					change_province_name = "Optimatoi"
+					rename_capital = "Nikomedeia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 316 }
+				316 = {
+					change_province_name = "Bithynia"
+					rename_capital = "Bithynia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1447 }
+				1447 = {
+					change_province_name = "Paphlagonia"
+					rename_capital = "Paphlagonia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1437 }
+				1437 = {
+					change_province_name = "Amastris"
+					rename_capital = "Amastris"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1441 }
+				1441 = {
+					change_province_name = "Amassia"
+					rename_capital = "Amassia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1439 }
+				1439 = {
+					change_province_name = "Mobolla"
+					rename_capital = "Mobolla"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 327 }
+				327 = {
+					change_province_name = "Taurus"
+					rename_capital = "Tarsus"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 329 }
+				329 = {
+					change_province_name = "Laranda"
+					rename_capital = "Laranda"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1440 }
+				1440 = {
+					change_province_name = "Seleukeia"
+					rename_capital = "Seleukeia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1443 }
+				1443 = {
+					change_province_name = "Ablastha"
+					rename_capital = "Ablastha"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1438 }
+				1438 = {
+					change_province_name = "Tralleis"
+					rename_capital = "Tralleis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 318 }
+				318 = {
+					change_province_name = "Sipylum"
+					rename_capital = "Sipylum"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 319 }
+				319 = {
+					change_province_name = "Nicopolis"
+					rename_capital = "Nicopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1442 }
+				1442 = {
+					change_province_name = "Celtzene"
+					rename_capital = "Celtzene"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 324 }
+				324 = {
+					change_province_name = "Kotyaion"
+					rename_capital = "Kotyaion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 326 }
+				326 = {
+					change_province_name = "Agalassos"
+					rename_capital = "Agalassos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 323 }
+				323 = {
+					change_province_name = "Angora"
+					rename_capital = "Ancyra"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 331 }
+				331 = {
+					change_province_name = "Ikónion"
+					rename_capital = "Ikónion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 330 }
+				330 = {
+					change_province_name = "Trapezounta"
+					rename_capital = "Trebizond"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2574 }
+				2574 = {
+					change_province_name = "Eis Amisos"
+					rename_capital = "Amisos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2540 }
+				2540 = {
+					change_province_name = "Kappadokía"
+					rename_capital = "Nyssa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1333 }
+				1333 = {
+					change_province_name = "Caesarea"
+					rename_capital = "Caesarea"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1326 }
+				1326 = {
+					change_province_name = "Pharnacia"
+					rename_capital = "Choerades"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 325 }
+				325 = {
+					change_province_name = "Lycia"
+					rename_capital = "Attaleia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2542 }
+				2542 = {
+					change_province_name = "Karallia"
+					rename_capital = "Karallia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2541 }
+				2541 = {
+					change_province_name = "Germanocopolis"
+					rename_capital = "Germanocopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2553 }
+				2553 = {
+					change_province_name = "Dorylaion"
+					rename_capital = "Dorylaion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1325 }
+				1325 = {
+					change_province_name = "Ionia"
+					rename_capital = "Smyrna"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1435 }
+				1435 = {
+					change_province_name = "Chios"
+					rename_capital = "Samos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 322 }
+				322 = {
+					change_province_name = "Lydia"
+					rename_capital = "Sardis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 328 }
+				328 = {
+					change_province_name = "Sinope"
+					rename_capital = "Sinope"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2664 }
+				2664 = {
+					change_province_name = "Sebasteia"
+					rename_capital = "Sebasteia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 164 }
+				164 = {
+					change_province_name = "Kykládes"
+					rename_capital = "Naxos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2572 }
+				2572 = {
+					change_province_name = "Dodekánisa"
+					rename_capital = "Kasos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 320 }
+				320 = {
+					change_province_name = "Ródos"
+					rename_capital = "Rodos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 321 }
+				321 = {
+					change_province_name = "Lefkosia"
+					rename_capital = "Lefkosia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2750 }
+				2750 = {
+					change_province_name = "Famagusta"
+					rename_capital = "Famagusta"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 163 }
+				163 = {
+					change_province_name = "Kriti"
+					rename_capital = "Rethymno"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2749 }
+				2749 = {
+					change_province_name = "Candia"
+					rename_capital = "Candia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 332 }
+				332 = {
+					change_province_name = "Antiocheia"
+					rename_capital = "Antiocheia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 378 }
+				378 = {
+					change_province_name = "Tripoli"
+					rename_capital = "Tripoli"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 377 }
+				377 = {
+					change_province_name = "Aleppo"
+					rename_capital = "Aleppo"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1334 }
+				1334 = {
+					change_province_name = "Phoiníke"
+					rename_capital = "Akre"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2635 }
+				2635 = {
+					change_province_name = "Galilea"
+					rename_capital = "Sfat"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 364 }
+				364 = {
+					change_province_name = "Neapolis"
+					rename_capital = "Neapolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2634 }
+				2634 = {
+					change_province_name = "Gaza"
+					rename_capital = "Gaza"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 379 }
+				379 = {
+					change_province_name = "Ioudaía"
+					rename_capital = "Ierousalem"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1755 }
+				1755 = {
+					change_province_name = "Cilicia"
+					rename_capital = "Sis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3875 }
+				3875 = {
+					change_province_name = "Lesvos"
+					rename_capital = "Mitilene"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4059 }
+				4059 = {
+					change_province_name = "Isauria"
+					rename_capital = "Seleukeia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4060 }
+				4060 = {
+					change_province_name = "Kalon Oros"
+					rename_capital = "Kalon Oros"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4061 }
+				4061 = {
+					change_province_name = "Mistheia"
+					rename_capital = "Mistheia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4062 }
+				4062 = {
+					change_province_name = "Akroinon"
+					rename_capital = "Akroinon"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4063 }
+				4063 = {
+					change_province_name = "Chonai"
+					rename_capital = "Chonai"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4064 }
+				4064 = {
+					change_province_name = "Marmaris"
+					rename_capital = "Marmaris"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4065 }
+				4065 = {
+					change_province_name = "Klazomenai"
+					rename_capital = "Klazomenai"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4066 }
+				4066 = {
+					change_province_name = "Thyateira"
+					rename_capital = "Thyateira"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3388 }
+				3388 = {
+					change_province_name = "Nicaea"
+					rename_capital = "Nicaea"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3386 }
+				3386 = {
+					change_province_name = "Dardanellia"
+					rename_capital = "Dardanellia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4067 }
+				4067 = {
+					change_province_name = "Palaeokastron"
+					rename_capital = "Palaeokastron"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3390 }
+				3390 = {
+					change_province_name = "Mylasa"
+					rename_capital = "Mylasa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3881 }
+				3881 = {
+					change_province_name = "Kotyora"
+					rename_capital = "Kotyora"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			
+			######################################################################### NEW
+			#Anatolia
+			
+			if = {
+				limit = { owns = 3387 }
+				3387 = {
+					change_province_name = "Pegaea"
+					rename_capital = "Pegaea"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3389 }
+				3389 = {
+					change_province_name = "Philadelphia"
+					rename_capital = "Philadelphia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3391 }
+				3391 = {
+					change_province_name = "Phineka"
+					rename_capital = "Phineka"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3878 } #Ahiler
+				3878 = {
+					change_province_name = "Ciscissus" #Keskin
+					rename_capital = "Ciscissus"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3883 }
+				3883 = {
+					change_province_name = "Tavium"
+					rename_capital = "Tavium"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3392 }
+				3392 = {
+					change_province_name = "Anemourion"
+					rename_capital = "Anemourion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3879 }
+				3879 = {
+					#Provisional. Better name might be possible
+					change_province_name = "Magida"
+					rename_capital = "Magida"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3882 }
+				3882 = {
+					change_province_name = "Evdokia"
+					rename_capital = "Evdokia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3393 }
+				3393 = {
+					change_province_name = "Tephrike"
+					rename_capital = "Tephrike"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3884 }
+				3884 = {
+					change_province_name = "Charpete"
+					rename_capital = "Charpete"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3396 }
+				3396 = {
+					change_province_name = "Lazica"
+					rename_capital = "Rizaion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3803 }
+				3803 = {
+					change_province_name = "Paipert"
+					rename_capital = "Paipert"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3802 }
+				3802 = {
+					change_province_name = "Tao"
+					rename_capital = "Artanuji"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3395 }
+				3395 = {
+					change_province_name = "Theodosiopolis"
+					rename_capital = "Theodosiopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2551 }
+				2551 = {
+					change_province_name = "Amida"
+					rename_capital = "Amida"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3093 }
+				3093 = {
+					change_province_name = "Marida"
+					rename_capital = "Marida"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1444 }
+				1444 = {
+					change_province_name = "Taron"
+					rename_capital = "Mus"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3394 }
+				3394 = {
+					change_province_name = "Manzikert"
+					rename_capital = "Manzikert"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 418 }
+				418 = {
+					change_province_name = "Vaspurakan"
+					rename_capital = "Van"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4028 }
+				4028 = {
+					change_province_name = "Baghesh"
+					rename_capital = "Baghesh"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4029 }
+				4029 = {
+					change_province_name = "Bahdinan"
+					rename_capital = "Amedi"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			
+			#Eastern Balkans
+			
+			if = {
+				limit = { owns = 151 }
+				151 = {
+					change_province_name = "Thrakí"
+					rename_capital = "Arcadiopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3876 }
+				3876 = {
+					change_province_name = "Hevros"
+					rename_capital = "Adrianopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2501 }
+				2501 = {
+					change_province_name = "Didymoteicho"
+					rename_capital = "Didymoteicho"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2380 }
+				2380 = {
+					change_province_name = "Aegyssus"
+					rename_capital = "Aegyssus"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3782 }
+				3782 = {
+					change_province_name = "Konstantia"
+					rename_capital = "Konstantia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 159 }
+				159 = {
+					change_province_name = "Krounoi"
+					rename_capital = "Krounoi"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2381 }
+				2381 = {
+					change_province_name = "Varna"
+					rename_capital = "Varna"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1427 }
+				1427 = {
+					change_province_name = "Anchialos"
+					rename_capital = "Anchialos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3781 }
+				3781 = {
+					change_province_name = "Simeonis"
+					rename_capital = "Simeonis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 150 }
+				150 = {
+					change_province_name = "Durostolon"
+					rename_capital = "Durostolon"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1848 }
+				1848 = {
+					change_province_name = "Selymnos"
+					rename_capital = "Selymnos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3780 }
+				3780 = {
+					change_province_name = "Hiambouli"
+					rename_capital = "Hiambouli"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1591 }
+				1591 = {
+					change_province_name = "Philippoupolis"
+					rename_capital = "Philippoupolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 157 }
+				157 = {
+					change_province_name = "Tarnovo"
+					rename_capital = "Tarnovo"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3776 }
+				3776 = {
+					change_province_name = "Negotin"
+					rename_capital = "Negotin"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2382 }
+				2382 = {
+					change_province_name = "Bononia"
+					rename_capital = "Bononia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1426 }
+				1426 = {
+					change_province_name = "Serdonpolis"
+					rename_capital = "Serdonpolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3779 }
+				3779 = {
+					change_province_name = "Meleniko"
+					rename_capital = "Meleniko"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			
+			#Greece
+			
+			if = {
+				limit = { owns = 155 }
+				155 = {
+					change_province_name = "Serres"
+					rename_capital = "Serres"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2387 }
+				2387 = {
+					change_province_name = "Édessa"
+					rename_capital = "Édessa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 147 }
+				147 = {
+					change_province_name = "Chalcidiki"
+					rename_capital = "Thessalonike"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2124 }
+				2124 = {
+					change_province_name = "Astraîon"
+					rename_capital = "Astraîon"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2137 }
+				2137 = {
+					change_province_name = "Paitalia"
+					rename_capital = "Paitalia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 148 }
+				148 = {
+					change_province_name = "Scupi"
+					rename_capital = "Scupi"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1401 }
+				1401 = {
+					change_province_name = "Lychnidos"
+					rename_capital = "Lychnidos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3871 }
+				3871 = {
+					change_province_name = "Orestis"
+					rename_capital = "Orestis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 149 }
+				149 = {
+					change_province_name = "Thessalia"
+					rename_capital = "Lárissa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3385 }
+				3385 = {
+					change_province_name = "Magnesia"
+					rename_capital = "Volos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3872 }
+				3872 = {
+					change_province_name = "Neopatria"
+					rename_capital = "Neopatras"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 146 }
+				146 = {
+					change_province_name = "Attica"
+					rename_capital = "Athenai"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1434 }
+				1434 = {
+					change_province_name = "Eúboia"
+					rename_capital = "Chalkis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 154 }
+				154 = {
+					change_province_name = "Ioannina"
+					rename_capital = "Ioannina"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1399 }
+				1399 = {
+					change_province_name = "Angelokastron"
+					rename_capital = "Angelokastron"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1436 }
+				1436 = {
+					change_province_name = "Ionioi Nesoi"
+					rename_capital = "Agios Yiorgios"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3874 }
+				3874 = {
+					change_province_name = "Korinthia"
+					rename_capital = "Korinthos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1425 }
+				1425 = {
+					change_province_name = "Achaea"
+					rename_capital = "Patras"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3873 }
+				3873 = {
+					change_province_name = "Modon"
+					rename_capital = "Modone"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 145 }
+				145 = {
+					change_province_name = "Morea"
+					rename_capital = "Mystras"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3384 }
+				3384 = {
+					change_province_name = "Nafplion"
+					rename_capital = "Nafplion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3383 }
+				3383 = {
+					change_province_name = "Monemvasia"
+					rename_capital = "Monemvasia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			
+			#Levante
+			
+			if = {
+				limit = { owns = 2655 }
+				2655 = {
+					change_province_name = "Antiochia ad Taurum"
+					rename_capital = "Antiochia ad Taurum"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2224 }
+				2224 = {
+					change_province_name = "Edessa"
+					rename_capital = "Edessa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3885 }
+				3885 = {
+					change_province_name = "Al Qamishli"
+					rename_capital = "Al Qamishli"
+					#Original M&T Name. Al Qamishli didn't even exist back then.
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3091 }
+				3091 = {
+					change_province_name = "Kallinikos"
+					rename_capital = "Kallinikos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1319 }
+				1319 = {
+					change_province_name = "Der Zor"
+					rename_capital = "Der Zor"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3886 }
+				3886 = {
+					change_province_name = "Laodikeia"
+					rename_capital = "Laodikeia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1327 }
+				1327 = {
+					change_province_name = "Emathoùs"
+					rename_capital = "Emathoùs"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1328 }
+				1328 = {
+					change_province_name = "Emesa"
+					rename_capital = "Emesa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4058 }
+				4058 = {
+					change_province_name = "Palmyra"
+					rename_capital = "Palmyra"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 382 }
+				382 = {
+					change_province_name = "Damaskos"
+					rename_capital = "Damaskos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4057 }
+				4057 = {
+					change_province_name = "Bostra"
+					rename_capital = "Bostra"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2636 }
+				2636 = {
+					change_province_name = "Ramatha"
+					rename_capital = "Ramatha"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1331 }
+				1331 = {
+					change_province_name = "Beersheba"
+					rename_capital = "Beersheba"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2575 }
+				2575 = {
+					change_province_name = "Harreketh"
+					rename_capital = "Harreketh"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 875 }
+				875 = {
+					change_province_name = "Heliopolis"
+					rename_capital = "Heliopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	update_the_theme_system = {
+		potential = {
+			has_country_flag = the_theme_system
+			any_owned_province = {
+				province_group = theme_system_group
+				NOT = { has_province_flag = greek_name }
+			}
+		}
+		allow = {
+			any_owned_province = {
+				province_group = theme_system_group
+				NOT = { has_province_flag = greek_name }
+			}
+		}
+		effect = {
+			if = {
+				limit = { owns = 1402 1402 = { NOT = { has_province_flag = greek_name } } }
+				1402 = {
+					change_province_name = "Konstantinoupolis"
+					rename_capital = "Konstantinoupolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2552 2552 = { NOT = { has_province_flag = greek_name } } }
+				2552 = {
+					change_province_name = "Prusa"
+					rename_capital = "Prusa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 317 317 = { NOT = { has_province_flag = greek_name } } }
+				317 = {
+					change_province_name = "Troad"
+					rename_capital = "Troad"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2238 2238 = { NOT = { has_province_flag = greek_name } } }
+				2238 = {
+					change_province_name = "Kallipolis"
+					rename_capital = "Kallipolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1446 1446 = { NOT = { has_province_flag = greek_name } } }
+				1446 = {
+					change_province_name = "Optimatoi"
+					rename_capital = "Nicomedia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 316 316 = { NOT = { has_province_flag = greek_name } } }
+				316 = {
+					change_province_name = "Bithynia"
+					rename_capital = "Bithynia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1447 1447 = { NOT = { has_province_flag = greek_name } } }
+				1447 = {
+					change_province_name = "Paphlagonia"
+					rename_capital = "Paphlagonia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1437 1437 = { NOT = { has_province_flag = greek_name } } }
+				1437 = {
+					change_province_name = "Amastris"
+					rename_capital = "Amastris"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1441 1441 = { NOT = { has_province_flag = greek_name } } }
+				1441 = {
+					change_province_name = "Amassia"
+					rename_capital = "Amassia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1439 1439 = { NOT = { has_province_flag = greek_name } } }
+				1439 = {
+					change_province_name = "Mobolla"
+					rename_capital = "Mobolla"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 327 327 = { NOT = { has_province_flag = greek_name } } }
+				327 = {
+					change_province_name = "Taurus"
+					rename_capital = "Tarsus"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 329 329 = { NOT = { has_province_flag = greek_name } } }
+				329 = {
+					change_province_name = "Laranda"
+					rename_capital = "Laranda"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1440 1440 = { NOT = { has_province_flag = greek_name } } }
+				1440 = {
+					change_province_name = "Seleukeia"
+					rename_capital = "Seleukeia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1443 1443 = { NOT = { has_province_flag = greek_name } } }
+				1443 = {
+					change_province_name = "Ablastha"
+					rename_capital = "Ablastha"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1438 1438 = { NOT = { has_province_flag = greek_name } } }
+				1438 = {
+					change_province_name = "Tralleis"
+					rename_capital = "Tralleis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 318 318 = { NOT = { has_province_flag = greek_name } } }
+				318 = {
+					change_province_name = "Sipylum"
+					rename_capital = "Sipylum"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 319 319 = { NOT = { has_province_flag = greek_name } } }
+				319 = {
+					change_province_name = "Nicopolis"
+					rename_capital = "Nicopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1442 1442 = { NOT = { has_province_flag = greek_name } } }
+				1442 = {
+					change_province_name = "Celtzene"
+					rename_capital = "Celtzene"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 324 324 = { NOT = { has_province_flag = greek_name } } }
+				324 = {
+					change_province_name = "Kotyaion"
+					rename_capital = "Kotyaion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 326 326 = { NOT = { has_province_flag = greek_name } } }
+				326 = {
+					change_province_name = "Agalassos"
+					rename_capital = "Agalassos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 323 323 = { NOT = { has_province_flag = greek_name } } }
+				323 = {
+					change_province_name = "Angora"
+					rename_capital = "Ancyra"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 331 331 = { NOT = { has_province_flag = greek_name } } }
+				331 = {
+					change_province_name = "Ikónion"
+					rename_capital = "Ikónion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 330 330 = { NOT = { has_province_flag = greek_name } } }
+				330 = {
+					change_province_name = "Trapezounta"
+					rename_capital = "Trebizond"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2574 2574 = { NOT = { has_province_flag = greek_name } } }
+				2574 = {
+					change_province_name = "Eis Amisos"
+					rename_capital = "Amisos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2540 2540 = { NOT = { has_province_flag = greek_name } } }
+				2540 = {
+					change_province_name = "Kappadokía"
+					rename_capital = "Nyssa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1333 1333 = { NOT = { has_province_flag = greek_name } } }
+				1333 = {
+					change_province_name = "Caesarea"
+					rename_capital = "Caesarea"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1326 1326 = { NOT = { has_province_flag = greek_name } } }
+				1326 = {
+					change_province_name = "Pharnacia"
+					rename_capital = "Choerades"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 325 325 = { NOT = { has_province_flag = greek_name } } }
+				325 = {
+					change_province_name = "Lycia"
+					rename_capital = "Attaleia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2542 2542 = { NOT = { has_province_flag = greek_name } } }
+				2542 = {
+					change_province_name = "Karallia"
+					rename_capital = "Karallia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2541 2541 = { NOT = { has_province_flag = greek_name } } }
+				2541 = {
+					change_province_name = "Germanocopolis"
+					rename_capital = "Germanocopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2553 2553 = { NOT = { has_province_flag = greek_name } } }
+				2553 = {
+					change_province_name = "Dorylaion"
+					rename_capital = "Dorylaion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1325 1325 = { NOT = { has_province_flag = greek_name } } }
+				1325 = {
+					change_province_name = "Ionia"
+					rename_capital = "Smyrna"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1435 1435 = { NOT = { has_province_flag = greek_name } } }
+				1435 = {
+					change_province_name = "Chios"
+					rename_capital = "Samos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 322 322 = { NOT = { has_province_flag = greek_name } } }
+				322 = {
+					change_province_name = "Lydia"
+					rename_capital = "Sardis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 328 328 = { NOT = { has_province_flag = greek_name } } }
+				328 = {
+					change_province_name = "Sinope"
+					rename_capital = "Sinope"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2664 2664 = { NOT = { has_province_flag = greek_name } } }
+				2664 = {
+					change_province_name = "Sebasteia"
+					rename_capital = "Sebasteia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 164 164 = { NOT = { has_province_flag = greek_name } } }
+				164 = {
+					change_province_name = "Kykládes"
+					rename_capital = "Naxos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2572 2572 = { NOT = { has_province_flag = greek_name } } }
+				2572 = {
+					change_province_name = "Dodekánisa"
+					rename_capital = "Kasos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 320 320 = { NOT = { has_province_flag = greek_name } } }
+				320 = {
+					change_province_name = "Ródos"
+					rename_capital = "Rodos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 321 321 = { NOT = { has_province_flag = greek_name } } }
+				321 = {
+					change_province_name = "Lefkosia"
+					rename_capital = "Lefkosia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2750 2750 = { NOT = { has_province_flag = greek_name } } }
+				2750 = {
+					change_province_name = "Famagusta"
+					rename_capital = "Famagusta"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 163 163 = { NOT = { has_province_flag = greek_name } } }
+				163 = {
+					change_province_name = "Kriti"
+					rename_capital = "Rethymno"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2749 2749 = { NOT = { has_province_flag = greek_name } } }
+				2749 = {
+					change_province_name = "Candia"
+					rename_capital = "Candia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 332 332 = { NOT = { has_province_flag = greek_name } } }
+				332 = {
+					change_province_name = "Antiocheia"
+					rename_capital = "Antiocheia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 378 378 = { NOT = { has_province_flag = greek_name } } }
+				378 = {
+					change_province_name = "Tripoli"
+					rename_capital = "Tripoli"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 377 377 = { NOT = { has_province_flag = greek_name } } }
+				377 = {
+					change_province_name = "Aleppo"
+					rename_capital = "Aleppo"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1334 1334 = { NOT = { has_province_flag = greek_name } } }
+				1334 = {
+					change_province_name = "Phoiníke"
+					rename_capital = "Akre"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2635 2635 = { NOT = { has_province_flag = greek_name } } }
+				2635 = {
+					change_province_name = "Galilea"
+					rename_capital = "Sfat"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 364 364 = { NOT = { has_province_flag = greek_name } } }
+				364 = {
+					change_province_name = "Neapolis"
+					rename_capital = "Neapolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2634 2634 = { NOT = { has_province_flag = greek_name } } }
+				2634 = {
+					change_province_name = "Gaza"
+					rename_capital = "Gaza"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 379 379 = { NOT = { has_province_flag = greek_name } } }
+				379 = {
+					change_province_name = "Ioudaía"
+					rename_capital = "Jerusalem"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1755 1755 = { NOT = { has_province_flag = greek_name } } }
+				1755 = {
+					change_province_name = "Cilicia"
+					rename_capital = "Sis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3875 3875 = { NOT = { has_province_flag = greek_name } } }
+				3875 = {
+					change_province_name = "Lesvos"
+					rename_capital = "Mitilene"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4059 4059 = { NOT = { has_province_flag = greek_name } } }
+				4059 = {
+					change_province_name = "Isauria"
+					rename_capital = "Seleukeia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4060 4060 = { NOT = { has_province_flag = greek_name } } }
+				4060 = {
+					change_province_name = "Kalon Oros"
+					rename_capital = "Kalon Oros"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4061 4061 = { NOT = { has_province_flag = greek_name } } }
+				4061 = {
+					change_province_name = "Mistheia"
+					rename_capital = "Mistheia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4062 4062 = { NOT = { has_province_flag = greek_name } } }
+				4062 = {
+					change_province_name = "Akroinon"
+					rename_capital = "Akroinon"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4063 4063 = { NOT = { has_province_flag = greek_name } } }
+				4063 = {
+					change_province_name = "Chonai"
+					rename_capital = "Chonai"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4064 4064 = { NOT = { has_province_flag = greek_name } } }
+				4064 = {
+					change_province_name = "Marmaris"
+					rename_capital = "Marmaris"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4065 4065 = { NOT = { has_province_flag = greek_name } } }
+				4065 = {
+					change_province_name = "Klazomenai"
+					rename_capital = "Klazomenai"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4066 4066 = { NOT = { has_province_flag = greek_name } } }
+				4066 = {
+					change_province_name = "Thyateira"
+					rename_capital = "Thyateira"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3388 3388 = { NOT = { has_province_flag = greek_name } } }
+				3388 = {
+					change_province_name = "Nicaea"
+					rename_capital = "Nicaea"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3386 3386 = { NOT = { has_province_flag = greek_name } } }
+				3386 = {
+					change_province_name = "Dardanellia"
+					rename_capital = "Dardanellia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4067 4067 = { NOT = { has_province_flag = greek_name } } }
+				4067 = {
+					change_province_name = "Palaeokastron"
+					rename_capital = "Palaeokastron"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3390 3390 = { NOT = { has_province_flag = greek_name } } }
+				3390 = {
+					change_province_name = "Mylasa"
+					rename_capital = "Mylasa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3881 3881 = { NOT = { has_province_flag = greek_name } } }
+				3881 = {
+					change_province_name = "Kotyora"
+					rename_capital = "Kotyora"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			
+			######################################################################### NEW
+			#Anatolia
+			
+			if = {
+				limit = { owns = 3387 3387 = { NOT = { has_province_flag = greek_name } } }
+				3387 = {
+					change_province_name = "Pegaea"
+					rename_capital = "Pegaea"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3389 3389 = { NOT = { has_province_flag = greek_name } } }
+				3389 = {
+					change_province_name = "Philadelphia"
+					rename_capital = "Philadelphia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3391 3391 = { NOT = { has_province_flag = greek_name } } }
+				3391 = {
+					change_province_name = "Phineka"
+					rename_capital = "Phineka"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3878 3878 = { NOT = { has_province_flag = greek_name } } } #Ahiler
+				3878 = {
+					change_province_name = "Ciscissus" #Keskin
+					rename_capital = "Ciscissus"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3883 3883 = { NOT = { has_province_flag = greek_name } } }
+				3883 = {
+					change_province_name = "Tavium"
+					rename_capital = "Tavium"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3392 3392 = { NOT = { has_province_flag = greek_name } } }
+				3392 = {
+					change_province_name = "Anemourion"
+					rename_capital = "Anemourion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3879 3879 = { NOT = { has_province_flag = greek_name } } }
+				3879 = {
+					#Provisional. Better name might be possible
+					change_province_name = "Magida"
+					rename_capital = "Magida"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3882 3882 = { NOT = { has_province_flag = greek_name } } }
+				3882 = {
+					change_province_name = "Evdokia"
+					rename_capital = "Evdokia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3393 3393 = { NOT = { has_province_flag = greek_name } } }
+				3393 = {
+					change_province_name = "Tephrike"
+					rename_capital = "Tephrike"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3884 3884 = { NOT = { has_province_flag = greek_name } } }
+				3884 = {
+					change_province_name = "Charpete"
+					rename_capital = "Charpete"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3396 3396 = { NOT = { has_province_flag = greek_name } } }
+				3396 = {
+					change_province_name = "Lazica"
+					rename_capital = "Rizaion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3803 3803 = { NOT = { has_province_flag = greek_name } } }
+				3803 = {
+					change_province_name = "Paipert"
+					rename_capital = "Paipert"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3802 3802 = { NOT = { has_province_flag = greek_name } } }
+				3802 = {
+					change_province_name = "Tao"
+					rename_capital = "Artanuji"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3395 3395 = { NOT = { has_province_flag = greek_name } } }
+				3395 = {
+					change_province_name = "Theodosiopolis"
+					rename_capital = "Theodosiopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2551 2551 = { NOT = { has_province_flag = greek_name } } }
+				2551 = {
+					change_province_name = "Amida"
+					rename_capital = "Amida"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3093 3093 = { NOT = { has_province_flag = greek_name } } }
+				3093 = {
+					change_province_name = "Marida"
+					rename_capital = "Marida"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1444 1444 = { NOT = { has_province_flag = greek_name } } }
+				1444 = {
+					change_province_name = "Taron"
+					rename_capital = "Mus"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3394 3394 = { NOT = { has_province_flag = greek_name } } }
+				3394 = {
+					change_province_name = "Manzikert"
+					rename_capital = "Manzikert"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 418 418 = { NOT = { has_province_flag = greek_name } } }
+				418 = {
+					change_province_name = "Vaspurakan"
+					rename_capital = "Van"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4028 4028 = { NOT = { has_province_flag = greek_name } } }
+				4028 = {
+					change_province_name = "Baghesh"
+					rename_capital = "Baghesh"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4029 4029 = { NOT = { has_province_flag = greek_name } } }
+				4029 = {
+					change_province_name = "Bahdinan"
+					rename_capital = "Amedi"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			
+			#Eastern Balkans
+			
+			if = {
+				limit = { owns = 151 151 = { NOT = { has_province_flag = greek_name } } }
+				151 = {
+					change_province_name = "Thrakí"
+					rename_capital = "Arcadiopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3876 3876 = { NOT = { has_province_flag = greek_name } } }
+				3876 = {
+					change_province_name = "Hevros"
+					rename_capital = "Adrianopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2501 2501 = { NOT = { has_province_flag = greek_name } } }
+				2501 = {
+					change_province_name = "Didymoteicho"
+					rename_capital = "Didymoteicho"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2380 2380 = { NOT = { has_province_flag = greek_name } } }
+				2380 = {
+					change_province_name = "Aegyssus"
+					rename_capital = "Aegyssus"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3782 3782 = { NOT = { has_province_flag = greek_name } } }
+				3782 = {
+					change_province_name = "Konstantia"
+					rename_capital = "Konstantia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 159 159 = { NOT = { has_province_flag = greek_name } } }
+				159 = {
+					change_province_name = "Krounoi"
+					rename_capital = "Krounoi"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2381 2381 = { NOT = { has_province_flag = greek_name } } }
+				2381 = {
+					change_province_name = "Varna"
+					rename_capital = "Varna"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1427 1427 = { NOT = { has_province_flag = greek_name } } }
+				1427 = {
+					change_province_name = "Anchialos"
+					rename_capital = "Anchialos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3781 3781 = { NOT = { has_province_flag = greek_name } } }
+				3781 = {
+					change_province_name = "Simeonis"
+					rename_capital = "Simeonis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 150 150 = { NOT = { has_province_flag = greek_name } } }
+				150 = {
+					change_province_name = "Durostolon"
+					rename_capital = "Durostolon"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1848 1848 = { NOT = { has_province_flag = greek_name } } }
+				1848 = {
+					change_province_name = "Selymnos"
+					rename_capital = "Selymnos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3780 3780 = { NOT = { has_province_flag = greek_name } } }
+				3780 = {
+					change_province_name = "Hiambouli"
+					rename_capital = "Hiambouli"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1591 1591 = { NOT = { has_province_flag = greek_name } } }
+				1591 = {
+					change_province_name = "Philippoupolis"
+					rename_capital = "Philippoupolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 157 157 = { NOT = { has_province_flag = greek_name } } }
+				157 = {
+					change_province_name = "Tarnovo"
+					rename_capital = "Tarnovo"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3776 3776 = { NOT = { has_province_flag = greek_name } } }
+				3776 = {
+					change_province_name = "Negotin"
+					rename_capital = "Negotin"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2382 2382 = { NOT = { has_province_flag = greek_name } } }
+				2382 = {
+					change_province_name = "Bononia"
+					rename_capital = "Bononia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1426 1426 = { NOT = { has_province_flag = greek_name } } }
+				1426 = {
+					change_province_name = "Serdonpolis"
+					rename_capital = "Serdonpolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3779 3779 = { NOT = { has_province_flag = greek_name } } }
+				3779 = {
+					change_province_name = "Meleniko"
+					rename_capital = "Meleniko"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			
+			#Greece
+			
+			if = {
+				limit = { owns = 155 155 = { NOT = { has_province_flag = greek_name } } }
+				155 = {
+					change_province_name = "Serres"
+					rename_capital = "Serres"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2387 2387 = { NOT = { has_province_flag = greek_name } } }
+				2387 = {
+					change_province_name = "Édessa"
+					rename_capital = "Édessa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 147 147 = { NOT = { has_province_flag = greek_name } } }
+				147 = {
+					change_province_name = "Chalcidiki"
+					rename_capital = "Thessalonike"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2124 2124 = { NOT = { has_province_flag = greek_name } } }
+				2124 = {
+					change_province_name = "Astraîon"
+					rename_capital = "Astraîon"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2137 2137 = { NOT = { has_province_flag = greek_name } } }
+				2137 = {
+					change_province_name = "Paitalia"
+					rename_capital = "Paitalia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 148 148 = { NOT = { has_province_flag = greek_name } } }
+				148 = {
+					change_province_name = "Scupi"
+					rename_capital = "Scupi"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1401 1401 = { NOT = { has_province_flag = greek_name } } }
+				1401 = {
+					change_province_name = "Lychnidos"
+					rename_capital = "Lychnidos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3871 3871 = { NOT = { has_province_flag = greek_name } } }
+				3871 = {
+					change_province_name = "Orestis"
+					rename_capital = "Orestis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 149 149 = { NOT = { has_province_flag = greek_name } } }
+				149 = {
+					change_province_name = "Thessalia"
+					rename_capital = "Lárissa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3385 3385 = { NOT = { has_province_flag = greek_name } } }
+				3385 = {
+					change_province_name = "Magnesia"
+					rename_capital = "Volos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3872 3872 = { NOT = { has_province_flag = greek_name } } }
+				3872 = {
+					change_province_name = "Neopatria"
+					rename_capital = "Neopatras"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 146 146 = { NOT = { has_province_flag = greek_name } } }
+				146 = {
+					change_province_name = "Attica"
+					rename_capital = "Athenai"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1434 1434 = { NOT = { has_province_flag = greek_name } } }
+				1434 = {
+					change_province_name = "Eúboia"
+					rename_capital = "Chalkis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 154 154 = { NOT = { has_province_flag = greek_name } } }
+				154 = {
+					change_province_name = "Ioannina"
+					rename_capital = "Ioannina"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1399 1399 = { NOT = { has_province_flag = greek_name } } }
+				1399 = {
+					change_province_name = "Angelokastron"
+					rename_capital = "Angelokastron"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1436 1436 = { NOT = { has_province_flag = greek_name } } }
+				1436 = {
+					change_province_name = "Ionioi Nesoi"
+					rename_capital = "Agios Yiorgios"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3874 3874 = { NOT = { has_province_flag = greek_name } } }
+				3874 = {
+					change_province_name = "Korinthia"
+					rename_capital = "Korinthos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1425 1425 = { NOT = { has_province_flag = greek_name } } }
+				1425 = {
+					change_province_name = "Achaea"
+					rename_capital = "Patras"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3873 3873 = { NOT = { has_province_flag = greek_name } } }
+				3873 = {
+					change_province_name = "Modon"
+					rename_capital = "Modone"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 145 145 = { NOT = { has_province_flag = greek_name } } }
+				145 = {
+					change_province_name = "Morea"
+					rename_capital = "Mystras"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3384 3384 = { NOT = { has_province_flag = greek_name } } }
+				3384 = {
+					change_province_name = "Nafplion"
+					rename_capital = "Nafplion"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3383 3383 = { NOT = { has_province_flag = greek_name } } }
+				3383 = {
+					change_province_name = "Monemvasia"
+					rename_capital = "Monemvasia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			
+			#Levante
+			
+			if = {
+				limit = { owns = 2655 2655 = { NOT = { has_province_flag = greek_name } } }
+				2655 = {
+					change_province_name = "Antiochia ad Taurum"
+					rename_capital = "Antiochia ad Taurum"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2224 2224 = { NOT = { has_province_flag = greek_name } } }
+				2224 = {
+					change_province_name = "Edessa"
+					rename_capital = "Edessa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3885 3885 = { NOT = { has_province_flag = greek_name } } }
+				3885 = {
+					change_province_name = "Al Qamishli"
+					rename_capital = "Al Qamishli"
+					#Original M&T Name. Al Qamishli didn't even exist back then.
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3091 3091 = { NOT = { has_province_flag = greek_name } } }
+				3091 = {
+					change_province_name = "Kallinikos"
+					rename_capital = "Kallinikos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1319 1319 = { NOT = { has_province_flag = greek_name } } }
+				1319 = {
+					change_province_name = "Der Zor"
+					rename_capital = "Der Zor"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 3886 3886 = { NOT = { has_province_flag = greek_name } } }
+				3886 = {
+					change_province_name = "Laodikeia"
+					rename_capital = "Laodikeia"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1327 1327 = { NOT = { has_province_flag = greek_name } } }
+				1327 = {
+					change_province_name = "Emathoùs"
+					rename_capital = "Emathoùs"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1328 1328 = { NOT = { has_province_flag = greek_name } } }
+				1328 = {
+					change_province_name = "Emesa"
+					rename_capital = "Emesa"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4058 4058 = { NOT = { has_province_flag = greek_name } } }
+				4058 = {
+					change_province_name = "Palmyra"
+					rename_capital = "Palmyra"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 382 382 = { NOT = { has_province_flag = greek_name } } }
+				382 = {
+					change_province_name = "Damaskos"
+					rename_capital = "Damaskos"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 4057 4057 = { NOT = { has_province_flag = greek_name } } }
+				4057 = {
+					change_province_name = "Bostra"
+					rename_capital = "Bostra"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2636 2636 = { NOT = { has_province_flag = greek_name } } }
+				2636 = {
+					change_province_name = "Ramatha"
+					rename_capital = "Ramatha"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 1331 1331 = { NOT = { has_province_flag = greek_name } } }
+				1331 = {
+					change_province_name = "Beersheba"
+					rename_capital = "Beersheba"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 2575 2575 = { NOT = { has_province_flag = greek_name } } }
+				2575 = {
+					change_province_name = "Harreketh"
+					rename_capital = "Harreketh"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+			if = {
+				limit = { owns = 875 875 = { NOT = { has_province_flag = greek_name } } }
+				875 = {
+					change_province_name = "Heliopolis"
+					rename_capital = "Heliopolis"
+					set_province_flag = greek_name
+					clr_province_flag = turkish_name
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	crush_beylik_of_karasi = {
+		potential = {
+			NOT = { religion_group = muslim }
+			any_owned_province = {
+				has_province_modifier = beylik_of_karasi
+			}
+		}
+		allow = {
+			absolutism = 60
+			mil_power = 150
+			is_at_war = no
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = beylik_of_karasi
+				}
+				remove_province_modifier = beylik_of_karasi
+				spawn_rebels = {
+					type = sunni_rebels
+					size = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+	crush_beylik_of_saruhan = {
+		potential = {
+			NOT = { religion_group = muslim }
+			any_owned_province = {
+				has_province_modifier = beylik_of_saruhan
+			}
+		}
+		allow = {
+			absolutism = 60
+			mil_power = 150
+			is_at_war = no
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = beylik_of_saruhan
+				}
+				remove_province_modifier = beylik_of_saruhan
+				spawn_rebels = {
+					type = sunni_rebels
+					size = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+	crush_beylik_of_isfendiyar = {
+		potential = {
+			NOT = { religion_group = muslim }
+			any_owned_province = {
+				has_province_modifier = beylik_of_isfendiyar
+			}
+		}
+		allow = {
+			absolutism = 60
+			mil_power = 150
+			is_at_war = no
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = beylik_of_isfendiyar
+				}
+				remove_province_modifier = beylik_of_isfendiyar
+				spawn_rebels = {
+					type = sunni_rebels
+					size = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+	crush_beylik_of_artuqids = {
+		potential = {
+			NOT = { religion_group = muslim }
+			any_owned_province = {
+				has_province_modifier = beylik_of_artuqids
+			}
+		}
+		allow = {
+			absolutism = 60
+			mil_power = 150
+			is_at_war = no
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = beylik_of_artuqids
+				}
+				remove_province_modifier = beylik_of_artuqids
+				spawn_rebels = {
+					type = sunni_rebels
+					size = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+	crush_beylik_of_ankara = {
+		potential = {
+			NOT = { religion_group = muslim }
+			any_owned_province = {
+				has_province_modifier = beylik_of_ankara
+			}
+		}
+		allow = {
+			absolutism = 60
+			mil_power = 150
+			is_at_war = no
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = beylik_of_ankara
+				}
+				remove_province_modifier = beylik_of_ankara
+				spawn_rebels = {
+					type = sunni_rebels
+					size = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+	crush_ahis_fraternity = {
+		potential = {
+			NOT = { religion_group = muslim }
+			any_owned_province = {
+				has_province_modifier = ahis_fraternity
+			}
+		}
+		allow = {
+			absolutism = 60
+			mil_power = 150
+			is_at_war = no
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = ahis_fraternity
+				}
+				remove_province_modifier = ahis_fraternity
+				spawn_rebels = {
+					type = sunni_rebels
+					size = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	prussa_greek_restoration = {
+		potential = {
+			tag = BYZ
+			NOT = { is_year = 1370 }
+			primary_culture = greek
+			religion = orthodox
+			capital = 1402
+			2552 = {
+				NOT = { has_province_flag = greek_restoration }
+				culture = turkish
+				religion = sunni
+				check_variable = { which = orthodox		value = 6 }
+				owned_by = BYZ
+			}
+			3388 = {
+				culture = greek
+				religion = orthodox
+				owned_by = BYZ
+			}
+			1446 = {
+				culture = greek
+				religion = orthodox
+				owned_by = BYZ
+			}
+			3387 = {
+				culture = greek
+				religion = orthodox
+				owned_by = BYZ
+			}
+			3386 = {
+				culture = greek
+				religion = orthodox
+				owned_by = BYZ
+			}
+		}
+		allow = {
+			NOT = { is_year = 1370 }
+			controls = 2552 #Prussa
+			adm = 3
+			is_at_war = no
+		}
+		effect = {
+			hidden_effect = {
+				set_province_flag = greek_restoration
+			}
+			add_adm_power = -100
+			2552 = {
+				change_culture = greek
+				custom_tooltip = orthodox_30
+				hidden_effect = { change_variable = { which = converted_heathens value = 6 } }
+				add_nationalism = -5
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}

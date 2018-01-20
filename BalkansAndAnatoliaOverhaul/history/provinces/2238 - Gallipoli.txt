@@ -5,7 +5,7 @@ controller = BYZ
 
 capital = "Gallipoli"
 trade_goods = wheat
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no

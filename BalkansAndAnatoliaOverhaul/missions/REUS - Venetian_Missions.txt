@@ -1,0 +1,595 @@
+# Vanatian Missions
+
+conquer_friuli = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VEN
+		is_free_or_tributary_trigger = yes
+		NOT = { owns = 111 }	# Friuli
+		111 = {
+			NOT = { owner = { alliance_with = ROOT } }
+		}
+		NOT = { has_country_modifier = venetian_terra_firma }
+		NOT = { has_country_flag = conquered_fruili }
+		111 = {
+			OR = {
+				is_capital = no
+				owner = {
+					NOT = { num_of_cities = 3 }
+				}
+			}
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 111
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+	}
+	immediate = {
+		add_claim = 111
+	}
+	abort_effect = {
+		remove_claim = 111
+	}
+	effect = {
+		add_prestige = 5
+		set_country_flag = conquered_fruili
+		add_country_modifier = {
+			name = "venetian_terra_firma"
+			duration = 3650
+		}
+		111 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+subjugate_aquileia = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VEN
+		is_free_or_tributary_trigger = yes
+		NOT = { has_country_modifier = military_vassalization }
+		AQU = {
+			is_free_or_tributary_trigger = yes
+			is_neighbor_of = ROOT
+			NOT = { num_of_cities = ROOT }
+		}
+	}
+	abort = {
+		OR = {
+			is_subject_other_than_tributary_trigger = yes
+			NOT = { exists = AQU }
+			AQU = { is_subject_other_than_tributary_trigger = yes }
+		}
+	}
+	success = {
+		AQU = { vassal_of = VEN }
+	}
+	chance = {
+		factor = 500
+		modifier = {
+			factor = 2
+			NOT = { has_opinion = { who = AQU value = 0 } }
+		}
+	}
+	immediate = {
+		add_casus_belli = {
+			type = cb_vassalize_mission
+			months = 120
+			target = AQU
+		}
+	}
+	abort_effect = {
+		remove_casus_belli = {
+			type = cb_vassalize_mission
+			target = AQU
+		}
+	}
+	effect = {
+		add_prestige = 10
+		add_country_modifier = {
+			name = military_vassalization
+			duration = 3650
+		}
+		hidden_effect = {
+			remove_casus_belli = {
+				type = cb_vassalize_mission
+				target = AQU
+			}
+		}
+	}
+}
+
+conquer_brescia = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VEN
+		is_free_or_tributary_trigger = yes
+		NOT = { has_country_modifier = venetian_terra_firma }
+		NOT = { has_country_flag = conquered_brescia }
+		1345 = {
+			NOT = { owner = { alliance_with = ROOT } }
+			NOT = { owned_by = ROOT }
+			any_neighbor_province = { owned_by = ROOT }
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 1345
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+	}
+	immediate = {
+		add_claim = 1345
+	}
+	abort_effect = {
+		remove_claim = 1345
+	}
+	effect = {
+		add_prestige = 10
+		set_country_flag = conquered_brescia
+		add_country_modifier = {
+			name = "venetian_terra_firma"
+			duration = 3650
+		}
+		1345 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+conquer_verona = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VEN
+		is_free_or_tributary_trigger = yes
+		NOT = { owns = 108 } # Verona
+		108 = {
+			NOT = { owner = { alliance_with = ROOT } }
+		}
+		NOT = { has_country_modifier = venetian_terra_firma }
+		NOT = { has_country_flag = conquered_verona }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 108 # Verona
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+	}
+	immediate = {
+		add_claim = 108 # Verona
+	}
+	abort_effect = {
+		remove_claim = 108 # Verona
+	}
+	effect = {
+		add_prestige = 5
+		set_country_flag = conquered_verona
+		add_country_modifier = {
+			name = "venetian_terra_firma"
+			duration = 3650
+		}
+		108 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+conquer_istria = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VEN
+		is_free_or_tributary_trigger = yes
+		owns = 112
+		NOT = { owns = 130 } # Istria
+		NOT = { has_country_modifier = mediterranean_ambition }
+		NOT = { has_country_flag = conquered_istria }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 130 # Istria
+	}
+	chance = {
+		factor = 1500
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+	}
+	immediate = {
+		add_claim = 130 # Istria
+	}
+	abort_effect = {
+		remove_claim = 130 # Istria
+	}
+	effect = {
+		add_prestige = 5
+		set_country_flag = conquered_istria
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 3650
+		}
+		130 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+conquer_cyprus = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VEN
+		exists = TUR
+		is_free_or_tributary_trigger = yes
+		mil = 4
+		NOT = { has_country_modifier = mediterranean_ambition }
+		NOT = { has_country_flag = conquered_cyprus }
+		321 = {								# Lefkosia
+			NOT = { owned_by = ROOT }
+			NOT = { owned_by = TUR }
+		}
+		2750 = {							# Famagusta
+			NOT = { owned_by = ROOT }
+			NOT = { owned_by = TUR }
+		}
+	}
+	abort = {
+		OR = {
+			is_subject_other_than_tributary_trigger = yes
+			321 = { owned_by = TUR } # Lefkosia
+			2750 = { owned_by = TUR } # Famagusta
+		}
+	}
+	success = {
+		NOT = { war_with = TUR }
+		owns = 321 # Lefkosia
+		owns = 2750 # Famagusta
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+	}
+	immediate = {
+		add_claim = 321 # Lefkosia
+		add_claim = 2750 # Famagusta
+	}
+	abort_effect = {
+		remove_claim = 321 # Lefkosia
+		remove_claim = 2750 # Famagusta
+	}
+	effect = {
+		add_prestige = 10
+		set_country_flag = conquered_cyprus
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 3650
+		}
+		321 = {
+			add_territorial_core_effect = yes
+		}
+		2750 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+retake_crete = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VEN
+		exists = TUR
+		is_free_or_tributary_trigger = yes
+		mil = 4
+		NOT = { has_country_modifier = mediterranean_ambition }
+		NOT = { has_country_flag = crete_retaken }
+		TUR = { owns = 163 } # Kriti
+		TUR = { owns = 2749 } # Candia
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		NOT = { war_with = TUR }
+		owns = 163 # Kriti
+		owns = 2749 # Candia
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+	}
+	immediate = {
+		add_claim = 163 # Kriti
+		add_claim = 2749 # Candia
+	}
+	abort_effect = {
+		remove_claim = 163 # Kriti
+		remove_claim = 2749 # Candia
+	}
+	effect = {
+		add_prestige = 10
+		set_country_flag = crete_retaken
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 3650
+		}
+		163 = {
+			add_territorial_core_effect = yes
+		}
+		2749 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+monopolize_italian_cot = {
+	
+	type = country
+	
+	category = DIP
+	
+	allow = {
+		tag = VEN
+		NOT = {
+			112 = {				# Gulf of Venice
+				is_strongest_trade_power = VEN
+			}
+			101  = {				# Cote d'Azur
+				is_strongest_trade_power = VEN
+			}
+		}
+		NOT = { has_country_flag = monopolize_italian_cot }
+	}
+	abort = {
+	}
+	success = {
+		112 = {			# Gulf of Venice
+			is_strongest_trade_power = VEN
+		}
+		101 = {				# Cote d'Azur
+			is_strongest_trade_power = VEN
+		}
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			has_idea = national_trade_policy
+		}
+	}
+	effect = {
+		add_treasury = 60
+		add_dip_power = 60
+		set_country_flag = monopolize_italian_cot
+		add_country_modifier = {
+			name = "merchant_society"
+			duration = 3650
+		}
+	}
+}
+
+disrupt_genoese_trade = {
+	
+	type = country
+	
+	category = DIP
+	
+	allow = {
+		tag = VEN
+		exists = GEN
+		GEN = {
+			has_country_flag = black_sea_free_trade
+			owns = 1298				# Tana
+			owns = 1299				# Tmutarkan
+			owns = 2573				# Kerch
+			owns = 101				# Genoa
+		}
+	}
+	abort = {
+		GEN = {
+			NOT = {
+				has_country_flag = black_sea_free_trade
+			}
+		}
+	}
+	success = {
+		OR = {
+			controls = 1298				# Tana
+			controls = 1299				# Tmutarkan
+			controls = 2573				# Kerch
+		}
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			has_idea = national_trade_policy
+		}
+		modifier = {
+			factor = 2
+			VEN = { faction_in_power = mr_traders }
+		}
+	}
+	effect = {
+		add_treasury = 300
+		1914 = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = 3650
+				power = 5
+				key = genoese_trade_concession
+			}
+		}
+	}
+}
+
+conquer_kotor = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VEN
+		is_free_or_tributary_trigger = yes
+		owns = 112
+		NOT = { owns = 138 } # Kotor
+		NOT = { has_country_modifier = mediterranean_ambition }
+		NOT = { has_country_flag = conquered_kotor }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 138 # Kotor
+	}
+	chance = {
+		factor = 2000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		modifier = {
+			factor = 1.5
+			RAG = { vassal_of = VEN }
+		}
+		modifier = {
+			factor = 2
+			VEN = { faction_in_power = mr_traders }
+		}
+	}
+	immediate = {
+		add_claim = 138 # Kotor
+	}
+	abort_effect = {
+		remove_claim = 138 # Kotor
+	}
+	effect = {
+		add_prestige = 5
+		set_country_flag = conquered_kotor
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 3650
+		}
+		138 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+conquer_durres = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VEN
+		is_free_or_tributary_trigger = yes
+		owns = 112 # Venexia
+		NOT = { owns = 2373 } # Durres
+		NOT = { has_country_modifier = mediterranean_ambition }
+		NOT = { has_country_flag = conquered_durres }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 2373 # Durres
+	}
+	chance = {
+		factor = 1500
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		modifier = {
+			factor = 1.5
+			VEN = { faction_in_power = mr_traders }
+		}
+	}
+	immediate = {
+		add_claim = 2373 # Durres
+	}
+	abort_effect = {
+		remove_claim = 2373 # Durres
+	}
+	effect = {
+		add_prestige = 5
+		set_country_flag = conquered_durres
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 3650
+		}
+		2373 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}

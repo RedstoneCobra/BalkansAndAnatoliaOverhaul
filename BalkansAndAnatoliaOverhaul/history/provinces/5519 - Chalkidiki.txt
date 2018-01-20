@@ -6,7 +6,7 @@ add_core = BYZ
 
 capital = "Polygyros"
 trade_goods = olive
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no

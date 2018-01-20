@@ -1,0 +1,78 @@
+# 3384 - Nafplion
+
+owner = ACH
+controller = ACH
+add_core = ACH
+
+capital = "Nafplion"
+trade_goods = wine
+culture = grecoroman
+religion = orthodox
+
+hre = no
+
+base_tax = 1
+base_production = 1
+base_manpower = 0
+
+is_city = yes
+harbour_infrastructure_2 = yes
+marketplace = yes
+local_fortification_1 = yes
+road_network = yes
+
+discovered_by = muslim
+discovered_by = eastern
+discovered_by = western
+discovered_by = turkishtech
+
+450.1.1 = {
+	set_province_flag = has_natural_harbour
+	set_province_flag = has_small_natural_harbour
+	set_province_flag = good_natural_place
+	add_permanent_province_modifier = {
+		name = "morea_natural_harbour"
+		duration = -1
+	}
+}
+1356.1.1 = {
+	add_core = BYZ
+	add_core = MOE
+	add_permanent_claim = GEN
+}
+1388.1.1 = {
+	owner = VEN
+	controller = VEN
+	add_core = VEN
+} # Sold to Venice
+1530.1.1 = {
+	remove_claim = BYZ
+	add_permanent_claim = TUR
+}
+1540.1.1 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+	remove_claim = TUR
+} # Treaty with the Turkish Empire
+1685.1.1 = {
+	owner = VEN
+	controller = VEN
+} # Venetian recovery
+1715.1.1 = {
+	owner = TUR
+	controller = TUR
+} #
+1750.1.1 = {
+	add_core = GRE
+}
+1821.3.1 = {
+	controller = REB
+}
+1829.1.1 = {
+	owner = GRE
+	controller = GRE
+}
+1832.5.7 = {
+	remove_core = TUR
+} # Treaty of Constantinople

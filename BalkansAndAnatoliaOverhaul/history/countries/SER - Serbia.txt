@@ -3,7 +3,9 @@
 
 government = feudal_monarchy government_rank = 1
 mercantilism = 0.0
+
 primary_culture = serbian
+add_accepted_culture = grecoroman
 religion = orthodox
 technology_group = eastern
 capital = 3775 # Skpoje

@@ -1,0 +1,683 @@
+# Genoa Missions
+
+retake_corsica = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		is_free_or_tributary_trigger = yes
+		OR = {
+			NOT = { owns = 1247 } # Corsica
+			NOT = { owns = 2851 } # Bunifaziu
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 1247 # Corsica
+		owns = 2851 # Bunifaziu
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+	}
+	immediate = {
+		add_claim = 1247 # Corsica
+		add_claim = 2851 # Bunifaziu
+	}
+	abort_effect = {
+		remove_claim = 1247 # Corsica
+		remove_claim = 2851 # Bunifaziu
+	}
+	effect = {
+		add_prestige = 10
+		add_core = 1247 # Corsica
+		add_core = 2851 # Bunifaziu
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 3650
+		}
+	}
+}
+
+retake_kaffa = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		is_free_or_tributary_trigger = yes
+		NOT = { owns = 2573 } # Kaffa
+		is_core = 2573 # Kaffa
+		NOT = { has_country_modifier = black_sea_ambition }
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 2573 # Kaffa
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+	}
+	immediate = {
+		add_claim = 2573 # Kaffa
+	}
+	abort_effect = {
+		remove_claim = 2573 # Kaffa
+	}
+	effect = {
+		add_prestige = 25
+		add_adm_power = 50
+		add_country_modifier = {
+			name = "black_sea_ambition"
+			duration = 3650
+		}
+	}
+}
+
+retake_tana = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		is_free_or_tributary_trigger = yes
+		NOT = { owns = 1298 } # Tana
+		is_core = 1298 # Tana
+		NOT = { has_country_modifier = black_sea_ambition }
+	}
+	abort = {
+		OR = {
+			is_subject_other_than_tributary_trigger = yes
+			NOT = { is_core = 1298 } # Tana
+		}
+	}
+	success = {
+		owns = 1298 # Tana
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+	}
+	immediate = {
+		add_claim = 1298 # Tana
+	}
+	abort_effect = {
+		remove_claim = 1298 # Tana
+	}
+	effect = {
+		add_adm_power = 50
+		add_country_modifier = {
+			name = "black_sea_ambition"
+			duration = 3650
+		}
+	}
+}
+
+end_bosphorous_sound_toll = {
+	
+	type = country
+	
+	category = MIL
+	
+	allow = {
+		tag = GEN
+		government = merchant_republic
+		is_free_or_tributary_trigger = yes
+		NOT = { has_country_flag = black_sea_free_trade }
+		NOT = { has_country_modifier = black_sea_ambition }
+		OR = {
+			owns = 1298 # Tana
+			owns = 2573 # Kerch
+		}
+		1402 = {
+			owner = {
+				has_country_modifier = bosphorous_sound_toll
+				NOT = {
+					tag = GEN
+				}
+			}
+			NOT = {
+				1402 = {
+					has_trade_modifier = {
+						who = GEN
+						name = genoese_access_to_black_sea
+					}
+				}
+			}
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		OR = {
+			controls = 1402
+			AND = {
+				controls = 2238 # Gallipoli
+				controls = 317 # Biga
+			}
+		}
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+	}
+	effect = {
+		set_country_flag = black_sea_free_trade
+		add_country_modifier = {
+			name = "black_sea_ambition"
+			duration = 3650
+		}
+		1914 = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = 3650
+				power = 10
+				key = genoese_trade_concession
+			}
+		}
+	}
+}
+
+# Take a strategic tradenode
+
+tradenode_tunis = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		government = merchant_republic
+		is_free_or_tributary_trigger = yes
+		NOT = {
+			owns = 341 # Tunis
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 341 # Tunis
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		modifier = {
+			factor = 0.5
+			341 = {
+				owner = {
+					army_size = GEN
+				}
+			}
+		}
+	}
+	immediate = {
+		add_claim = 341
+	}
+	abort_effect = {
+		remove_claim = 341
+	}
+	effect = {
+		add_mercantilism = 10
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 1825
+		}
+		341 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+tradenode_alexandria = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		government = merchant_republic
+		is_free_or_tributary_trigger = yes
+		NOT = {
+			owns = 358 # Al Iskandariyya
+		}
+		NOT = {
+			any_known_country = {
+				capital = 358 # Al Iskandariyya
+			}
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 358 # Al Iskandariyya
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		
+		modifier = {
+			factor = 0.5
+			358 = {
+				owner = {
+					army_size = GEN
+				}
+			}
+		}
+	}
+	immediate = {
+		add_claim = 358 # Al Iskandariyya
+	}
+	abort_effect = {
+		remove_claim = 358 # Al Iskandariyya
+	}
+	effect = {
+		add_mercantilism = 10
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 1825
+		}
+		358 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+tradenode_thrace = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		government = merchant_republic
+		is_free_or_tributary_trigger = yes
+		NOT = {
+			owns = 1402 # Thrace
+		}
+		NOT = {
+			any_known_country = {
+				capital = 1402 # Thrace
+			}
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 1402 # Thrace
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		
+		modifier = {
+			factor = 0.5
+			1402 = {
+				owner = {
+					army_size = GEN
+				}
+			}
+		}
+	}
+	immediate = {
+		add_claim = 1402
+	}
+	abort_effect = {
+		remove_claim = 1402
+	}
+	effect = {
+		add_mercantilism = 10
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 1825
+		}
+		1402 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+tradenode_ragusa = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		government = merchant_republic
+		is_free_or_tributary_trigger = yes
+		NOT = {
+			owns = 137 # Ragusa
+		}
+		NOT = {
+			any_known_country = {
+				capital = 137 # Ragusa
+			}
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 137 # Ragusa
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		
+		modifier = {
+			factor = 0.5
+			137 = {
+				owner = {
+					army_size = GEN
+				}
+			}
+		}
+	}
+	immediate = {
+		add_claim = 137 # Ragusa
+	}
+	abort_effect = {
+		remove_claim = 137 # Ragusa
+	}
+	effect = {
+		add_mercantilism = 10
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 1825
+		}
+		137 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+tradenode_barcelona = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		government = merchant_republic
+		is_free_or_tributary_trigger = yes
+		NOT = {
+			owns = 213 # Barcelona
+		}
+		NOT = {
+			any_known_country = {
+				capital = 213
+			}
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 213 # Barcelona
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		
+		modifier = {
+			factor = 0.5
+			213 = {
+				owner = {
+					army_size = GEN
+				}
+			}
+		}
+	}
+	immediate = {
+		add_claim = 213 # Barcelona
+	}
+	abort_effect = {
+		remove_claim = 213 # Barcelona
+	}
+	effect = {
+		add_mercantilism = 10
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 1825
+		}
+		213 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+tradenode_tangiers = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		government = merchant_republic
+		is_free_or_tributary_trigger = yes
+		NOT = {
+			owns = 334 # Tangiers
+		}
+		NOT = {
+			any_known_country = {
+				capital = 334 # Tangiers
+			}
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 334 # Tangiers
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		
+		modifier = {
+			factor = 0.5
+			334 = {
+				owner = {
+					army_size = GEN
+				}
+			}
+		}
+	}
+	immediate = {
+		add_claim = 334 # Tangiers
+	}
+	abort_effect = {
+		remove_claim = 334 # Tangiers
+	}
+	effect = {
+		add_mercantilism = 10
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 1825
+		}
+		334 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+tradenode_sevilla = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		government = merchant_republic
+		is_free_or_tributary_trigger = yes
+		NOT = {
+			owns = 2311 # Sevilla
+		}
+		NOT = {
+			any_known_country = {
+				capital = 2311 # Sevilla
+			}
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 2311 # Sevilla
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		
+		modifier = {
+			factor = 0.5
+			2311 = {
+				owner = {
+					army_size = GEN
+				}
+			}
+		}
+	}
+	immediate = {
+		add_claim = 2311 # Sevilla
+	}
+	abort_effect = {
+		remove_claim = 2311 # Sevilla
+	}
+	effect = {
+		add_mercantilism = 10
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 1825
+		}
+		2311 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+
+tradenode_napoli = {
+	
+	type = country
+	
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = GEN
+		government = merchant_republic
+		is_free_or_tributary_trigger = yes
+		NOT = {
+			owns = 2531 # Napoli
+		}
+		NOT = {
+			any_known_country = {
+				capital = 2531
+			}
+		}
+	}
+	abort = {
+		is_subject_other_than_tributary_trigger = yes
+	}
+	success = {
+		owns = 2531
+	}
+	chance = {
+		factor = 1000
+		modifier = {
+			factor = 2
+			mil = 4
+		}
+		
+		modifier = {
+			factor = 0.5
+			2531 = {
+				owner = {
+					army_size = GEN
+				}
+			}
+		}
+	}
+	immediate = {
+		add_claim = 2531
+	}
+	abort_effect = {
+		remove_claim = 2531
+	}
+	effect = {
+		add_mercantilism = 10
+		add_country_modifier = {
+			name = "mediterranean_ambition"
+			duration = 1825
+		}
+		2531 = {
+			add_territorial_core_effect = yes
+		}
+	}
+}
+

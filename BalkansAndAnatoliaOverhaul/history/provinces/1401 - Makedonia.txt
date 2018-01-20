@@ -4,7 +4,7 @@ add_core = BYZ
 
 capital = "Ohrid"
 trade_goods = wool
-culture = greek
+culture = bulgarian
 religion = orthodox
 
 hre = no

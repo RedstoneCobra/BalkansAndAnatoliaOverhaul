@@ -7,7 +7,7 @@ add_permanent_claim = BYZ
 
 capital = "Gjirokaster"
 trade_goods = wool
-culture = greek
+culture = grecoroman
 religion = orthodox
 
 hre = no
