@@ -1,0 +1,88 @@
+# No previous file for Shumen
+
+owner = BUL
+controller = BUL
+add_core = BUL
+
+capital = "Shumen"
+trade_goods = wheat
+culture = bulgarian
+religion = orthodox
+
+hre = no
+
+base_tax = 2
+base_production = 3
+base_manpower = 0
+
+is_city = yes
+urban_infrastructure_1 = yes
+marketplace = yes
+workshop = yes
+local_fortification_1 = yes
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = turkishtech
+discovered_by = steppestech
+
+500.1.1 = {
+	add_permanent_province_modifier = {
+		name = urban_goods_metalwork
+		duration = -1
+	}
+}
+1371.2.17 = {
+	owner = TAR
+	controller = TAR
+	add_core = TAR
+	remove_core = BUL
+}
+1375.1.1 = {
+	owner = OTT
+	controller = OTT
+	add_core = OTT
+	capital = "Eski Zagra"
+	change_province_name = "Zagra"
+}
+1390.1.1 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+	remove_core = OTT
+}
+1393.7.17 = {
+	add_core = BUL
+	remove_core = TAR
+}
+#1453.5.29 = {
+#	remove_core = BYZ
+#}
+1520.5.5 = {
+	base_tax = 2
+	base_production = 5
+	base_manpower = 0
+}
+1530.1.3 = {
+	road_network = no
+	paved_road_network = yes
+}
+1598.1.1 = {
+	controller = REB
+} # First Tarnovo Uprising
+1600.1.1 = {
+	controller = TUR
+}
+1686.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+	controller = REB
+} # Second Tarnovo Uprising
+1690.1.1 = {
+	revolt = { }
+	controller = TUR
+}
+

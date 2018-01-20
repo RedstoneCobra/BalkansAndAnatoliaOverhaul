@@ -1,0 +1,81 @@
+# 2382 - Badin
+
+owner = VID
+controller = VID
+add_core = VID
+
+capital = "Vidin"
+trade_goods = lumber
+culture = bulgarian
+religion = orthodox
+
+hre = no
+
+base_tax = 8
+base_production = 0
+base_manpower = 0
+
+is_city = yes
+local_fortification_1 = yes
+town_hall = yes
+marketplace = yes
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = turkishtech
+discovered_by = steppestech
+
+1356.1.1 = {
+	set_province_flag = mined_goods
+	set_province_flag = salt
+}
+1365.1.1 = {
+	controller = HUN
+}
+1369.1.1 = {
+	controller = VID
+}
+1393.7.17 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+	add_core = BUL
+	remove_core = VID
+}
+1481.6.1 = {
+	controller = REB
+} # Civil war, Bayezid & Jem
+1482.7.26 = {
+	controller = TUR
+} # Jem escapes to Rhodes
+1520.5.5 = {
+	base_tax = 8
+	base_production = 1
+	base_manpower = 0
+}
+1530.1.3 = {
+	road_network = no
+	paved_road_network = yes
+}
+1550.1.1 = {
+	fort_14th = yes
+}
+1555.1.1 = {
+	unrest = 5
+} # General discontent with the Janissaries' dominance
+1556.1.1 = {
+	unrest = 0
+}
+1688.1.1 = {
+	unrest = 6
+} # Rebellion against Ottoman rule, centered on Chiprovtzi
+1689.1.1 = {
+	unrest = 0
+} # Brutally suppressed by Janissaries
+1793.1.1 = {
+	unrest = 5
+} # Pasvanoglu  Rebellion, centered at Vidin
+1798.1.1 = {
+	unrest = 0
+}

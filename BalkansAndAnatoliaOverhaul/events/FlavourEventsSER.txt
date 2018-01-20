@@ -1,0 +1,89 @@
+########################################
+# Flavor Events for Serbia
+#
+# Scripted by GiGau
+########################################
+
+# John Orsini-Doukas takes control over Epirus 
+country_event = {
+	id = flavor_ser.1
+	title = "flavor_ser.1.n"
+	desc = "flavor_ser.1.t"
+	picture = SERBIA_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {									#Need to make Custom Trigger
+		tag = SER
+		NOT = { is_year = 1360 }
+		owns = 3775 # Rasina
+	}
+	
+	mean_time_to_happen = { months = 12 }      #Need to set custom time 
+	
+	immediate = {
+		release = EPI
+		EPI = {
+			define_ruler = {
+				name = "Nikephoros II"
+				dynasty = "Doukas"
+				adm = 3
+				dip = 1
+				mil = 2
+				fixed = yes 
+				age = 28
+				claim = 95
+				}
+			define_ruler_to_general = {
+			fire = 0
+			shock = 1
+			manuever = 1
+			siege = 0
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_ser.2.a"
+		add_treasury = 50
+				}
+			}
+		}
+	}
+}
+
+	
+	# Simeon Uros proclaims himself Tsar of the Greeks, Serbs, and Albanians and marches on Serbia
+	country_event = {
+	id = flavor_ser.2
+	title = "flavor_ser.2.n"
+	desc = "flavor_ser.2.t"
+	picture = SERBIA_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SER
+		NOT = { is_year = 1360 }
+		owns = 3775 # Rasina
+	}
+	
+	mean_time_to_happen = { months = 12 }
+	
+	option = {
+		name = "flavor_ser.2.a"
+		SER = {
+			release = TSL 
+			define_ruler = {
+				name = "Simeon Uros"
+				dynasty = "Doukas"
+				adm = 5
+				dip = 4
+				mil = 4
+				age = 28
+				claim = 95
+			}
+		}
+	}
+}
+

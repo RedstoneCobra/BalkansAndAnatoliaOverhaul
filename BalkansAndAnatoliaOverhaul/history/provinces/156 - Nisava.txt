@@ -1,0 +1,88 @@
+# 156 - Nisava
+
+owner = SER
+controller = SER
+add_core = SER
+
+capital = "Nis"
+trade_goods = wheat
+culture = serbian
+religion = orthodox
+
+hre = no
+
+base_tax = 3
+base_production = 1
+base_manpower = 0
+
+is_city = yes
+town_hall = yes
+road_network = yes
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = turkishtech
+discovered_by = steppestech
+
+450.1.1 = {
+	set_province_flag = mined_goods
+	set_province_flag = copper
+}
+1356.1.1 = {
+	set_province_flag = add_local_autonomy_15
+}
+1385.1.1 = {
+	owner = OTT
+	controller = OTT
+	add_core = OTT
+	set_province_flag = subtract_local_autonomy_15
+}
+1390.1.1 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+	remove_core = OTT
+}
+1443.1.1 = {
+	owner = SER
+	controller = SER
+} # Niš falls to the Christian during the Long Campaign, and is given back to the Serbs
+1444.1.1 = {
+	add_claim = TUR
+}
+1448.1.1 = {
+	owner = TUR
+	controller = TUR
+} # Niš succombs to the Turks again, and for 245 years
+1520.5.5 = {
+	base_tax = 3
+	base_production = 2
+	base_manpower = 0
+}
+1530.1.3 = {
+	road_network = no
+	paved_road_network = yes
+}
+1806.1.8 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 0
+	}
+	controller = REB
+} # The first Serbian uprising
+1813.1.1 = {
+	revolt = { }
+	controller = TUR
+}
+1815.4.23 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 0
+	}
+	controller = REB
+} # The second Serbian uprising
+1817.1.1 = {
+	revolt = { }
+	controller = TUR
+}

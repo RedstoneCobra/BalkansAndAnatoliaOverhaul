@@ -1,8 +1,9 @@
 # 2373 - Durrës
 
-owner = SER
-controller = SER
-add_core = SER
+owner = ALC
+controller = ALC
+add_core = ALC
+add_claim = SER
 
 capital = "Durrës"
 trade_goods = lumber
