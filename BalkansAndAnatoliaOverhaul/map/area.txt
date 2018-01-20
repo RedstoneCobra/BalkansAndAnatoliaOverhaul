@@ -922,7 +922,7 @@ morea_area = {
 }
 
 epirus_area = {
-	142 154 1399 1436 144 
+	142 154 1399 1436 144 5523 5524
 }
 
 thessalia_area = {
