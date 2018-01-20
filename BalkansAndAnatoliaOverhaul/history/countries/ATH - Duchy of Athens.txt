@@ -5,7 +5,7 @@ government = feudal_monarchy government_rank = 1
 mercantilism = 0.0
 primary_culture = catalan
 add_accepted_culture = grecoroman
-religion = catholic # catholic
+religion = catholic 
 technology_group = eastern
 unit_type = western
 capital = 146	#Athens

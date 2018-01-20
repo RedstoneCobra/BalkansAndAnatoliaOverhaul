@@ -30,6 +30,7 @@ historical_friend = ATH
 		ADM = 3
 	}
 }
+
 1361.4.11 = {
 	queen = {
 		country_of_origin = ARA
@@ -42,7 +43,7 @@ historical_friend = ATH
 		DIP = 2
 		MIL = 2
 	}
-}
+} # Dies either from Plague or childbirth complications
 
 1363.7.2 = {
 	heir = {
@@ -58,6 +59,19 @@ historical_friend = ATH
 		female = yes
 	}
 }
+
+1377.1.27 = {
+	monarch = {
+		name = "Maria"
+		dynasty = "de Barchinona"
+		birth_date = 1363.7.2
+		DIP = 4
+		MIL = 5
+		ADM = 3
+		female = yes
+	}
+}
+
 1388.5.2  = {
 	monarch = {
 		name = "Rainerio"
