@@ -5052,12 +5052,223 @@ albanese = {
 	}
 }
 
-# culture count: 8
+# culture count: 6
 caucasus_group = {
 	graphical_culture = easterngfx
+	dagestani = {
+		primary = GAZ
+		country = { #Communist
+			global_autonomy = -0.05
+			war_exhaustion = -0.01
+			religious_unity = 0.05
+			
+			state_maintenance_modifier = 0.1
+			global_trade_goods_size_modifier = -0.025
+		}
+		dynasty_names = {
+			Shamkhal Kumukh
+		}
+		male_names = {
+			Surkhay Eldar Budai Alibek Aidemer Magomed Hassan Khalil Bahram Ghazi Farrukhsiyar Mahmud
+		}
+		female_names = {
+			Elisu Gulandash Aamnat Ajmaani Ajsyat Ajza Ajzan Albiika Albiina Amiina Asma Asyat Azman Aznii Beliita Bilquis 
+			Busana Dagman Dagmani Dagmara Deshi Dikman Duqyaakha Eliina Eliita Eliiza Esiila Havaa Kamiila Kamiisa Kariina 
+		}
+	}
+	circassian = {
+		primary = CIR
+		country = { 
+			global_autonomy = -0.05
+			war_exhaustion = -0.01
+			religious_unity = 0.05
+			
+			state_maintenance_modifier = 0.1
+			global_trade_goods_size_modifier = -0.025
+		}
+		male_names = {
+			Petrezok Verzacht Belzebuk Parsabok Smbat Stepanos Stephen Tachat Taniel Daniel Tatoul Tigran 
+			Tornik Tovmas Thomas Thoros Theodore Trdat Vache Vachagan Vagharshak Vahag Vahan Vahram Vakhtank Varazdat
+			Vartan Vassak Vesd Vrtanes Zakare Zarmihr
+			
+			Bougatchik Tanachouk Sibok Atsymtchouk Toutaryk Ezgbold Koudadik Kavklytch Kanoukov 
+			Temriouk Tazriout Tchiourak Baachik Machik Boulgairouk Namstriouk Chopchouk 
+			Mait Kanboulat Koudenet Khoudenet Otchikan Damaniouk Domaniouk Isbouldoug Anzarouk 
+			Chimgalei Kanglytchev Bitemriouk Cholokh Tachbsaroukov Papchouk Oslonbek 
+			Kaitouk Nastriouk Nartchov Pchimakha Iansokh Ademir Kazanalp Boudatcheis Sountchelei 
+			Olegouk Khotokiouki Ildar Tchapolov Saltankoul Saouslan Tazryt Okhlov Moudar 
+			Kounmourza Kanchov Slanbek inarmas Klytch Sataltanmagnout Kazy
+		}
+		female_names = {
+			Zuliyzhan Susane Babishe Zmroukhd Adrine Elsapet Sarine Khazbiika Kheeda Kurbiika Laila Laliita Lamaara Liiza Looli 
+			Lulii Maali Maaret Madiina Makka Maliika Malkan Marjam Marzhan Milaana Nurbiika Nurishat Nuura Peet'mat Qoqa
+		}
+		dynasty_names = {
+			Guaye Adamiy Abzakh Zhaney Mamkhegh Mokhosh Natukhai Temirgoy
+			Hatuqwai Khegaik Khetuk Cöbein Shapsug Beslenei Ubykh Tazryt Okhlov
+		}
+	}
+	abazin = {
+		primary = ABZ
+		country = { 
+			global_autonomy = -0.05
+			war_exhaustion = -0.01
+			religious_unity = 0.05
+			
+			state_maintenance_modifier = 0.1
+			global_trade_goods_size_modifier = -0.025
+		}
+		male_names = {
+			Petrezok Verzacht Belzebuk Parsabok Smbat Stepanos Stephen Tachat Taniel Daniel Tatoul Tigran 
+			Tornik Tovmas Thomas Thoros Theodore Trdat Vache Vachagan Vagharshak Vahag Vahan Vahram Vakhtank Varazdat
+			Vartan Vassak Vesd Vrtanes Zakare Zarmihr
+			
+			Bougatchik Tanachouk Sibok Atsymtchouk Toutaryk Ezgbold Koudadik Kavklytch Kanoukov 
+			Temriouk Tazriout Tchiourak Baachik Machik Boulgairouk Namstriouk Chopchouk 
+			Mait Kanboulat Koudenet Khoudenet Otchikan Damaniouk Domaniouk Isbouldoug Anzarouk 
+			Chimgalei Kanglytchev Bitemriouk Cholokh Tachbsaroukov Papchouk Oslonbek 
+			Kaitouk Nastriouk Nartchov Pchimakha Iansokh Ademir Kazanalp Boudatcheis Sountchelei 
+			Olegouk Khotokiouki Ildar Tchapolov Saltankoul Saouslan Tazryt Okhlov Moudar 
+			Kounmourza Kanchov Slanbek inarmas Klytch Sataltanmagnout Kazy
+		}
+		female_names = {
+			Zuliyzhan Susane Babishe Zmroukhd Adrine Elsapet Sarine Khazbiika Kheeda Kurbiika Laila Laliita Lamaara Liiza Looli 
+			Lulii Maali Maaret Madiina Makka Maliika Malkan Marjam Marzhan Milaana Nurbiika Nurishat Nuura Peet'mat Qoqa
+		}
+		dynasty_names = {
+			Guaye Adamiy Abzakh Zhaney Mamkhegh Mokhosh Natukhai Temirgoy
+			Hatuqwai Khegaik Khetuk Cöbein Shapsug Beslenei Ubykh Tazryt Okhlov
+		}
+	}
+	ossetian = {
+		primary = OSS
+		country = { 
+			global_autonomy = -0.05
+			war_exhaustion = -0.01
+			religious_unity = 0.05
+			
+			state_maintenance_modifier = 0.1
+			global_trade_goods_size_modifier = -0.025
+		}
+		# male and female names courtesy of Aasamul of the SWMH team on the HIP mod
+		male_names = {
+			Ælbeg Æmbalan Aghsartan Alatey Akhsar Anbal Anbazuk Aravat Arsen Askhkadar Ashot_Ashot Aslan Aspar
+			Athom Balambar Balsag Barlah Bæqætar Basil_Basil Bazuk Beler Ber Biræg Boz-Uruz Buürgur Buriberdi
+			Burikhan Candak Chelakhsartag Davit_David Djadaron Durgulel Dzæræs Gætæg Georgy_George Girgon Gokhar
+			Gubaz Guram_Guaram Hasqar Huddan Istor Itaz Iveri Kandak Kandz Kavtia Kaur Khankhusy Khætag
+			Konstantin_Constantine Kubal Kuddana Kul Kuluk Lak Levan_Leo Pulad Respendial Rosmag Safrak Sakhir
+			Sangipan Saros Sathis Savkudz Soslan Suarn Syrdon Taymuraz_Teimuraz Taus Totraz Urdure Uruzma Uturku
+			Yasynya Zaur
+		}
+		female_names = {
+			Adadza Alda_Alduara Altun Ana_Anna Atsyrukhs Baia Bedisa Borena Btsenon Burudukan Duda Elene_Helen
+			Eliso Gergana Gulchara Guranduht_Gorandukht Kera Keratsa Ketevan_Catherine Koser Lamara Lashin Lela
+			Mariami_Mariam Natia Nino Rusudan Sanatha Satinik_Satinik Shatana Shorena Shukhia Tamari_Tamar
+			Tinatini Tsiala Vardo Vedokha Yeran
+		}
+		dynasty_names = {
+			# CKII - Alan
+			"Burtasid" "Alauni" "Halani" "Shoana" "Senty" "Zmbalani" "Sathisi" "Totrazi" "Ovseti" "Tsaerasantae" "Aelbeg" 
+			"Ardasen" "Bekkuyzar" "Geber" "Dzarehoh" "Dzeby" "Djerdji" "Guyrdzybe" "Zaendji" 
+			"Kaerkuys" "Djykkaj" "Godjysa" "Magket" "Paerraesta" "Hetaegkat" "Haedarca" "Tuallaeg" 
+			"Faerniat" "Ephraimid" "Tandelat" "Tsaeykostae" "Sozana" "Maerzoj"
+		}
+	}
+	chechen = {
+		primary = CHN
+		country = { 
+			global_autonomy = -0.05
+			war_exhaustion = -0.01
+			religious_unity = 0.05
+			
+			state_maintenance_modifier = 0.1
+			global_trade_goods_size_modifier = -0.025
+		}
+		#names are modern, because that's all we've got
+		male_names = {
+			Abbas Abdulbek Abdulkhamid Abdulkerim Abdulla Abdulmezhid Abdulvagap Abdulvakhid Abdurakhman Abdurashid
+			Abu Abuali Abubakar Abukhan Abumuslim Abusaid Adlan Akhmad Akbolat Alambek Alaudin Alibek Alkhazur Alihan
+			Alik Alu Alvi Andarbek Anzor Apti Arbi Argun Arzu Aslan Aslanbek Asmart Asu Avtorhan Aydamir Ayndi Ayub
+			Ayubkhan Badruddin Bakar Bashir Batirbek Batir Bauddin Baysangur Bekbulat Bekbuzar Bekhan Bekmarza Bislan
+			Bibulat Bulat Borz Boysaghar Bula Buvaysar Chaborz Dalkhan Daud Deni Denilbek Dokka Doku Dugurkhan Duqvakha
+			Durgali Dzhabrail Dzhamal Dzhamalay Dzhamaldi Dzhambek Dzhambolat Dzhamirza Dzhokhar Edil Edilbek Elbek Elberd
+			Elbrus Eldar Elimbi Elimkhan Elmurza Emin Eriskhan Gada Gayr Gayrbek Ibrakhim Idris Ilman Ilyas Imran Irskhan
+			Isa Israpil Kakhir Kazbek Keram Khadzhimurat Khalid Khamza Khanpasa Kharon Khasan Khasanbek Khasbulat Khasu
+			Khasucha Khasurt Khatu Khavazh Khaydarbi Khazarbek Khizir Khoza Khuseyn Kunta Kuyra Lechi Makharbi Makkal Mayra
+			Mikail Movlid Movsar Mukharbek Mumadi Murvan Musa Nazhmuddin Nasuh Naurbi Nezh Nurali Nurdi Olkhazar Ortsa Ovlur
+			Payzulla Rasul Rizvan Ruman Ruslan Salavdi Salikh Salman Saparbek Sirazhdi Soib Solsa Soslanbek Supyan Surkho
+			Sutarbi Shahab Shamil Shapa Sharani Sherip Shukurbi Tapa Tasho Turpal Umalt Ushurma Vakha Vakhita Valid Vezirkhan
+			Visa Visangiri Visiyta Yakhya Yandar Yandarbi Yaqub Yunadi Yunus Zaur Zoyrbek Zayndi Ziyardi Zovra Zubair 
+		}
+		female_names = {
+			Albika Albina Alpatu Aminat Asma Asyat Aybika Aymani Ayna Ayshat Ayzan Aza Azni Batta Belita Bikatu Bilqiz 
+			Birlant Bitsi Busana Cheqag Chovka Dagman Dagmara Deshi Deti Dikman Duqyaha Elbika Elina Elita Elmira Eset Esila
+			Ezinet Indira Izaket Kameta Kamisa Kesirat Kaypa Khava Khaza Khazbika Kheda Khiazni Kurbika Kurzhan Kusama Lalita
+			Lamara Larisa Makka Malkh Malkhazni Maret Markha Marzhan Maryam Marzet Marziyet Nura Nurbika Nurishat Nurzhan Nurset
+			Petimat Polla Qoqa Raisa Rovzan Roza Ruman Ruvayda Sakinat Satsita Sepiyat Shahidat Shovda Taisa Taus Taymaskha Toita
+			Tumisha Valida Yakha Yahita Yeza Yisiyta Zakiyat Zama Zamira Zara Zargan Zarita Zulay 
+		}
+		dynasty_names = {
+			Cheberloy Nijaloy Makazhoy Rigakhoy Buni Sharoy Shotoy Varandoy Akkiy Myalkiy Nokhchmakhkakhoy Alaroy Belgatoy Benoy
+			Biltoy Dishni Chartoy Centoroy Elistanzhkhoy Enganoy Ersenoy Gendargenoy Gunoi Kharachoi Zandakhoi Terloy Beshni
+			Chinkhoi Chanti
+		}
+	}
+	avar = {
+		country = { 
+			global_autonomy = -0.05
+			war_exhaustion = -0.01
+			religious_unity = 0.05
+			
+			state_maintenance_modifier = 0.1
+			global_trade_goods_size_modifier = -0.025
+		}
+		male_names = {
+			Abukhisro Akhsuvar Alp Avaz Awach'i Badr Bukht-Yisho Firudzha Alatey Akhsar Anbal Anbazuk Aravat
+			Arsen Askhkadar Ashot_Ashot Aslan Aspar Athom Balambar Balsag Barlah Bæqætar Basil_Basil Bazuk Beler
+			Ber Biræg Boz-Uruz Buürgur Buriberdi Burikhan Candak Chelakhsartag Davit_David Djadaron Durgulel
+			Dzæræs Gætæg Georgy_George Girgon Gokhar Gubaz Guram_Guaram Hasqar Huddan Istor Itaz Iveri Kandak
+			Kandz Kavtia Kaur Khankhusy Khætag Konstantin_Constantine Kubal Kuddana Kul Kuluk Lak Levan_Leo Piruz
+			Pulad Respendial Rosmag Safrak Sakban Sakhir Sangipan Saros Sathis Savkudz Soslan Suarn Syrdon Takho
+			Taymuraz_Teimuraz Taus Totraz Urdure Uruzma Uturku Yasynya Zaur
+		}
+		female_names = {
+			Tsiala Sarah Adadza Alda Altun Ana_Anna Atsyrukhs Baia Bedisa Borena Btsenon Burudukan Duda
+			Elene_Helen Eliso Gergana Gulchara Guranduht_Gorandukht Kera Keratsa Ketevan_Catherine Koser Lamara
+			Lashin Lela Mariami_Mariam Natia Nino Rusudan Sanatha Satinik_Satinik Shatana Shorena Shukhia
+			Tamari_Tamar Tinatini Vardo Vedokha Yeran
+		}
+		dynasty_names = {
+			#Ethnic subgroups of Avars. If you find something better, please replace
+			Akhvakh Anchikh Andis Archin Bagulal Bezhta Botlikh Chamalal Didoi Godoberi Hinukhs Hunzib Karata
+			Khvarshi Rachabalda Ratsitl Tindi Tokita
+		}
+	}
+	caucasus_colonial = {
+		country = { 
+			global_autonomy = -0.05
+			war_exhaustion = -0.01
+			religious_unity = 0.05
+			
+			state_maintenance_modifier = 0.1
+			global_trade_goods_size_modifier = -0.025
+		}
+	}
+	dynasty_names = {
+		# CKII - Alan
+		"Burtasid" "Alauni" "Halani" "Shoana" "Senty" "Zmbalani" "Sathisi" "Totrazi" "Ovseti" "Tsaerasantae" "Aelbeg" 
+		"Ardasen" "Bekkuyzar" "Geber" "Dzarehoh" "Dzeby" "Djerdji" "Guyrdzybe" "Zaendji" 
+		"Kaerkuys" "Djykkaj" "Godjysa" "Magket" "Paerraesta" "Hetaegkat" "Haedarca" "Tuallaeg" 
+		"Faerniat" "Ephraimid" "Tandelat" "Tsaeykostae" "Sozana" "Maerzoj"
+	}
+}
+
+# culture count: 4
+kartvelian = {
+graphical_culture = easterngfx
 	georgian = {
 		primary = GEO
-		country = { #Communist
+		country = { 
 			global_autonomy = -0.05
 			war_exhaustion = -0.01
 			religious_unity = 0.05
@@ -5097,9 +5308,8 @@ caucasus_group = {
 			Tamari Tamar Taplo Tinatini Tsiala Vardo
 		}
 	}
-	dagestani = {
-		primary = GAZ
-		country = { #Communist
+		svanuri = {
+		country = { 
 			global_autonomy = -0.05
 			war_exhaustion = -0.01
 			religious_unity = 0.05
@@ -5108,207 +5318,84 @@ caucasus_group = {
 			global_trade_goods_size_modifier = -0.025
 		}
 		dynasty_names = {
-			Shamkhal Kumukh
+			Bagrationi Mukhrani
+			# CKII
+			"Javakhishvili" "Jaqeli" "Sologashvili" "Tavdgiridze" "Vakhvakhishvili" 
+			"Andronikashvili" "Gurieli" "Machabeli" "Abazasdze" "Zevdginidze" "Amirejibi" "Abuladze" 
+			"Chkhetidze" "Gelovani" "Panaskerteli" "Agiashvili" "Chavchavadze" 
+			"Cholokashvili" "Diasamidze" "Shildisani" "Iashvili" "Anchabadze"
+			"Orbeliani" "Japaridze" "Jorjadze"
+			"Kakhaberisdze" "Kherkheulidze" "Khimshiashvili" "Shervashidze" "Dadiani" 
+			"Kobulashvili" "Lortkipanidze" "Machutadze" "Mikeladze" "Mkhetsidze" "Palavandishvili"
 		}
 		male_names = {
-			Surkhay Eldar Budai Alibek Aidemer Magomed Hassan Khalil Bahram Ghazi Farrukhsiyar Mahmud
+			Archil Bakar Iesse 
+			Kaihosro Rostom-Mirza Stefanoz Bebur Birtveli Djurkha Gulikho Kartlos Koki 
+			Lukhum Mushni Revaz Takha Torgva Tsotne Xareba Zviadi
+			Adarnase Atrnerseh Aghsartan Aleksandre Andronik Anzori Archili
+			Ashot Bagrat Bakur Bagour Davit Demetre Demna Djavakhi Erekle 
+			Gabriel Gagiki Gagik Giorgi Grigoli Guaram Gubaz Kviria
+			Gurgen Lupo Iese Ioane Ishkhanik Ishkhan Iveri Jarji Kaikhosro Keykhosrau Kakhi Koba 
+			Konstantine Kvarkvare Kvirike Levan Leo Luarsab Malkhazi Malkhas Mamia Merab 
+			Mikheil Mukhran Nerse Narses Nikoloz Nicholas Okhropir Orbeli Gabrieli
+			Padla Samoeli Shanshe Shahanshah Shota Simon Stepanoz Sumbat Smbat 
+			Teimuraz Tornike Tornik Ushisha Vache Vakhtang Vakhtank Zurab Zviad
 		}
 		female_names = {
-			Elisu Gulandash Aamnat Ajmaani Ajsyat Ajza Ajzan Albiika Albiina Amiina Asma Asyat Azman Aznii Beliita Bilquis 
-			Busana Dagman Dagmani Dagmara Deshi Dikman Duqyaakha Eliina Eliita Eliiza Esiila Havaa Kamiila Kamiisa Kariina 
+			Ana Anna Baia Bedisa Borena Chiora Chito Dali Dedika Duda Dzabuli Elene Helen Eliso Endzela 
+			Gogutsa Gulchara Guliko Gulisa Gulvardi Guranduht Gorandukht Gvantsa Ia Judjuna Thamar
+			Kekela Ketevan Catherine Lamara Lamzira Lela Mariami Mariam Mathiko Mthvarisa Mzekhar Natia 
+			Nino Rusudan Sanatha Shorena Shukhia Suliko
+			Tamari Tamar Taplo Tinatini Tsiala Vardo
 		}
 	}
-	circassian = {
-		primary = CIR
-		country = { #Communist
+		zanuri = {
+		country = { 
 			global_autonomy = -0.05
 			war_exhaustion = -0.01
 			religious_unity = 0.05
 			
 			state_maintenance_modifier = 0.1
 			global_trade_goods_size_modifier = -0.025
-		}
-		male_names = {
-			Petrezok Verzacht Belzebuk Parsabok Smbat Stepanos Stephen Tachat Taniel Daniel Tatoul Tigran 
-			Tornik Tovmas Thomas Thoros Theodore Trdat Vache Vachagan Vagharshak Vahag Vahan Vahram Vakhtank Varazdat
-			Vartan Vassak Vesd Vrtanes Zakare Zarmihr
-			
-			Bougatchik Tanachouk Sibok Atsymtchouk Toutaryk Ezgbold Koudadik Kavklytch Kanoukov 
-			Temriouk Tazriout Tchiourak Baachik Machik Boulgairouk Namstriouk Chopchouk 
-			Mait Kanboulat Koudenet Khoudenet Otchikan Damaniouk Domaniouk Isbouldoug Anzarouk 
-			Chimgalei Kanglytchev Bitemriouk Cholokh Tachbsaroukov Papchouk Oslonbek 
-			Kaitouk Nastriouk Nartchov Pchimakha Iansokh Ademir Kazanalp Boudatcheis Sountchelei 
-			Olegouk Khotokiouki Ildar Tchapolov Saltankoul Saouslan Tazryt Okhlov Moudar 
-			Kounmourza Kanchov Slanbek inarmas Klytch Sataltanmagnout Kazy
-		}
-		female_names = {
-			Zuliyzhan Susane Babishe Zmroukhd Adrine Elsapet Sarine Khazbiika Kheeda Kurbiika Laila Laliita Lamaara Liiza Looli 
-			Lulii Maali Maaret Madiina Makka Maliika Malkan Marjam Marzhan Milaana Nurbiika Nurishat Nuura Peet'mat Qoqa
 		}
 		dynasty_names = {
-			Guaye Adamiy Abzakh Zhaney Mamkhegh Mokhosh Natukhai Temirgoy
-			Hatuqwai Khegaik Khetuk Cöbein Shapsug Beslenei Ubykh Tazryt Okhlov
-		}
-	}
-	abazin = {
-		primary = ABZ
-		country = { #Communist
-			global_autonomy = -0.05
-			war_exhaustion = -0.01
-			religious_unity = 0.05
-			
-			state_maintenance_modifier = 0.1
-			global_trade_goods_size_modifier = -0.025
+			Bagrationi Mukhrani
+			# CKII
+			"Javakhishvili" "Jaqeli" "Sologashvili" "Tavdgiridze" "Vakhvakhishvili" 
+			"Andronikashvili" "Gurieli" "Machabeli" "Abazasdze" "Zevdginidze" "Amirejibi" "Abuladze" 
+			"Chkhetidze" "Gelovani" "Panaskerteli" "Agiashvili" "Chavchavadze" 
+			"Cholokashvili" "Diasamidze" "Shildisani" "Iashvili" "Anchabadze"
+			"Orbeliani" "Japaridze" "Jorjadze"
+			"Kakhaberisdze" "Kherkheulidze" "Khimshiashvili" "Shervashidze" "Dadiani" 
+			"Kobulashvili" "Lortkipanidze" "Machutadze" "Mikeladze" "Mkhetsidze" "Palavandishvili"
 		}
 		male_names = {
-			Petrezok Verzacht Belzebuk Parsabok Smbat Stepanos Stephen Tachat Taniel Daniel Tatoul Tigran 
-			Tornik Tovmas Thomas Thoros Theodore Trdat Vache Vachagan Vagharshak Vahag Vahan Vahram Vakhtank Varazdat
-			Vartan Vassak Vesd Vrtanes Zakare Zarmihr
-			
-			Bougatchik Tanachouk Sibok Atsymtchouk Toutaryk Ezgbold Koudadik Kavklytch Kanoukov 
-			Temriouk Tazriout Tchiourak Baachik Machik Boulgairouk Namstriouk Chopchouk 
-			Mait Kanboulat Koudenet Khoudenet Otchikan Damaniouk Domaniouk Isbouldoug Anzarouk 
-			Chimgalei Kanglytchev Bitemriouk Cholokh Tachbsaroukov Papchouk Oslonbek 
-			Kaitouk Nastriouk Nartchov Pchimakha Iansokh Ademir Kazanalp Boudatcheis Sountchelei 
-			Olegouk Khotokiouki Ildar Tchapolov Saltankoul Saouslan Tazryt Okhlov Moudar 
-			Kounmourza Kanchov Slanbek inarmas Klytch Sataltanmagnout Kazy
+			Archil Bakar Iesse 
+			Kaihosro Rostom-Mirza Stefanoz Bebur Birtveli Djurkha Gulikho Kartlos Koki 
+			Lukhum Mushni Revaz Takha Torgva Tsotne Xareba Zviadi
+			Adarnase Atrnerseh Aghsartan Aleksandre Andronik Anzori Archili
+			Ashot Bagrat Bakur Bagour Davit Demetre Demna Djavakhi Erekle 
+			Gabriel Gagiki Gagik Giorgi Grigoli Guaram Gubaz Kviria
+			Gurgen Lupo Iese Ioane Ishkhanik Ishkhan Iveri Jarji Kaikhosro Keykhosrau Kakhi Koba 
+			Konstantine Kvarkvare Kvirike Levan Leo Luarsab Malkhazi Malkhas Mamia Merab 
+			Mikheil Mukhran Nerse Narses Nikoloz Nicholas Okhropir Orbeli Gabrieli
+			Padla Samoeli Shanshe Shahanshah Shota Simon Stepanoz Sumbat Smbat 
+			Teimuraz Tornike Tornik Ushisha Vache Vakhtang Vakhtank Zurab Zviad
 		}
 		female_names = {
-			Zuliyzhan Susane Babishe Zmroukhd Adrine Elsapet Sarine Khazbiika Kheeda Kurbiika Laila Laliita Lamaara Liiza Looli 
-			Lulii Maali Maaret Madiina Makka Maliika Malkan Marjam Marzhan Milaana Nurbiika Nurishat Nuura Peet'mat Qoqa
+			Ana Anna Baia Bedisa Borena Chiora Chito Dali Dedika Duda Dzabuli Elene Helen Eliso Endzela 
+			Gogutsa Gulchara Guliko Gulisa Gulvardi Guranduht Gorandukht Gvantsa Ia Judjuna Thamar
+			Kekela Ketevan Catherine Lamara Lamzira Lela Mariami Mariam Mathiko Mthvarisa Mzekhar Natia 
+			Nino Rusudan Sanatha Shorena Shukhia Suliko
+			Tamari Tamar Taplo Tinatini Tsiala Vardo
 		}
-		dynasty_names = {
-			Guaye Adamiy Abzakh Zhaney Mamkhegh Mokhosh Natukhai Temirgoy
-			Hatuqwai Khegaik Khetuk Cöbein Shapsug Beslenei Ubykh Tazryt Okhlov
-		}
-	}
-	ossetian = {
-		primary = OSS
-		country = { #Communist
-			global_autonomy = -0.05
-			war_exhaustion = -0.01
-			religious_unity = 0.05
-			
-			state_maintenance_modifier = 0.1
-			global_trade_goods_size_modifier = -0.025
-		}
-		# male and female names courtesy of Aasamul of the SWMH team on the HIP mod
-		male_names = {
-			Ælbeg Æmbalan Aghsartan Alatey Akhsar Anbal Anbazuk Aravat Arsen Askhkadar Ashot_Ashot Aslan Aspar
-			Athom Balambar Balsag Barlah Bæqætar Basil_Basil Bazuk Beler Ber Biræg Boz-Uruz Buürgur Buriberdi
-			Burikhan Candak Chelakhsartag Davit_David Djadaron Durgulel Dzæræs Gætæg Georgy_George Girgon Gokhar
-			Gubaz Guram_Guaram Hasqar Huddan Istor Itaz Iveri Kandak Kandz Kavtia Kaur Khankhusy Khætag
-			Konstantin_Constantine Kubal Kuddana Kul Kuluk Lak Levan_Leo Pulad Respendial Rosmag Safrak Sakhir
-			Sangipan Saros Sathis Savkudz Soslan Suarn Syrdon Taymuraz_Teimuraz Taus Totraz Urdure Uruzma Uturku
-			Yasynya Zaur
-		}
-		female_names = {
-			Adadza Alda_Alduara Altun Ana_Anna Atsyrukhs Baia Bedisa Borena Btsenon Burudukan Duda Elene_Helen
-			Eliso Gergana Gulchara Guranduht_Gorandukht Kera Keratsa Ketevan_Catherine Koser Lamara Lashin Lela
-			Mariami_Mariam Natia Nino Rusudan Sanatha Satinik_Satinik Shatana Shorena Shukhia Tamari_Tamar
-			Tinatini Tsiala Vardo Vedokha Yeran
-		}
-		dynasty_names = {
-			# CKII - Alan
-			"Burtasid" "Alauni" "Halani" "Shoana" "Senty" "Zmbalani" "Sathisi" "Totrazi" "Ovseti" "Tsaerasantae" "Aelbeg" 
-			"Ardasen" "Bekkuyzar" "Geber" "Dzarehoh" "Dzeby" "Djerdji" "Guyrdzybe" "Zaendji" 
-			"Kaerkuys" "Djykkaj" "Godjysa" "Magket" "Paerraesta" "Hetaegkat" "Haedarca" "Tuallaeg" 
-			"Faerniat" "Ephraimid" "Tandelat" "Tsaeykostae" "Sozana" "Maerzoj"
-		}
-	}
-	chechen = {
-		primary = CHN
-		country = { #Communist
-			global_autonomy = -0.05
-			war_exhaustion = -0.01
-			religious_unity = 0.05
-			
-			state_maintenance_modifier = 0.1
-			global_trade_goods_size_modifier = -0.025
-		}
-		#names are modern, because that's all we've got
-		male_names = {
-			Abbas Abdulbek Abdulkhamid Abdulkerim Abdulla Abdulmezhid Abdulvagap Abdulvakhid Abdurakhman Abdurashid
-			Abu Abuali Abubakar Abukhan Abumuslim Abusaid Adlan Akhmad Akbolat Alambek Alaudin Alibek Alkhazur Alihan
-			Alik Alu Alvi Andarbek Anzor Apti Arbi Argun Arzu Aslan Aslanbek Asmart Asu Avtorhan Aydamir Ayndi Ayub
-			Ayubkhan Badruddin Bakar Bashir Batirbek Batir Bauddin Baysangur Bekbulat Bekbuzar Bekhan Bekmarza Bislan
-			Bibulat Bulat Borz Boysaghar Bula Buvaysar Chaborz Dalkhan Daud Deni Denilbek Dokka Doku Dugurkhan Duqvakha
-			Durgali Dzhabrail Dzhamal Dzhamalay Dzhamaldi Dzhambek Dzhambolat Dzhamirza Dzhokhar Edil Edilbek Elbek Elberd
-			Elbrus Eldar Elimbi Elimkhan Elmurza Emin Eriskhan Gada Gayr Gayrbek Ibrakhim Idris Ilman Ilyas Imran Irskhan
-			Isa Israpil Kakhir Kazbek Keram Khadzhimurat Khalid Khamza Khanpasa Kharon Khasan Khasanbek Khasbulat Khasu
-			Khasucha Khasurt Khatu Khavazh Khaydarbi Khazarbek Khizir Khoza Khuseyn Kunta Kuyra Lechi Makharbi Makkal Mayra
-			Mikail Movlid Movsar Mukharbek Mumadi Murvan Musa Nazhmuddin Nasuh Naurbi Nezh Nurali Nurdi Olkhazar Ortsa Ovlur
-			Payzulla Rasul Rizvan Ruman Ruslan Salavdi Salikh Salman Saparbek Sirazhdi Soib Solsa Soslanbek Supyan Surkho
-			Sutarbi Shahab Shamil Shapa Sharani Sherip Shukurbi Tapa Tasho Turpal Umalt Ushurma Vakha Vakhita Valid Vezirkhan
-			Visa Visangiri Visiyta Yakhya Yandar Yandarbi Yaqub Yunadi Yunus Zaur Zoyrbek Zayndi Ziyardi Zovra Zubair 
-		}
-		female_names = {
-			Albika Albina Alpatu Aminat Asma Asyat Aybika Aymani Ayna Ayshat Ayzan Aza Azni Batta Belita Bikatu Bilqiz 
-			Birlant Bitsi Busana Cheqag Chovka Dagman Dagmara Deshi Deti Dikman Duqyaha Elbika Elina Elita Elmira Eset Esila
-			Ezinet Indira Izaket Kameta Kamisa Kesirat Kaypa Khava Khaza Khazbika Kheda Khiazni Kurbika Kurzhan Kusama Lalita
-			Lamara Larisa Makka Malkh Malkhazni Maret Markha Marzhan Maryam Marzet Marziyet Nura Nurbika Nurishat Nurzhan Nurset
-			Petimat Polla Qoqa Raisa Rovzan Roza Ruman Ruvayda Sakinat Satsita Sepiyat Shahidat Shovda Taisa Taus Taymaskha Toita
-			Tumisha Valida Yakha Yahita Yeza Yisiyta Zakiyat Zama Zamira Zara Zargan Zarita Zulay 
-		}
-		dynasty_names = {
-			Cheberloy Nijaloy Makazhoy Rigakhoy Buni Sharoy Shotoy Varandoy Akkiy Myalkiy Nokhchmakhkakhoy Alaroy Belgatoy Benoy
-			Biltoy Dishni Chartoy Centoroy Elistanzhkhoy Enganoy Ersenoy Gendargenoy Gunoi Kharachoi Zandakhoi Terloy Beshni
-			Chinkhoi Chanti
-		}
-	}
-	avar = {
-		country = { #Communist
-			global_autonomy = -0.05
-			war_exhaustion = -0.01
-			religious_unity = 0.05
-			
-			state_maintenance_modifier = 0.1
-			global_trade_goods_size_modifier = -0.025
-		}
-		male_names = {
-			Abukhisro Akhsuvar Alp Avaz Awach'i Badr Bukht-Yisho Firudzha Alatey Akhsar Anbal Anbazuk Aravat
-			Arsen Askhkadar Ashot_Ashot Aslan Aspar Athom Balambar Balsag Barlah Bæqætar Basil_Basil Bazuk Beler
-			Ber Biræg Boz-Uruz Buürgur Buriberdi Burikhan Candak Chelakhsartag Davit_David Djadaron Durgulel
-			Dzæræs Gætæg Georgy_George Girgon Gokhar Gubaz Guram_Guaram Hasqar Huddan Istor Itaz Iveri Kandak
-			Kandz Kavtia Kaur Khankhusy Khætag Konstantin_Constantine Kubal Kuddana Kul Kuluk Lak Levan_Leo Piruz
-			Pulad Respendial Rosmag Safrak Sakban Sakhir Sangipan Saros Sathis Savkudz Soslan Suarn Syrdon Takho
-			Taymuraz_Teimuraz Taus Totraz Urdure Uruzma Uturku Yasynya Zaur
-		}
-		female_names = {
-			Tsiala Sarah Adadza Alda Altun Ana_Anna Atsyrukhs Baia Bedisa Borena Btsenon Burudukan Duda
-			Elene_Helen Eliso Gergana Gulchara Guranduht_Gorandukht Kera Keratsa Ketevan_Catherine Koser Lamara
-			Lashin Lela Mariami_Mariam Natia Nino Rusudan Sanatha Satinik_Satinik Shatana Shorena Shukhia
-			Tamari_Tamar Tinatini Vardo Vedokha Yeran
-		}
-		dynasty_names = {
-			#Ethnic subgroups of Avars. If you find something better, please replace
-			Akhvakh Anchikh Andis Archin Bagulal Bezhta Botlikh Chamalal Didoi Godoberi Hinukhs Hunzib Karata
-			Khvarshi Rachabalda Ratsitl Tindi Tokita
-		}
-	}
-	caucasus_colonial = {
-		country = { #Communist
-			global_autonomy = -0.05
-			war_exhaustion = -0.01
-			religious_unity = 0.05
-			
-			state_maintenance_modifier = 0.1
-			global_trade_goods_size_modifier = -0.025
-		}
-	}
-	dynasty_names = {
-		# CKII - Alan
-		"Burtasid" "Alauni" "Halani" "Shoana" "Senty" "Zmbalani" "Sathisi" "Totrazi" "Ovseti" "Tsaerasantae" "Aelbeg" 
-		"Ardasen" "Bekkuyzar" "Geber" "Dzarehoh" "Dzeby" "Djerdji" "Guyrdzybe" "Zaendji" 
-		"Kaerkuys" "Djykkaj" "Godjysa" "Magket" "Paerraesta" "Hetaegkat" "Haedarca" "Tuallaeg" 
-		"Faerniat" "Ephraimid" "Tandelat" "Tsaeykostae" "Sozana" "Maerzoj"
 	}
 }
 
 # culture count: 4
 armenian = {
 	ge_armenian = {
-		country = { #Communist
+		country = { 
 			global_autonomy = -0.05
 			war_exhaustion = -0.01
 			religious_unity = 0.05
@@ -5346,7 +5433,7 @@ armenian = {
 	}
 	owm_armenian = {
 		primary = SYU
-		country = { #Communist
+		country = { 
 			global_autonomy = -0.05
 			war_exhaustion = -0.01
 			religious_unity = 0.05
