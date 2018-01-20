@@ -40,6 +40,14 @@ country_event = {
 			manuever = 1
 			siege = 0
 			}
+		SER = {
+			1424 = {
+				cede_province = EPI
+				}
+			2374 = {
+				cede_province = EPI
+				}
+			}
 		}
 	}
 	
