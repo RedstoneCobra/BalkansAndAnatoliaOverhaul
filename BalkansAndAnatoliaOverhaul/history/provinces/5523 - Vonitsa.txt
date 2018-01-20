@@ -1,8 +1,8 @@
 owner = SER
 controller = SER
 add_core = SER
+add_core = EPI
 add_permanent_claim = BYZ
-add_permanent_claim = EPI
 
 capital = "Vonitsa"
 trade_goods = fish
