@@ -23,7 +23,7 @@ historical_rival = BUL
 }
 
 1346.4.16 = {
-	add_country_modifier = { name = obstacle_feudal_fragmentation duration = -1 }
+	#add_country_modifier = { name = obstacle_feudal_fragmentation duration = -1 }
 	#add_country_modifier = { name = obstacle_magnates duration = -1 }
 }
 
