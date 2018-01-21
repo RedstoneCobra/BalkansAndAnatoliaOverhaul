@@ -33,14 +33,24 @@
 				fixed = yes 
 				age = 28
 				claim = 95
-				}
 			}
-		EPI = {
 			define_ruler_to_general = {
 				fire = 0
 				shock = 1
 				manuever = 1
 				siege = 0
+			}
+			define_consort = {
+				name = "Maria"
+				dynasty = "Kantakouzenos"
+				country_of_origin = MOE
+				religion = orthodox
+				culture = grecoroman
+				adm = 3
+				dip = 5
+				mil = 3
+				fixed = yes 
+				age = 24
 			}
 		}
 	}
@@ -87,6 +97,17 @@
 				age = 30
 				claim = 95
 			}
+			define_consort = {
+				name = "Thomais"
+				dynasty = "Doukas"
+				country_of_origin = EPI
+				religion = orthodox
+				culture = grecoroman
+				adm = 3
+				dip = 3
+				mil = 3
+				fixed = yes 
+				age = 26
 		}
 	}
 	
