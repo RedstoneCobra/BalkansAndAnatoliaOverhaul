@@ -910,7 +910,11 @@ romandie_area = {
 ########################################
 
 macedonia_area = {
-	2387 1401 148 2137 2124 3871 155 5519 147
+	2387 3871 155 5519 147
+}
+
+vardar_macedonia_area = {
+	2124 148 1401
 }
 
 albania_area = {
@@ -974,7 +978,7 @@ west_slovakia_area = {
 }
 
 south_serbia_area = {
-	140 1396 2237 3777 1397 3775 
+	140 1396 2237 3777 1397 3775 2137
 }
 
 north_serbia_area = {

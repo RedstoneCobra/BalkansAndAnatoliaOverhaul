@@ -3,6 +3,7 @@ controller = SER
 add_core = SER
 add_core = EPI
 add_permanent_claim = BYZ
+add_claim = KNP
 
 capital = "Agioi Saranta"
 trade_goods = fish

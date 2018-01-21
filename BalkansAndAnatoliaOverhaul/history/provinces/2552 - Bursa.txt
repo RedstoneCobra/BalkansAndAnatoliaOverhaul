@@ -6,8 +6,8 @@ add_core = OTT
 
 capital = "Bursa"
 trade_goods = wool #silk
-culture = turkish #Capital of Ottomans
-religion = sunni #Capital of Ottomans
+culture = grecoroman 
+religion = orthodox
 
 hre = no
 

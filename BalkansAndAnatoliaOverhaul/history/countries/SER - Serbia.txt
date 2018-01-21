@@ -9,7 +9,7 @@ add_accepted_culture = grecoroman
 religion = orthodox
 technology_group = eastern
 capital = 3775 # Skpoje
-historical_rival = BYZ
+historical_neutral = BYZ
 historical_rival = TSL
 historical_rival = BUL
 

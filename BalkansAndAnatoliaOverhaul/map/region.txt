@@ -344,6 +344,7 @@ central_balkan_region = {
 	areas = {
 		south_serbia_area
 		north_serbia_area
+		vardar_macedonia_area
 		albania_area
 	}
 }
