@@ -62,6 +62,13 @@ vassal = {
 	end_date = 1371.2.16
 }
 
+vassal = {
+	first = KNP
+	second = ALC
+	start_date = 1356.1.1
+	end_date = 1390.2.2
+}
+
 # Balsza II of Zeta's Conquest of Albania
 union = {
 	first = MON

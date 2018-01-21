@@ -11,6 +11,7 @@ technology_group = eastern
 capital = 3775 # Skpoje
 historical_neutral = BYZ
 historical_rival = TSL
+historical_rival = HUN
 historical_rival = BUL
 
 1000.1.1 = {

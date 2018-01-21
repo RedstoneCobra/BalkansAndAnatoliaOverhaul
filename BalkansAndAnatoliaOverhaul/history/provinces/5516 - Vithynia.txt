@@ -1,6 +1,9 @@
 
-owner = BYZ
-controller = BYZ
+owner = OTT
+controller = OTT
+add_core = OTT
+add_core = CND
+add_core = BYZ
 culture = grecoroman
 religion = orthodox
 capital = "Karadeniz Eregli"
@@ -30,11 +33,6 @@ discovered_by = steppestech
 	owner = OTT
 	controller = OTT
 	set_province_flag = turkish_name
-	add_permanent_claim = CND
-}
-1356.1.1  = {
-	add_core = BYZ
-	add_core = OTT
 }
 1390.1.1  = {
 	owner = TUR
