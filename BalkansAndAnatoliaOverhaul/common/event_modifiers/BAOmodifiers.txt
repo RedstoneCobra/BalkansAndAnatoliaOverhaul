@@ -3,3 +3,9 @@ desintegrating_serbian_state = {
 	
 	picture = "estuary_icon"
 }
+
+claimant_serbian_empire = {
+	prestige = -0.5
+	
+	picture = "estuary_icon"
+}

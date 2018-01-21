@@ -9,7 +9,7 @@
 	id = flavor_ser.1
 	title = "flavor_ser.1.n"
 	desc = "flavor_ser.1.t"
-	picture = SERBIA_eventPicture
+	picture = SERBIA_eventPicture # Need Custom picture
 	
 	fire_only_once = yes
 	
@@ -66,13 +66,13 @@
 		add_prestige = -10
 	}
 }
-		
+
 # Simeon Uros proclaims himself Tsar of the Greeks, Serbs, and Albanians and marches on Serbia
 	country_event = {
 	id = flavor_ser.2
 	title = "flavor_ser.2.n"
 	desc = "flavor_ser.2.t"
-	picture = SERBIA_eventPicture
+	picture = SERBIA_eventPicture 		# Need Custom picture
 	
 	fire_only_once = yes
 	
@@ -108,6 +108,7 @@
 				mil = 3
 				fixed = yes 
 				age = 26
+			}	
 		}
 	}
 	
@@ -120,6 +121,43 @@
 		name = "flavor_ser.1.b."
 		switch_tag = TSL
 		add_prestige = -10
+	}
+}
+
+# Serbian states get claim on greater Serbian Empire
+	country_event = {
+	id = flavor_ser.99
+	title = "flavor_ser.99.n"
+	desc = "flavor_ser.99.t"
+	picture = SERBIA_eventPicture 		# Need Custom picture
+	
+	immediate = {
+		set_country_flag = claimant_serbian_empire
+	}
+	
+	trigger = {
+		AND = {
+			OR = {
+				tag = SER
+				tag = TSL
+				tag = MON
+				tag = VUK	
+				tag = MKO
+				tag = VBZ
+			}
+			NOT = {
+				has_country_flag = claimant_serbian_empire				# I know this is double can be fixed later
+				has_country_modifier = claimant_serbian_empire			# I know this is double can be fixed later
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_ser.99.a"
+		ai_chance = { factor = 100 }
+		add_country_modifier = {
+			name = claimant_serbian_empire
+		}
 	}
 }
 
