@@ -4,6 +4,7 @@ owner = SER
 controller = SER
 add_core = SER
 add_claim = SER
+add_core = TSL
 add_permanent_claim = BYZ
 
 capital = "Angelokastron"

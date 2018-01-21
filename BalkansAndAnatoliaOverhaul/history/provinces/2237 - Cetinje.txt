@@ -1,7 +1,7 @@
 # 2237 - Cetinje
 
-owner = SER
-controller = SER
+owner = MON
+controller = MON
 add_core = SER
 add_core = MON
 
@@ -25,13 +25,6 @@ discovered_by = eastern
 discovered_by = muslim
 discovered_by = turkishtech
 
-
-1356.1.1 = {
-	owner = SER
-	controller = SER
-	add_core = MON
-	add_core = SER
-}
 1421.1.1 = {
 	owner = SER
 	controller = SER

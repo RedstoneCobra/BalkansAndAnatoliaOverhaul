@@ -3,6 +3,7 @@
 owner = SER
 controller = SER
 add_core = SER
+add_core = TSL
 
 capital = "Kastoria"
 trade_goods = wool

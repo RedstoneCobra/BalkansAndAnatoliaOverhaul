@@ -11,6 +11,14 @@ alliance = { #Bulgarians allied with Serbia against the Turks
 	end_date = 1357.1.1
 }
 
+dependency = {
+	subject_type = "decentralized_vassal"
+	first = SER
+	second = MON
+	start_date = 1356.1.1
+	end_date = 1421.1.1
+}
+
 # Genoan and Venetian fleets help the byzantines
 alliance = {
 	first = BYZ

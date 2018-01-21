@@ -1,6 +1,7 @@
 
-owner = SER
-controller = SER
+owner = MON
+controller = MON
+add_core = MON
 add_core = SER
 
 capital = "Cattaro"
@@ -31,12 +32,6 @@ discovered_by = turkishtech
 		name = "kotor_natural_harbour"
 		duration = -1
 	}
-}
-1356.1.1 = {
-	owner = SER
-	controller = SER
-	add_core = MON
-	add_core = SER
 }
 1420.1.1 = {
 	owner = VEN
