@@ -32,6 +32,7 @@
 		hidden_effect = {
 			EPI = {
 				country_event = { id = flavor_epi.2 days = 10 } #Need to set custom time
+				country_event = { id = flavor_epi.6 days = 10 } #Need to set custom time # Information event that Albanians are mobilising
 			}
 		}
 	}
@@ -162,6 +163,20 @@
 	id = flavor_epi.5
 	title = "flavor_epi.5.n"
 	desc = "flavor_epi.5.t"
+	picture = SERBIA_eventPicture 	# Need Custom picture
+	
+	fire_only_once = yes
+	
+	trigger = {									#Need to make Custom Trigger
+		tag = EPI
+	}
+	
+# Information event that the Albanians are going to rebel. 
+
+	country_event = {
+	id = flavor_epi.6
+	title = "flavor_epi.6.n"
+	desc = "flavor_epi.6.t"
 	picture = SERBIA_eventPicture 	# Need Custom picture
 	
 	fire_only_once = yes
