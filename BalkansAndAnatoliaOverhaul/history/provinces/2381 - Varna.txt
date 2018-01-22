@@ -6,7 +6,7 @@ add_core = DOB
 
 capital = "Varna"
 trade_goods = fish
-culture = bulgarian
+culture = grecoroman
 religion = orthodox
 
 hre = no

@@ -1,0 +1,5378 @@
+
+dg_add_religion_modifiers_tolerance = {
+	set_variable = { which = owner_religion_tolerance		value = 0 }
+	set_variable = { which = dg_accepted_threshold			value = 3 }
+	set_variable = { which = dg_tolerated_threshold			value = 1 }
+	set_variable = { which = dg_persecuted_threshold		value = -1 }
+	
+	if = {
+		limit = {
+			check_variable = { which = toleration 	value = 1 }
+		}
+		subtract_variable = { which = dg_accepted_threshold 	which = toleration }
+		subtract_variable = { which = dg_tolerated_threshold 	which = toleration }
+		subtract_variable = { which = dg_persecuted_threshold 	which = toleration }
+	}
+	
+	export_to_variable = {
+		which = owner_religion_tolerance
+		value = modifier:$selected_religion$
+	}
+	
+	if = { limit = { check_variable = { which = $selected_religion$ value = 6 } }
+		if = { limit = { check_variable = { which = $selected_religion$ value = 8 } }
+			if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_tolerated_threshold } }
+				if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_accepted_threshold } }
+					add_permanent_province_modifier = { name = $selected_religion$_minority_8_accepted duration = -1 }
+				}
+				else = {
+					add_permanent_province_modifier = { name = $selected_religion$_minority_8_tolerated duration = -1 }
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_persecuted_threshold } }
+					add_permanent_province_modifier = { name = $selected_religion$_minority_8_persecuted duration = -1 }
+				}
+				else = {
+					add_permanent_province_modifier = { name = $selected_religion$_minority_8_oppressed duration = -1 }
+				}
+			}
+		}
+		else = {
+			if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_tolerated_threshold } }
+				if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_accepted_threshold } }
+					add_permanent_province_modifier = { name = $selected_religion$_minority_6_accepted duration = -1 }
+				}
+				else = {
+					add_permanent_province_modifier = { name = $selected_religion$_minority_6_tolerated duration = -1 }
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_persecuted_threshold } }
+					add_permanent_province_modifier = { name = $selected_religion$_minority_6_persecuted duration = -1 }
+				}
+				else = {
+					add_permanent_province_modifier = { name = $selected_religion$_minority_6_oppressed duration = -1 }
+				}
+			}
+		}
+	}
+	else = {
+		if = { limit = { check_variable = { which = $selected_religion$ value = 4 } }
+			if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_tolerated_threshold } }
+				if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_accepted_threshold } }
+					add_permanent_province_modifier = { name = $selected_religion$_minority_4_accepted duration = -1 }
+				}
+				else = {
+					add_permanent_province_modifier = { name = $selected_religion$_minority_4_tolerated duration = -1 }
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_persecuted_threshold } }
+					add_permanent_province_modifier = { name = $selected_religion$_minority_4_persecuted duration = -1 }
+				}
+				else = {
+					add_permanent_province_modifier = { name = $selected_religion$_minority_4_oppressed duration = -1 }
+				}
+			}
+		}
+		else = {
+			if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_tolerated_threshold } }
+				if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_accepted_threshold } }
+					add_permanent_province_modifier = { name = $selected_religion$_minority_2_accepted duration = -1 }
+				}
+				else = {
+					add_permanent_province_modifier = { name = $selected_religion$_minority_2_tolerated duration = -1 }
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = owner_religion_tolerance which = dg_persecuted_threshold } }
+					add_permanent_province_modifier = { name = $selected_religion$_minority_2_persecuted duration = -1 }
+				}
+				else = {
+					add_permanent_province_modifier = { name = $selected_religion$_minority_2_oppressed duration = -1 }
+				}
+			}
+		}
+	}
+	
+	set_variable = { which = owner_religion_tolerance		value = 0 }
+	set_variable = { which = dg_accepted_threshold			value = 0 }
+	set_variable = { which = dg_tolerated_threshold			value = 0 }
+	set_variable = { which = dg_persecuted_threshold		value = 0 }
+}
+
+
+dg_add_religion_modifiers = {
+	if = { limit = { check_variable = { which = $selected_religion$ value = 6 } }
+		if = { limit = { check_variable = { which = $selected_religion$ value = 8 } }
+			if = { limit = { owner = { $selected_religion$ = $tolerated_amount$ } }
+				if = { limit = { owner = { $selected_religion$ = $accepted_amount$ } }
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_8_accepted } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_8_accepted duration = -1 }
+					}
+				}
+				else = {
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_8_tolerated } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_8_tolerated duration = -1 }
+					}
+				}
+			}
+			else = {
+				if = { limit = { owner = { $selected_religion$ = $persecuted_amount$ } }
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_8_persecuted } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_8_persecuted duration = -1 }
+					}
+				}
+				else = {
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_8_oppressed } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_8_oppressed duration = -1 }
+					}
+				}
+			}
+		}
+		else = {
+			if = { limit = { owner = { $selected_religion$ = $tolerated_amount$ } }
+				if = { limit = { owner = { $selected_religion$ = $accepted_amount$ } }
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_6_accepted } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_6_accepted duration = -1 }
+					}
+				}
+				else = {
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_6_tolerated } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_6_tolerated duration = -1 }
+					}
+				}
+			}
+			else = {
+				if = { limit = { owner = { $selected_religion$ = $persecuted_amount$ } }
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_6_persecuted } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_6_persecuted duration = -1 }
+					}
+				}
+				else = {
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_6_oppressed } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_6_oppressed duration = -1 }
+					}
+				}
+			}
+		}
+	}
+	else = {
+		if = { limit = { check_variable = { which = $selected_religion$ value = 4 } }
+			if = { limit = { owner = { $selected_religion$ = $tolerated_amount$ } }
+				if = { limit = { owner = { $selected_religion$ = $accepted_amount$ } }
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_4_accepted } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_4_accepted duration = -1 }
+					}
+				}
+				else = {
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_4_tolerated } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_4_tolerated duration = -1 }
+					}
+				}
+			}
+			else = {
+				if = { limit = { owner = { $selected_religion$ = $persecuted_amount$ } }
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_4_persecuted } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_4_persecuted duration = -1 }
+					}
+				}
+				else = {
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_4_oppressed } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_4_oppressed duration = -1 }
+					}
+				}
+			}
+		}
+		else = {
+			if = { limit = { owner = { $selected_religion$ = $tolerated_amount$ } }
+				if = { limit = { owner = { $selected_religion$ = $accepted_amount$ } }
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_2_accepted } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_2_accepted duration = -1 }
+					}
+				}
+				else = {
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_2_tolerated } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_2_tolerated duration = -1 }
+					}
+				}
+			}
+			else = {
+				if = { limit = { owner = { $selected_religion$ = $persecuted_amount$ } }
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_2_persecuted } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_2_persecuted duration = -1 }
+					}
+				}
+				else = {
+					if = { limit = { NOT = { has_province_modifier = $selected_religion$_minority_2_oppressed } }
+						dg_remove_religious_modifiers = {
+							religion = $selected_religion$
+						}
+						add_permanent_province_modifier = { name = $selected_religion$_minority_2_oppressed duration = -1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+dg_remove_religious_modifiers = {
+	trigger_switch = {
+		on_trigger = has_province_modifier
+		$religion$_minority_2_oppressed = {
+			remove_province_modifier = $religion$_minority_2_oppressed
+		}
+		$religion$_minority_4_oppressed = {
+			remove_province_modifier = $religion$_minority_4_oppressed
+		}
+		$religion$_minority_6_oppressed = {
+			remove_province_modifier = $religion$_minority_6_oppressed
+		}
+		$religion$_minority_8_oppressed = {
+			remove_province_modifier = $religion$_minority_8_oppressed
+		}
+		$religion$_minority_2_persecuted = {
+			remove_province_modifier = $religion$_minority_2_persecuted
+		}
+		$religion$_minority_4_persecuted = {
+			remove_province_modifier = $religion$_minority_4_persecuted
+		}
+		$religion$_minority_6_persecuted = {
+			remove_province_modifier = $religion$_minority_6_persecuted
+		}
+		$religion$_minority_8_persecuted = {
+			remove_province_modifier = $religion$_minority_8_persecuted
+		}
+		$religion$_minority_2_tolerated = {
+			remove_province_modifier = $religion$_minority_2_tolerated
+		}
+		$religion$_minority_4_tolerated = {
+			remove_province_modifier = $religion$_minority_4_tolerated
+		}
+		$religion$_minority_6_tolerated = {
+			remove_province_modifier = $religion$_minority_6_tolerated
+		}
+		$religion$_minority_8_tolerated = {
+			remove_province_modifier = $religion$_minority_8_tolerated
+		}
+		$religion$_minority_2_accepted = {
+			remove_province_modifier = $religion$_minority_2_accepted
+		}
+		$religion$_minority_4_accepted = {
+			remove_province_modifier = $religion$_minority_4_accepted
+		}
+		$religion$_minority_6_accepted = {
+			remove_province_modifier = $religion$_minority_6_accepted
+		}
+		$religion$_minority_8_accepted = {
+			remove_province_modifier = $religion$_minority_8_accepted
+		}
+	}
+}
+
+dg_remove_heretic_modifiers = {
+	trigger_switch = {
+		on_trigger = has_province_modifier
+		heretic_minority_2 = {
+			remove_province_modifier = heretic_minority_2
+		}
+		heretic_minority_4 = {
+			remove_province_modifier = heretic_minority_4
+		}
+		heretic_minority_6 = {
+			remove_province_modifier = heretic_minority_6
+		}
+		heretic_minority_8 = {
+			remove_province_modifier = heretic_minority_8
+		}
+	}
+}
+
+dg_assign_religious_modifiers = {
+	clr_province_flag = heretic_presence
+	#Heretics are always persecuted
+	if = {
+		limit = { check_variable = { which = heretics value = 2 } }
+		if = { limit = { check_variable = { which = heretics value = 6 } }
+			if = { limit = { check_variable = { which = heretics value = 8 } }
+				if = { limit = { NOT = { has_province_modifier = heretic_minority_8 } }
+					dg_remove_heretic_modifiers = yes
+					add_permanent_province_modifier = { name = heretic_minority_8 duration = -1 }
+				}
+				set_province_flag = heretic_presence
+			}
+			else = {
+				if = { limit = { NOT = { has_province_modifier = heretic_minority_6 } }
+					dg_remove_heretic_modifiers = yes
+					add_permanent_province_modifier = { name = heretic_minority_6 duration = -1 }
+				}
+				set_province_flag = heretic_presence
+			}
+		}
+		else = {
+			if = { limit = { check_variable = { which = heretics value = 4 } }
+				if = { limit = { NOT = { has_province_modifier = heretic_minority_4 } }
+					dg_remove_heretic_modifiers = yes
+					add_permanent_province_modifier = { name = heretic_minority_4 duration = -1 }
+				}
+				set_province_flag = heretic_presence
+			}
+			else = {
+				if = { limit = { NOT = { has_province_modifier = heretic_minority_2 } }
+					dg_remove_heretic_modifiers = yes
+					add_permanent_province_modifier = { name = heretic_minority_2 duration = -1 }
+				}
+				set_province_flag = heretic_presence
+			}
+		}
+	}
+	else = {
+		dg_remove_heretic_modifiers = yes
+	}
+	if = {
+		limit = { check_variable = { which = catholic value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = catholic } }
+				owner = { NOT = { has_country_flag = useful_catholic } }
+				OR = {
+					owner = { NOT = { has_country_flag = christians_permitted } }
+					owner = { has_country_flag = chinese_rites_banned }
+				}
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					has_country_flag = christians_permitted
+					NOT = { has_country_flag = chinese_rites_banned }
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = {
+				owner = {
+					has_country_flag = christians_tolerated
+					NOT = { has_country_flag = chinese_rites_banned }
+				}
+			}
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = catholic } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = catholic }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = catholic
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = catholic
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = catholic
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = catholic
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = catholic
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = catholic
+		}
+	}
+	if = {
+		limit = { check_variable = { which = orthodox value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = orthodox } }
+				owner = { NOT = { has_country_flag = useful_orthodox } }
+				owner = { NOT = { has_country_flag = christians_permitted } }
+				owner = { NOT = { has_country_flag = christians_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = {
+				OR = {
+					owner = { any_owned_province = { has_province_modifier = orthodox_patriarchate } }
+					owner = { any_owned_province = { has_province_modifier = orthodox_patriarchate_captive } }
+				}
+			}
+			change_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { religion = orthodox } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = orthodox }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = orthodox
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = orthodox
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = orthodox
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = orthodox
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = orthodox
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = orthodox
+		}
+	}
+	if = {
+		limit = { check_variable = { which = coptic value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = coptic } }
+				owner = { NOT = { has_country_flag = useful_coptic } }
+				owner = { NOT = { has_country_flag = christians_permitted } }
+				owner = { NOT = { has_country_flag = christians_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = {
+				OR = {
+					owner = { any_owned_province = { has_province_modifier = coptic_patriarchate } }
+					owner = { any_owned_province = { has_province_modifier = coptic_patriarchate_captive } }
+				}
+			}
+			change_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { religion = coptic } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = coptic }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = coptic
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = coptic
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = coptic
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = coptic
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = coptic
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = coptic
+		}
+	}
+	if = {
+		limit = { check_variable = { which = chaldean value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = chaldean } }
+				owner = { NOT = { has_country_flag = useful_chaldean } }
+				owner = { NOT = { has_country_flag = christians_permitted } }
+				owner = { NOT = { has_country_flag = christians_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = {
+				OR = {
+					owner = { any_owned_province = { has_province_modifier = chaldean_patriarchate } }
+					owner = { any_owned_province = { has_province_modifier = chaldean_patriarchate_captive } }
+				}
+			}
+			change_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { religion = chaldean } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = chaldean }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = chaldean
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = chaldean
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = chaldean
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = chaldean
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = chaldean
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = chaldean
+		}
+	}
+	if = {
+		limit = { check_variable = { which = protestant value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = protestant } }
+				owner = { NOT = { has_country_flag = useful_protestant } }
+				owner = { NOT = { has_country_modifier = protestant_sympathies } }
+				owner = { NOT = { has_country_flag = christians_permitted } }
+				owner = { NOT = { has_country_flag = christians_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = {
+				owner = {
+					religion = reformed
+					has_country_flag = evangelical_union
+				}
+			}
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = protestant } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = protestant }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = protestant
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = protestant
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = protestant
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = protestant
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = protestant
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = protestant
+		}
+	}
+	if = {
+		limit = { check_variable = { which = reformed value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = reformed } }
+				owner = { NOT = { has_country_flag = useful_reformed } }
+				owner = { NOT = { has_country_flag = christians_permitted } }
+				owner = { NOT = { has_country_flag = christians_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = {
+				owner = {
+					religion = protestant
+					has_country_flag = evangelical_union
+				}
+			}
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = reformed } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = reformed }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = reformed
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = reformed
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = reformed
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = reformed
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = reformed
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = reformed
+		}
+	}
+	if = {
+		limit = { check_variable = { which = hussite value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = hussite } }
+				owner = { NOT = { has_country_flag = useful_hussite } }
+				owner = { NOT = { has_country_flag = christians_permitted } }
+				owner = { NOT = { has_country_flag = christians_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = hussite } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = hussite }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = hussite
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = hussite
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = hussite
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = hussite
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = hussite
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = hussite
+		}
+	}
+	if = {
+		limit = { check_variable = { which = gnostic value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = gnostic } }
+				owner = { NOT = { has_country_flag = useful_gnostic } }
+				owner = { NOT = { has_country_flag = christians_permitted } }
+				owner = { NOT = { has_country_flag = christians_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = christians_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = gnostic } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = gnostic }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = gnostic
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = gnostic
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = gnostic
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = gnostic
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = gnostic
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = gnostic
+		}
+	}
+	if = {
+		limit = { check_variable = { which = jewish value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = jewish } }
+				owner = { NOT = { has_country_flag = useful_jewish } }
+				owner = { NOT = { has_country_flag = jews_permitted } }
+				owner = { NOT = { has_country_flag = jews_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = jews_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = jews_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = jewish } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = jewish }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = jewish
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = jewish
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = jewish
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = jewish
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = jewish
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = jewish
+		}
+	}
+	if = {
+		limit = { check_variable = { which = sunni value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = sunni } }
+				owner = { NOT = { has_country_flag = useful_sunni } }
+				owner = { NOT = { has_country_flag = muslims_permitted } }
+				owner = { NOT = { has_country_flag = muslims_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = muslims_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_islam_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = muslims_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = wahhabi } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = sunni } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = sunni }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = sunni
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = sunni
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = sunni
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = sunni
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = sunni
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = sunni
+		}
+	}
+	if = {
+		limit = { check_variable = { which = shiite value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = shiite } }
+				owner = { NOT = { has_country_flag = useful_shiite } }
+				owner = { NOT = { has_country_flag = muslims_permitted } }
+				owner = { NOT = { has_country_flag = muslims_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = muslims_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_islam_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = muslims_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = sunni } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = shiite } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = shiite }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = shiite
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = shiite
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = shiite
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = shiite
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = shiite
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = shiite
+		}
+	}
+	if = {
+		limit = { check_variable = { which = ibadi value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = ibadi } }
+				owner = { NOT = { has_country_flag = useful_ibadi } }
+				owner = { NOT = { has_country_flag = muslims_permitted } }
+				owner = { NOT = { has_country_flag = muslims_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = muslims_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_islam_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = muslims_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = sunni } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = ibadi } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = ibadi }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = ibadi
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = ibadi
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = ibadi
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = ibadi
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = ibadi
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = ibadi
+		}
+	}
+	if = {
+		limit = { check_variable = { which = wahhabi value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { arab_culture_trigger = yes } }
+				owner = { NOT = { has_country_flag = useful_wahhabi } }
+				owner = { NOT = { has_country_flag = muslims_permitted } }
+				owner = { NOT = { has_country_flag = muslims_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = muslims_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_islam_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = muslims_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { arab_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = wahhabi } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = wahhabi }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = wahhabi
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = wahhabi
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = wahhabi
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = wahhabi
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = wahhabi
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = wahhabi
+		}
+	}
+	if = {
+		limit = { check_variable = { which = druze value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = druze } }
+				owner = { NOT = { has_country_flag = useful_druze } }
+				owner = { NOT = { has_country_flag = muslims_permitted } }
+				owner = { NOT = { has_country_flag = muslims_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = muslims_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_islam_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = muslims_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = druze } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = druze }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = druze
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = druze
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = druze
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = druze
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = druze
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = druze
+		}
+	}
+	if = {
+		limit = { check_variable = { which = hinduism value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = hinduism } }
+				owner = { NOT = { has_country_flag = useful_hinduism } }
+				owner = { NOT = { has_country_flag = dharmics_permitted } }
+				owner = { NOT = { has_country_flag = dharmics_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = dharmics_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = dharmics_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = jain } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = hinduism } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = hinduism }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = hinduism
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = hinduism
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = hinduism
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = hinduism
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = hinduism
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = hinduism
+		}
+	}
+	if = {
+		limit = { check_variable = { which = jain value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = jain } }
+				owner = { NOT = { has_country_flag = useful_jain } }
+				owner = { NOT = { has_country_flag = dharmics_permitted } }
+				owner = { NOT = { has_country_flag = dharmics_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = dharmics_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = dharmics_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = hinduism } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = jain } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = jain }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = jain
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = jain
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = jain
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = jain
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = jain
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = jain
+		}
+	}
+	if = {
+		limit = { check_variable = { which = sikhism value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = sikhism } }
+				owner = { NOT = { has_country_flag = useful_sikhism } }
+				OR = {
+					owner = { NOT = { has_country_flag = dharmics_permitted } }
+					NOT = { religion_years = { sikhism = 60 } }
+				}
+				OR = {
+					owner = { NOT = { has_country_flag = dharmics_tolerated } }
+					NOT = { religion_years = { sikhism = 60 } }
+				}
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = { has_country_flag = dharmics_permitted }
+				religion_years = { sikhism = 60 }
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = {
+				owner = { has_country_flag = dharmics_tolerated }
+				religion_years = { sikhism = 60 }
+			}
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { religion = sikhism } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = sikhism }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = sikhism
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = sikhism
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = sikhism
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = sikhism
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = sikhism
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = sikhism
+		}
+	}
+	if = {
+		limit = { check_variable = { which = zoroastrian value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = zoroastrian } }
+				owner = { NOT = { has_country_flag = useful_zoroastrian } }
+				owner = { NOT = { has_country_flag = dharmics_permitted } }
+				owner = { NOT = { has_country_flag = dharmics_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = dharmics_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = dharmics_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { persian_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = zoroastrian } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = zoroastrian }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = zoroastrian
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = zoroastrian
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = zoroastrian
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = zoroastrian
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = zoroastrian
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = zoroastrian
+		}
+	}
+	if = {
+		limit = { check_variable = { which = confucianism value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = confucianism } }
+				owner = { NOT = { has_country_flag = useful_confucianism } }
+				owner = { NOT = { has_country_modifier = confucianism_dominates } }
+				owner = { NOT = { has_country_flag = buddhists_permitted } }
+				owner = { NOT = { has_country_flag = buddhists_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = buddhists_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = buddhists_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { has_country_modifier = confucianism_dominates } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = confucianism } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = confucianism }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = confucianism
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = confucianism
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = confucianism
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = confucianism
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = confucianism
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = confucianism
+		}
+	}
+	if = {
+		limit = { check_variable = { which = buddhism value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = buddhism } }
+				owner = { NOT = { has_country_flag = useful_buddhism } }
+				owner = { NOT = { has_country_modifier = buddhism_dominates } }
+				owner = { NOT = { has_country_flag = buddhists_permitted } }
+				owner = { NOT = { has_country_flag = buddhists_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = buddhists_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = buddhists_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { has_country_modifier = buddhism_dominates } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = buddhism } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = buddhism }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = buddhism
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = buddhism
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = buddhism
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = buddhism
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = buddhism
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = buddhism
+		}
+	}
+	if = {
+		limit = { check_variable = { which = vajrayana value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = vajrayana } }
+				owner = { NOT = { has_country_flag = useful_vajrayana } }
+				owner = { NOT = { has_country_modifier = buddhism_dominates } }
+				owner = { NOT = { has_country_flag = buddhists_permitted } }
+				owner = { NOT = { has_country_flag = buddhists_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = buddhists_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = buddhists_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { has_country_modifier = buddhism_dominates } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = vajrayana } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = vajrayana }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = vajrayana
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = vajrayana
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = vajrayana
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = vajrayana
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = vajrayana
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = vajrayana
+		}
+	}
+	if = {
+		limit = { check_variable = { which = mahayana value = 2 } }
+		if = {
+			limit = {
+				owner = { NOT = { religion = mahayana } }
+				owner = { NOT = { has_country_flag = useful_mahayana } }
+				owner = { NOT = { has_country_modifier = buddhism_dominates } }
+				owner = { NOT = { has_country_flag = buddhists_permitted } }
+				owner = { NOT = { has_country_flag = buddhists_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = { owner = { has_country_flag = buddhists_permitted } }
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = buddhists_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { has_country_modifier = buddhism_dominates } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = mahayana } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = mahayana }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = mahayana
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = mahayana
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = mahayana
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = mahayana
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = mahayana
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = mahayana
+		}
+	}
+	if = {
+		limit = { check_variable = { which = animism value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = animism } }
+				owner = { NOT = { has_country_flag = useful_animism } }
+				owner = { NOT = { has_country_flag = pagans_permitted } }
+				owner = { NOT = { has_country_flag = pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = animism } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = animism }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = animism
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = animism
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = animism
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = animism
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = animism
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = animism
+		}
+	}
+	if = {
+		limit = { check_variable = { which = west_african_pagan_reformed value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = west_african_pagan_reformed } }
+				owner = { NOT = { has_country_flag = useful_west_african_pagan_reformed } }
+				owner = { NOT = { has_country_flag = pagans_permitted } }
+				owner = { NOT = { has_country_flag = pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { west_african_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = west_african_pagan_reformed } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = west_african_pagan_reformed }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = west_african_pagan_reformed
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = west_african_pagan_reformed
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = west_african_pagan_reformed
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = west_african_pagan_reformed
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = west_african_pagan_reformed
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = west_african_pagan_reformed
+		}
+	}
+	if = {
+		limit = { check_variable = { which = shinto value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = shinto } }
+				owner = { NOT = { has_country_flag = useful_shinto } }
+				owner = { NOT = { has_country_flag = pagans_permitted } }
+				owner = { NOT = { has_country_flag = pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = {
+				OR = {
+					owner = { has_country_modifier = shinto_buddhism }
+					owner = { has_country_modifier = yuiitso_shinto }
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { owner = { japanese_culture_trigger = yes } }
+			change_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = shinto } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = shinto }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = shinto
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = shinto
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = shinto
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = shinto
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = shinto
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = shinto
+		}
+	}
+	if = {
+		limit = { check_variable = { which = adi_dharam value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = adi_dharam } }
+				owner = { NOT = { has_country_flag = useful_adi_dharam } }
+				owner = { NOT = { has_country_flag = pagans_permitted } }
+				owner = { NOT = { has_country_flag = pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { all_indian_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = adi_dharam } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = adi_dharam }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = adi_dharam
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = adi_dharam
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = adi_dharam
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = adi_dharam
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = adi_dharam
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = adi_dharam
+		}
+	}
+	if = {
+		limit = { check_variable = { which = polynesian_religion value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = polynesian_religion } }
+				owner = { NOT = { has_country_flag = useful_polynesian_religion } }
+				owner = { NOT = { has_country_flag = pagans_permitted } }
+				owner = { NOT = { has_country_flag = pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { polynesian_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = polynesian_religion } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = polynesian_religion }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = polynesian_religion
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = polynesian_religion
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = polynesian_religion
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = polynesian_religion
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = polynesian_religion
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = polynesian_religion
+		}
+	}
+	if = {
+		limit = { check_variable = { which = tengri_pagan_reformed value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = tengri_pagan_reformed } }
+				owner = { NOT = { has_country_flag = useful_tengri_pagan_reformed } }
+				owner = { NOT = { has_country_flag = pagans_permitted } }
+				owner = { NOT = { has_country_flag = pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { mongol_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = tengri_pagan_reformed } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = tengri_pagan_reformed }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = tengri_pagan_reformed
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = tengri_pagan_reformed
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = tengri_pagan_reformed
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = tengri_pagan_reformed
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = tengri_pagan_reformed
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = tengri_pagan_reformed
+		}
+	}
+	if = {
+		limit = { check_variable = { which = shamanism value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = shamanism } }
+				owner = { NOT = { has_country_flag = useful_shamanism } }
+				owner = { NOT = { has_country_flag = pagans_permitted } }
+				owner = { NOT = { has_country_flag = pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { OR = { korean_culture_trigger = yes primary_culture = tibetan } } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = shamanism } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = shamanism }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = shamanism
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = shamanism
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = shamanism
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = shamanism
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = shamanism
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = shamanism
+		}
+	}
+	if = {
+		limit = { check_variable = { which = inti value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = inti } }
+				owner = { NOT = { has_country_flag = useful_inti } }
+				owner = { NOT = { has_country_flag = new_world_pagans_permitted } }
+				owner = { NOT = { has_country_flag = new_world_pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = new_world_pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = new_world_pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { culture_group = andean_american } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = inti } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = inti }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = inti
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = inti
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = inti
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = inti
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = inti
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = inti
+		}
+	}
+	if = {
+		limit = { check_variable = { which = nahuatl value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = nahuatl } }
+				owner = { NOT = { has_country_flag = useful_nahuatl } }
+				owner = { NOT = { has_country_flag = new_world_pagans_permitted } }
+				owner = { NOT = { has_country_flag = new_world_pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = new_world_pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = new_world_pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { aztec_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = nahuatl } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = nahuatl }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = nahuatl
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = nahuatl
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = nahuatl
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = nahuatl
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = nahuatl
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = nahuatl
+		}
+	}
+	if = {
+		limit = { check_variable = { which = mesoamerican_religion value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = mesoamerican_religion } }
+				owner = { NOT = { has_country_flag = useful_mesoamerican_religion } }
+				owner = { NOT = { has_country_flag = new_world_pagans_permitted } }
+				owner = { NOT = { has_country_flag = new_world_pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = new_world_pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = new_world_pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { mayan_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = mesoamerican_religion } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = mesoamerican_religion }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = mesoamerican_religion
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = mesoamerican_religion
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = mesoamerican_religion
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = mesoamerican_religion
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = mesoamerican_religion
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = mesoamerican_religion
+		}
+	}
+	if = {
+		limit = { check_variable = { which = pantheism value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = pantheism } }
+				owner = { NOT = { has_country_flag = useful_pantheism } }
+				owner = { NOT = { has_country_flag = new_world_pagans_permitted } }
+				owner = { NOT = { has_country_flag = new_world_pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = new_world_pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = new_world_pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { south_american_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = pantheism } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = pantheism }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = pantheism
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = pantheism
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = pantheism
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = pantheism
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = pantheism
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = pantheism
+		}
+	}
+	if = {
+		limit = { check_variable = { which = totemism value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = totemism } }
+				owner = { NOT = { has_country_flag = useful_totemism } }
+				owner = { NOT = { has_country_flag = new_world_pagans_permitted } }
+				owner = { NOT = { has_country_flag = new_world_pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = new_world_pagans_permitted
+						AND = {
+							has_country_flag = zoroastrian_avestas_polytheism_included
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = new_world_pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { north_american_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = totemism } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = totemism }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = totemism
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = totemism
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = totemism
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = totemism
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = totemism
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = totemism
+		}
+	}
+	if = {
+		limit = { check_variable = { which = hellenic_pagan value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = hellenic_pagan } }
+				owner = { NOT = { has_country_flag = useful_hellenic_pagan } }
+				owner = { NOT = { has_country_flag = european_pagans_permitted } }
+				owner = { NOT = { has_country_flag = european_pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = european_pagans_permitted
+						AND = {
+							OR = {
+								has_country_flag = zoroastrian_avestas_polytheism_included
+								has_country_flag = zoroastrian_avestas_philosophy_included
+							}
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = european_pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { greek_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = hellenic_pagan } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = hellenic_pagan }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = hellenic_pagan
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = hellenic_pagan
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = hellenic_pagan
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = hellenic_pagan
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = hellenic_pagan
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = hellenic_pagan
+		}
+	}
+	if = {
+		limit = { check_variable = { which = slavic_pagan_reformed value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = slavic_pagan_reformed } }
+				owner = { NOT = { has_country_flag = useful_slavic_pagan_reformed } }
+				owner = { NOT = { has_country_flag = european_pagans_permitted } }
+				owner = { NOT = { has_country_flag = european_pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = european_pagans_permitted
+						AND = {
+							OR = {
+								has_country_flag = zoroastrian_avestas_polytheism_included
+								has_country_flag = zoroastrian_avestas_philosophy_included
+							}
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = european_pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { culture_group = east_slavic } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = slavic_pagan_reformed } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = slavic_pagan_reformed }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = slavic_pagan_reformed
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = slavic_pagan_reformed
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = slavic_pagan_reformed
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = slavic_pagan_reformed
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = slavic_pagan_reformed
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = slavic_pagan_reformed
+		}
+	}
+	if = {
+		limit = { check_variable = { which = baltic_pagan_reformed value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = baltic_pagan_reformed } }
+				owner = { NOT = { has_country_flag = useful_baltic_pagan_reformed } }
+				owner = { NOT = { has_country_flag = european_pagans_permitted } }
+				owner = { NOT = { has_country_flag = european_pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = european_pagans_permitted
+						AND = {
+							OR = {
+								has_country_flag = zoroastrian_avestas_polytheism_included
+								has_country_flag = zoroastrian_avestas_philosophy_included
+							}
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = european_pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { culture_group = east_slavic } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = baltic_pagan_reformed } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = baltic_pagan_reformed }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = baltic_pagan_reformed
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = baltic_pagan_reformed
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = baltic_pagan_reformed
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = baltic_pagan_reformed
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = baltic_pagan_reformed
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = baltic_pagan_reformed
+		}
+	}
+	if = {
+		limit = { check_variable = { which = norse_pagan_reformed value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = norse_pagan_reformed } }
+				owner = { NOT = { has_country_flag = useful_norse_pagan_reformed } }
+				owner = { NOT = { has_country_flag = european_pagans_permitted } }
+				owner = { NOT = { has_country_flag = european_pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = european_pagans_permitted
+						AND = {
+							OR = {
+								has_country_flag = zoroastrian_avestas_polytheism_included
+								has_country_flag = zoroastrian_avestas_philosophy_included
+							}
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = european_pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { scandinavian_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = norse_pagan_reformed } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = norse_pagan_reformed }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = norse_pagan_reformed
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = norse_pagan_reformed
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = norse_pagan_reformed
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = norse_pagan_reformed
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = norse_pagan_reformed
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = norse_pagan_reformed
+		}
+	}
+	if = {
+		limit = { check_variable = { which = finnish_pagan_reformed value = 2 } }
+		if = {
+			limit = {
+				NOT = { has_province_modifier = syncretism }
+				owner = { NOT = { religion = finnish_pagan_reformed } }
+				owner = { NOT = { has_country_flag = useful_finnish_pagan_reformed } }
+				owner = { NOT = { has_country_flag = european_pagans_permitted } }
+				owner = { NOT = { has_country_flag = european_pagans_tolerated } }
+			}
+			set_province_flag = heretic_presence
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_country_flag = european_pagans_permitted
+						AND = {
+							OR = {
+								has_country_flag = zoroastrian_avestas_polytheism_included
+								has_country_flag = zoroastrian_avestas_philosophy_included
+							}
+							religion = zoroastrian
+						}
+					}
+				}
+			}
+			set_variable = { which = toleration value = 1 }
+		}
+		if = {
+			limit = { owner = { has_country_flag = european_pagans_tolerated } }
+			set_variable = { which = toleration value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = syncretism }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { finnish_culture_trigger = yes } }
+			set_variable = { which = toleration value = 3 }
+		}
+		if = {
+			limit = { owner = { religion = finnish_pagan_reformed } }
+			set_variable = { which = toleration value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = finnish_pagan_reformed }
+			}
+			if = { limit = { check_variable = { which = toleration value = 2 } }
+				if = { limit = { check_variable = { which = toleration value = 3 } }
+					dg_add_religion_modifiers = {
+						selected_religion = finnish_pagan_reformed
+						accepted_amount = 0
+						tolerated_amount = -2
+						persecuted_amount = -4
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = finnish_pagan_reformed
+						accepted_amount = 1
+						tolerated_amount = -1
+						persecuted_amount = -3
+					}
+				}
+			}
+			else = {
+				if = { limit = { check_variable = { which = toleration value = 1 } }
+					dg_add_religion_modifiers = {
+						selected_religion = finnish_pagan_reformed
+						accepted_amount = 2
+						tolerated_amount = 0
+						persecuted_amount = -2
+					}
+				}
+				else = {
+					dg_add_religion_modifiers = {
+						selected_religion = finnish_pagan_reformed
+						accepted_amount = 3
+						tolerated_amount = 1
+						persecuted_amount = -1
+					}
+				}
+			}
+		}
+		else = {
+			dg_remove_religious_modifiers = {
+				religion = finnish_pagan_reformed
+			}
+		}
+		set_variable = { which = toleration value = 0 }
+	}
+	else = {
+		dg_remove_religious_modifiers = {
+			religion = finnish_pagan_reformed
+		}
+	}
+}
+
+displease_minority_effect = {
+	owner = {
+		trigger_switch = {
+			on_trigger = num_of_cities
+			30 = {
+				every_owned_province = {
+					limit = { region = ROOT }
+					if = { limit = { check_variable = { which = $religion$ value = 6 } }
+						if = { limit = { check_variable = { which = $religion$ value = 8 } }
+							if = { limit = { check_variable = { which = $religion$ value = 10 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = 5 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = added_unrest_5
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = 5
+								}
+							}
+							else = {
+								hidden_effect = {
+									set_variable = { which = added_unrest value = 4 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = added_unrest_4
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = 4
+								}
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 3 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_3
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 3
+							}
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 4 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 2
+							}
+						}
+						else = {
+							if = { limit = { check_variable = { which = $religion$ value = 2 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = 1 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = added_unrest_1
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = 1
+								}
+							}
+						}
+					}
+				}
+			}
+			10 = {
+				every_owned_province = {
+					limit = { area = ROOT }
+					if = { limit = { check_variable = { which = $religion$ value = 6 } }
+						if = { limit = { check_variable = { which = $religion$ value = 8 } }
+							if = { limit = { check_variable = { which = $religion$ value = 10 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = 5 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = added_unrest_5
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = 5
+								}
+							}
+							else = {
+								hidden_effect = {
+									set_variable = { which = added_unrest value = 4 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = added_unrest_4
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = 4
+								}
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 3 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_3
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 3
+							}
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 4 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 2
+							}
+						}
+						else = {
+							if = { limit = { check_variable = { which = $religion$ value = 2 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = 1 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = added_unrest_1
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = 1
+								}
+							}
+						}
+					}
+				}
+			}
+			1 = {
+				PREV = {
+					if = { limit = { check_variable = { which = $religion$ value = 6 } }
+						if = { limit = { check_variable = { which = $religion$ value = 8 } }
+							if = { limit = { check_variable = { which = $religion$ value = 10 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = 5 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = added_unrest_5
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = 5
+								}
+							}
+							else = {
+								hidden_effect = {
+									set_variable = { which = added_unrest value = 4 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = added_unrest_4
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = 4
+								}
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 3 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_3
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 3
+							}
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 4 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 2
+							}
+						}
+						else = {
+							if = { limit = { check_variable = { which = $religion$ value = 2 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = 1 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = added_unrest_1
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = 1
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	every_province = {
+		limit = {
+			has_province_flag = dei_gratia_base_unrest_flag
+		}
+		clr_province_flag = dei_gratia_base_unrest_flag
+
+		add_base_unrest = yes
+	}
+}
+
+please_minority_effect = {
+	owner = {
+		trigger_switch = {
+			on_trigger = num_of_cities
+			30 = {
+				every_owned_province = {
+					limit = { region = ROOT }
+					if = { limit = { check_variable = { which = $religion$ value = 6 } }
+						if = { limit = { check_variable = { which = $religion$ value = 8 } }
+							if = { limit = { check_variable = { which = $religion$ value = 10 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = -5 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = remove_unrest_5
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = -5
+								}
+							}
+							else = {
+								hidden_effect = {
+									set_variable = { which = added_unrest value = -4 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = remove_unrest_4
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = -4
+								}
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = -3 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = remove_unrest_3
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = -3
+							}
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 4 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = -2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = remove_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = -2
+							}
+						}
+						else = {
+							if = { limit = { check_variable = { which = $religion$ value = 2 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = -1 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = remove_unrest_1
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = -1
+								}
+							}
+						}
+					}
+				}
+			}
+			10 = {
+				every_owned_province = {
+					limit = { area = ROOT }
+					if = { limit = { check_variable = { which = $religion$ value = 6 } }
+						if = { limit = { check_variable = { which = $religion$ value = 8 } }
+							if = { limit = { check_variable = { which = $religion$ value = 10 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = -5 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = remove_unrest_5
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = -5
+								}
+							}
+							else = {
+								hidden_effect = {
+									set_variable = { which = added_unrest value = -4 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = remove_unrest_4
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = -4
+								}
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = -3 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = remove_unrest_3
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = -3
+							}
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 4 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = -2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = remove_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = -2
+							}
+						}
+						else = {
+							if = { limit = { check_variable = { which = $religion$ value = 2 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = -1 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = remove_unrest_1
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = -1
+								}
+							}
+						}
+					}
+				}
+			}
+			1 = {
+				PREV = {
+					if = { limit = { check_variable = { which = $religion$ value = 6 } }
+						if = { limit = { check_variable = { which = $religion$ value = 8 } }
+							if = { limit = { check_variable = { which = $religion$ value = 10 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = -5 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = remove_unrest_5
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = -5
+								}
+							}
+							else = {
+								hidden_effect = {
+									set_variable = { which = added_unrest value = -4 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = remove_unrest_4
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = -4
+								}
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = -3 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = remove_unrest_3
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = -3
+							}
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 4 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = -2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = remove_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = -2
+							}
+						}
+						else = {
+							if = { limit = { check_variable = { which = $religion$ value = 2 } }
+								hidden_effect = {
+									set_variable = { which = added_unrest value = -1 }
+									set_province_flag = dei_gratia_base_unrest_flag
+								}
+								custom_tooltip = remove_unrest_1
+								if = {
+									limit = { NOT = { is_core = owner } }
+									add_nationalism = -1
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	every_province = {
+		limit = {
+			has_province_flag = dei_gratia_base_unrest_flag
+		}
+		clr_province_flag = dei_gratia_base_unrest_flag
+
+		add_base_unrest = yes
+	}
+}
+
+displease_minority_country_effect = {
+	hidden_effect = {
+		random_owned_province = {
+			limit = { check_variable = { which = $religion$ value = 2 } }
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				NOT = { check_variable = { which = $religion$ value = 5 } }
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				NOT = { check_variable = { which = $religion$ value = 5 } }
+				is_in_capital_area = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+				has_owner_religion = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+				has_owner_religion = yes
+				has_owner_culture = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+	}
+	trigger_switch = {
+		on_trigger = num_of_cities
+		30 = {
+			every_owned_province = {
+				limit = { event_target:$religion$_pogrom = { region = PREV } }
+				if = { limit = { check_variable = { which = $religion$ value = 6 } }
+					if = { limit = { check_variable = { which = $religion$ value = 8 } }
+						if = { limit = { check_variable = { which = $religion$ value = 10 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 5 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_5
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 5
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 4 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_4
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 4
+							}
+						}
+					}
+					else = {
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 3 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_3
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 3
+						}
+					}
+				}
+				else = {
+					if = { limit = { check_variable = { which = $religion$ value = 4 } }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 2 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_2
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 2
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 2 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 1 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_1
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 1
+							}
+						}
+					}
+				}
+			}
+		}
+		10 = {
+			every_owned_province = {
+				limit = { event_target:$religion$_pogrom = { area = PREV } }
+				if = { limit = { check_variable = { which = $religion$ value = 6 } }
+					if = { limit = { check_variable = { which = $religion$ value = 8 } }
+						if = { limit = { check_variable = { which = $religion$ value = 10 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 5 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_5
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 5
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 4 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_4
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 4
+							}
+						}
+					}
+					else = {
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 3 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_3
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 3
+						}
+					}
+				}
+				else = {
+					if = { limit = { check_variable = { which = $religion$ value = 4 } }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 2 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_2
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 2
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 2 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 1 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_1
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 1
+							}
+						}
+					}
+				}
+			}
+		}
+		1 = {
+			event_target:$religion$_pogrom = {
+				if = { limit = { check_variable = { which = $religion$ value = 6 } }
+					if = { limit = { check_variable = { which = $religion$ value = 8 } }
+						if = { limit = { check_variable = { which = $religion$ value = 10 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 5 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_5
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 5
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 4 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_4
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 4
+							}
+						}
+					}
+					else = {
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 3 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_3
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 3
+						}
+					}
+				}
+				else = {
+					if = { limit = { check_variable = { which = $religion$ value = 4 } }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 2 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_2
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 2
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 2 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 1 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_1
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 1
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	every_province = {
+		limit = {
+			has_province_flag = dei_gratia_base_unrest_flag
+		}
+		clr_province_flag = dei_gratia_base_unrest_flag
+
+		add_base_unrest = yes
+	}
+}
+
+displease_minority_country_effect_strong = {
+	hidden_effect = {
+		random_owned_province = {
+			limit = { check_variable = { which = $religion$ value = 2 } }
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				NOT = { check_variable = { which = $religion$ value = 5 } }
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				NOT = { check_variable = { which = $religion$ value = 5 } }
+				is_in_capital_area = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+				has_owner_religion = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+				has_owner_religion = yes
+				has_owner_culture = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+	}
+	trigger_switch = {
+		on_trigger = num_of_cities
+		30 = {
+			every_owned_province = {
+				limit = { event_target:$religion$_pogrom = { region = PREV } }
+				if = { limit = { check_variable = { which = $religion$ value = 6 } }
+					if = { limit = { check_variable = { which = $religion$ value = 8 } }
+						if = { limit = { check_variable = { which = $religion$ value = 10 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 10 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_10
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 5
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 8 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_8
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 4
+							}
+						}
+					}
+					else = {
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 6 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_6
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 3
+						}
+					}
+				}
+				else = {
+					if = { limit = { check_variable = { which = $religion$ value = 4 } }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 4 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_4
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 2
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 2 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 1
+							}
+						}
+					}
+				}
+			}
+		}
+		10 = {
+			every_owned_province = {
+				limit = { event_target:$religion$_pogrom = { area = PREV } }
+				if = { limit = { check_variable = { which = $religion$ value = 6 } }
+					if = { limit = { check_variable = { which = $religion$ value = 8 } }
+						if = { limit = { check_variable = { which = $religion$ value = 10 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 10 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_10
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 5
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 8 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_8
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 4
+							}
+						}
+					}
+					else = {
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 6 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_6
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 3
+						}
+					}
+				}
+				else = {
+					if = { limit = { check_variable = { which = $religion$ value = 4 } }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 4 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_4
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 2
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 2 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 1
+							}
+						}
+					}
+				}
+			}
+		}
+		1 = {
+			event_target:$religion$_pogrom = {
+				if = { limit = { check_variable = { which = $religion$ value = 6 } }
+					if = { limit = { check_variable = { which = $religion$ value = 8 } }
+						if = { limit = { check_variable = { which = $religion$ value = 10 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 10 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_10
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 5
+							}
+						}
+						else = {
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 8 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_8
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 4
+							}
+						}
+					}
+					else = {
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 6 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_6
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 3
+						}
+					}
+				}
+				else = {
+					if = { limit = { check_variable = { which = $religion$ value = 4 } }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 4 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_4
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 2
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 2 } }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 1
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	every_province = {
+		limit = {
+			has_province_flag = dei_gratia_base_unrest_flag
+		}
+		clr_province_flag = dei_gratia_base_unrest_flag
+
+		add_base_unrest = yes
+	}
+}
+
+displease_minority_country_effect_expulsion = {
+	set_country_flag = religious_turmoil_$religion$
+	set_country_flag = religious_turmoil_happening
+	hidden_effect = {
+		random_owned_province = {
+			limit = { check_variable = { which = $religion$ value = 2 } }
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				NOT = { check_variable = { which = $religion$ value = 5 } }
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				NOT = { check_variable = { which = $religion$ value = 5 } }
+				is_in_capital_area = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+				has_owner_religion = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+				has_owner_religion = yes
+				has_owner_culture = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+	}
+	trigger_switch = {
+		on_trigger = num_of_cities
+		30 = {
+			every_owned_province = {
+				limit = { event_target:$religion$_pogrom = { region = PREV } }
+				if = { limit = { check_variable = { which = $religion$ value = 6 } }
+					if = { limit = { check_variable = { which = $religion$ value = 8 } }
+						if = { limit = { check_variable = { which = $religion$ value = 10 } }
+							#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 10 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_10
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 5
+							}
+						}
+						else = {
+							#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 8 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_8
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 4
+							}
+						}
+					}
+					else = {
+						#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 6 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_6
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 3
+						}
+					}
+				}
+				else = {
+					if = { limit = { check_variable = { which = $religion$ value = 4 } }
+						#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 4 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_4
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 2
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 2 } }
+							#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 1
+							}
+						}
+					}
+				}
+			}
+		}
+		10 = {
+			every_owned_province = {
+				limit = { event_target:$religion$_pogrom = { area = PREV } }
+				if = { limit = { check_variable = { which = $religion$ value = 6 } }
+					if = { limit = { check_variable = { which = $religion$ value = 8 } }
+						if = { limit = { check_variable = { which = $religion$ value = 10 } }
+							#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 10 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_10
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 5
+							}
+						}
+						else = {
+							#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 8 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_8
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 4
+							}
+						}
+					}
+					else = {
+						#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 6 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_6
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 3
+						}
+					}
+				}
+				else = {
+					if = { limit = { check_variable = { which = $religion$ value = 4 } }
+						#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 4 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_4
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 2
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 2 } }
+							#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 1
+							}
+						}
+					}
+				}
+			}
+		}
+		1 = {
+			event_target:$religion$_pogrom = {
+				if = { limit = { check_variable = { which = $religion$ value = 6 } }
+					if = { limit = { check_variable = { which = $religion$ value = 8 } }
+						if = { limit = { check_variable = { which = $religion$ value = 10 } }
+							#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 10 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_10
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 5
+							}
+						}
+						else = {
+							#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 8 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_8
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 4
+							}
+						}
+					}
+					else = {
+						#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 6 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_6
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 3
+						}
+					}
+				}
+				else = {
+					if = { limit = { check_variable = { which = $religion$ value = 4 } }
+						#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+						hidden_effect = {
+							set_variable = { which = added_unrest value = 4 }
+							set_province_flag = dei_gratia_base_unrest_flag
+						}
+						custom_tooltip = added_unrest_4
+						if = {
+							limit = { NOT = { is_core = owner } }
+							add_nationalism = 2
+						}
+					}
+					else = {
+						if = { limit = { check_variable = { which = $religion$ value = 2 } }
+							#add_province_modifier = { name = expulsion_of_heretics duration = 1000 }
+							hidden_effect = {
+								set_variable = { which = added_unrest value = 2 }
+								set_province_flag = dei_gratia_base_unrest_flag
+							}
+							custom_tooltip = added_unrest_2
+							if = {
+								limit = { NOT = { is_core = owner } }
+								add_nationalism = 1
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	every_province = {
+		limit = {
+			has_province_flag = dei_gratia_base_unrest_flag
+		}
+		clr_province_flag = dei_gratia_base_unrest_flag
+
+		add_base_unrest = yes
+	}
+}
+
+minority_grows_effect = {
+	if = {
+		limit = { NOT = { religion = $religion$ } }
+		if = {
+			limit = {
+				OR = {
+					owner = { religion_group = christian }
+					OR = {
+						NOT = { check_variable = { which = $religion$ value = 5 } }
+						has_province_flag = $religion$_holy_land
+					}
+				}
+			}
+			owner = {
+				trigger_switch = {
+					on_trigger = num_of_cities
+					30 = {
+						PREV = {
+							random = {
+								chance = 20
+								custom_tooltip = $religion$_10
+								hidden_effect = {
+									change_variable = { which = $religion$ value = 2 }
+									change_variable = { which = province_religion value = -2 }
+								}
+							}
+						}
+					}
+					10 = {
+						PREV = {
+							random = {
+								chance = 20
+								custom_tooltip = $religion$_10
+								hidden_effect = {
+									change_variable = { which = $religion$ value = 2 }
+									change_variable = { which = province_religion value = -2 }
+								}
+							}
+						}
+					}
+					1 = {
+						PREV = {
+							random = {
+								chance = 20
+								custom_tooltip = $religion$_10
+								hidden_effect = {
+									change_variable = { which = $religion$ value = 2 }
+									change_variable = { which = province_religion value = -2 }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+minority_grows_effect_weak = {
+	if = {
+		limit = { NOT = { religion = $religion$ } }
+		if = {
+			limit = {
+				OR = {
+					NOT = { check_variable = { which = $religion$ value = 5 } }
+					has_province_flag = $religion$_holy_land
+				}
+			}
+			owner = {
+				trigger_switch = {
+					on_trigger = num_of_cities
+					30 = {
+						PREV = {
+							random = {
+								chance = 10
+								custom_tooltip = $religion$_10
+								hidden_effect = {
+									change_variable = { which = $religion$ value = 2 }
+									change_variable = { which = province_religion value = -2 }
+								}
+							}
+						}
+					}
+					10 = {
+						PREV = {
+							random = {
+								chance = 10
+								custom_tooltip = $religion$_10
+								hidden_effect = {
+									change_variable = { which = $religion$ value = 2 }
+									change_variable = { which = province_religion value = -2 }
+								}
+							}
+						}
+					}
+					1 = {
+						PREV = {
+							random = {
+								chance = 10
+								custom_tooltip = $religion$_10
+								hidden_effect = {
+									change_variable = { which = $religion$ value = 2 }
+									change_variable = { which = province_religion value = -2 }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+minority_grows_country_effect = {
+	hidden_effect = {
+		random_owned_province = {
+			limit = { check_variable = { which = $religion$ value = 2 } }
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				NOT = { check_variable = { which = $religion$ value = 5 } }
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				NOT = { check_variable = { which = $religion$ value = 5 } }
+				is_in_capital_area = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+				has_owner_religion = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = $religion$ value = 2 }
+				is_in_capital_area = yes
+				has_owner_religion = yes
+				has_owner_culture = yes
+			}
+			save_event_target_as = $religion$_pogrom
+		}
+	}
+	event_target:$religion$_pogrom = {
+		if = {
+			limit = { NOT = { religion = $religion$ } }
+			if = {
+				limit = {
+					OR = {
+						owner = { religion_group = christian }
+						OR = {
+							NOT = { check_variable = { which = $religion$ value = 5 } }
+							has_province_flag = $religion$_holy_land
+						}
+					}
+				}
+				owner = {
+					trigger_switch = {
+						on_trigger = num_of_cities
+						30 = {
+							PREV = {
+								random = {
+									chance = 20
+									custom_tooltip = $religion$_10
+									hidden_effect = {
+										change_variable = { which = $religion$ value = 2 }
+										change_variable = { which = province_religion value = -2 }
+									}
+								}
+							}
+						}
+						10 = {
+							PREV = {
+								random = {
+									chance = 20
+									custom_tooltip = $religion$_10
+									hidden_effect = {
+										change_variable = { which = $religion$ value = 2 }
+										change_variable = { which = province_religion value = -2 }
+									}
+								}
+							}
+						}
+						1 = {
+							PREV = {
+								random = {
+									chance = 20
+									custom_tooltip = $religion$_10
+									hidden_effect = {
+										change_variable = { which = $religion$ value = 2 }
+										change_variable = { which = province_religion value = -2 }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+clear_permitted_religion = {
+	if = {
+		limit = { NOT = { has_country_flag = buddhists_tolerated } }
+		clr_country_flag = buddhists_permitted
+	}
+	if = {
+		limit = { NOT = { has_country_flag = muslims_tolerated } }
+		clr_country_flag = muslims_permitted
+	}
+	if = {
+		limit = { NOT = { has_country_flag = pagans_tolerated } }
+		clr_country_flag = pagans_permitted
+	}
+	if = {
+		limit = { NOT = { has_country_flag = european_pagans_tolerated } }
+		clr_country_flag = european_pagans_permitted
+	}
+	if = {
+		limit = { NOT = { has_country_flag = new_world_pagans_tolerated } }
+		clr_country_flag = new_world_pagans_permitted
+	}
+	if = {
+		limit = { NOT = { has_country_flag = christians_tolerated } }
+		clr_country_flag = christians_permitted
+	}
+	if = {
+		limit = { NOT = { has_country_flag = jews_tolerated } }
+		clr_country_flag = jews_permitted
+	}
+	if = {
+		limit = { NOT = { has_country_flag = dharmics_tolerated } }
+		clr_country_flag = dharmics_permitted
+	}
+}
+
+dg_check_religious_turmoil = {
+	if = {
+		limit = {
+			owner = { has_country_flag = religious_turmoil_$religion$ }
+		}
+		if = { limit = { check_variable = { which = $religion$ value = 12 } }
+			if = { limit = { check_variable = { which = $religion$ value = 16 } }
+				if = { limit = { check_variable = { which = $religion$ value = 20 } }
+					change_variable = { which = religious_uprising value = 5 }
+				}
+				else = {
+					change_variable = { which = religious_uprising value = 4 }
+				}
+			}
+			else = {
+				change_variable = { which = religious_uprising value = 3 }
+			}
+		}
+		else = {
+			if = { limit = { check_variable = { which = $religion$ value = 4 } }
+				if = { limit = { check_variable = { which = $religion$ value = 8 } }
+					change_variable = { which = religious_uprising value = 2 }
+				}
+				else = {
+					change_variable = { which = religious_uprising value = 1 }
+				}
+			}
+		}
+	}
+}

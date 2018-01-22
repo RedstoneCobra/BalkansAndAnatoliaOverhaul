@@ -1,0 +1,2598 @@
+########################################
+# Major Flavor Events                  #
+########################################
+
+
+# The Pomjestija Reform
+country_event = {
+	id = flavor_rus.3401
+	title = "flavor_rus.EVTNAME3401"
+	desc = "flavor_rus.EVTDESC3401"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3401 }
+		is_year = 1450
+		NOT = { is_year = 1550 }
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3401
+	}
+	
+	option = {		# Let us reform
+		name = "flavor_rus.EVTOPTA3401"
+		ai_chance = { factor = 75 }
+		add_mil_power = 50
+		add_dip_power = 50
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = nobles_organizing }
+			}
+			add_province_modifier = {
+				name = "nobles_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+	}
+	option = {		# Let us become like Novgorod
+		name = "flavor_rus.EVTOPTB3401"
+		ai_chance = { factor = 25 }
+		add_dip_power = 100
+	}
+}
+
+# Malyuta Skuratov
+country_event = {
+	id = flavor_rus.3202
+	title = "flavor_rus.EVTNAME3202"
+	desc = "flavor_rus.EVTDESC3202"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3202 }
+		is_year = 1560
+		NOT = { is_year = 1573 }
+		NOT = { advisor_exists = 1026 }
+		owns = 295		# Moskva
+	}
+	
+	mean_time_to_happen = { years = 25 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3202
+	}
+	
+	option = {			# An Excellent Minister!
+		name = "EXCELLENTCMNISTER"
+		add_adm_power = 25
+		define_advisor = {
+			type = spymaster
+			name = "Malyuta Skuratov"
+			location = 295
+			skill = 3
+			discount = yes
+		}
+	}
+}
+
+# Russian claims in the East
+country_event = {
+	id = flavor_rus.3404
+	title = "flavor_rus.EVTNAME3404"
+	desc = "flavor_rus.EVTDESC3404"
+	picture = MILITARY_CAMP_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3404 }
+		is_year = 1550
+		NOT = { is_year = 1650 }
+		any_province = {
+			province_group = steppes_group
+			NOT  = { owned_by = MOS }
+			NOT  = { owned_by = RUS }
+			NOT = { is_claim = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3404
+	}
+	
+	option = {		# It all belongs to Mother Russia
+		name = "flavor_rus.EVTOPTA3404"
+		ai_chance = { factor = 100 }
+		add_stability_1 = yes
+		every_province = {
+			limit = {
+				is_city = yes
+				province_group = steppes_group
+				NOT  = { owned_by = MOS }
+				NOT  = { owned_by = RUS }
+				NOT = { is_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+	}
+	option = {
+		name = "flavor_rus.EVTOPTB3404"
+		ai_chance = { factor = 0 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+	}
+}
+
+# Russian claims on Poland-Lithuania
+country_event = {
+	id = flavor_rus.3405
+	title = "flavor_rus.EVTNAME3405"
+	desc = "flavor_rus.EVTDESC3405"
+	picture = MILITARY_CAMP_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3405 }
+		is_year = 1550
+		NOT = { is_year = 1650 }
+		OR = {
+			275 = {
+				OR = {
+					owned_by = POL
+					owned_by = LIT
+				}
+				NOT = { is_core = ROOT }
+				NOT = { is_claim = ROOT }
+			}
+			1289 = {
+				OR = {
+					owned_by = POL
+					owned_by = LIT
+				}
+				NOT = { is_core = ROOT }
+				NOT = { is_claim = ROOT }
+			}
+		}
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3405
+	}
+	
+	option = {		# It all belongs to Mother Russia
+		name = "flavor_rus.EVTOPTA3405"
+		ai_chance = { factor = 100 }
+		add_stability_1 = yes
+		every_province = {
+			limit = {
+				is_city = yes
+				OR = {
+					province_id = 275 # Polatsk
+					province_id = 1289 # Roslavlsky
+				}
+				OR = {
+					owned_by = POL
+					owned_by = LIT
+				}
+				NOT = { is_core = ROOT }
+				NOT = { is_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+	}
+	option = {
+		name = "flavor_rus.EVTOPTB3405"
+		ai_chance = { factor = 0 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+	}
+}
+
+# Russian claims on the Steppes
+country_event = {
+	id = flavor_rus.3406
+	title = "flavor_rus.EVTNAME3406"
+	desc = "flavor_rus.EVTDESC3406"
+	picture = MILITARY_CAMP_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3406 }
+		has_country_flag = RUS_had_event_3404
+		is_year = 1550
+		NOT = { is_year = 1650 }
+		any_province = {
+			region = west_siberia_region
+			NOT  = { owned_by = MOS }
+			NOT  = { owned_by = RUS }
+			NOT = { is_core = ROOT }
+			NOT = { is_claim = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3406
+	}
+	
+	option = {		# It all belongs to Mother Russia
+		name = "flavor_rus.EVTOPTA3406"
+		ai_chance = { factor = 100 }
+		add_stability_1 = yes
+		every_province = {
+			limit = {
+				is_city = yes
+				region = west_siberia_region
+				NOT  = { owned_by = MOS }
+				NOT  = { owned_by = RUS }
+				NOT = { is_core = ROOT }
+				NOT = { is_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+	}
+	option = {
+		name = "flavor_rus.EVTOPTB3406"
+		ai_chance = { factor = 0 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+	}
+}
+
+# The Chosen Council
+country_event = {
+	id = flavor_rus.3410
+	title = "flavor_rus.EVTNAME3410"
+	desc = "flavor_rus.EVTDESC3410"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3410 }
+		is_year = 1540
+		NOT = { is_year = 1560 }
+		owns = 295 # Moskwa
+	}
+	
+	mean_time_to_happen = { years = 25 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3410
+	}
+	
+	option = {		# Excellent Ministers!
+		name = "flavor_rus.EVTOPTA3410"
+		add_adm_power = 25
+		define_advisor = {
+			type = statesman
+			name = "Alexi Adashev"
+			location = 295
+			skill = 2
+			discount = yes
+		}
+		define_advisor = {
+			type = theologian
+			name = "Sylvestr"
+			location = 295
+			skill = 3
+			discount = yes
+		}
+	}
+}
+
+# The Treasury Reform and the Abolishing of the Kormlenije System
+country_event = {
+	id = flavor_rus.3413
+	title = "flavor_rus.EVTNAME3413"
+	desc = "flavor_rus.EVTDESC3413"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3413 }
+		is_year = 1550
+		NOT = { is_year = 1650 }
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3413
+	}
+	
+	option = {		# Reform Treasury and Abolish Kormlenije
+		name = "flavor_rus.EVTOPTA3413"
+		ai_chance = { factor = 50 }
+		subtract_stability_2 = yes
+		add_years_of_income = 0.25
+		add_adm_power = 50
+	}
+	option = {		# Only Reform Treasury
+		name = "flavor_rus.EVTOPTB3413"
+		ai_chance = { factor = 25 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+		add_years_of_income = 0.25
+	}
+	option = {		# Only Abolish Kormlenije
+		name = "flavor_rus.EVTOPTC3413"
+		ai_chance = { factor = 25 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+		add_adm_power = 50
+	}
+}
+
+# The Russian Orthodox Church declared independent of Constantinople
+country_event = {
+	id = flavor_rus.3415
+	title = "flavor_rus.EVTNAME3415"
+	desc = "flavor_rus.EVTDESC3415"
+	picture = ORTHODOX_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3415 }
+		is_year = 1500
+		NOT = { is_year = 1700 }
+		religion = orthodox
+		NOT = {
+			exists = BYZ
+		}
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3415
+	}
+	
+	option = {		# Let us lead the True Faith from Moscow
+		name = "flavor_rus.EVTOPTA3415"
+		ai_chance = { factor = 90 }
+		add_stability_1 = yes
+		every_known_country = {
+			limit = {
+				religion = orthodox
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = rus_orthodoxy_led_from_moscow
+			}
+		}
+	}
+	option = {		# No we need Constantinople to lead the True Faith
+		name = "flavor_rus.EVTOPTB3415"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = { stability = 2 }
+			}
+		}
+		subtract_stability_3 = yes
+		add_accepted_culture = greek
+		every_province = {
+			limit = {
+				is_city = yes
+				is_core = BYZ
+			}
+			add_claim = ROOT
+		}
+	}
+}
+
+# The Peasantry is brought into Serfdom
+country_event = {
+	id = flavor_rus.3416
+	title = "flavor_rus.EVTNAME3416"
+	desc = "flavor_rus.EVTDESC3416"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3416 }
+		is_year = 1600
+		NOT = { is_year = 1700 }
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3416
+	}
+	
+	option = {		# Enserf the peasants
+		name = "flavor_rus.EVTOPTA3416"
+		ai_chance = { factor = 75 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+		add_country_modifier = {
+			name = enserfed_peasants
+			duration = 3650
+		}
+	}
+	option = {		# Do not enserf them
+		name = "flavor_rus.EVTOPTB3416"
+		ai_chance = { factor = 25 }
+		add_stability_1 = yes
+	}
+}
+
+# Hundred Chapter Synod
+country_event = {
+	id = flavor_rus.1005
+	title = "flavor_rus.EVTNAME1005"
+	desc = "flavor_rus.EVTDESC1005"
+	picture = ORTHODOX_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_1005 }
+		is_year = 1500
+		NOT = { is_year = 1600 }
+		religion = orthodox
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_1005
+	}
+	
+	option = {		# Affirm these changes
+		name = "flavor_rus.EVTOPTA1005"
+		ai_chance = { factor = 75 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+		add_patriarch_authority = 0.25
+	}
+	option = {		# Prohibit these ideas
+		name = "flavor_rus.EVTOPTB1005"
+		ai_chance = { factor = 25 }
+		add_stability_1 = yes
+		add_patriarch_authority = -0.25
+	}
+}
+
+# Boris Morozov
+country_event = {
+	id = flavor_rus.3203
+	title = "flavor_rus.EVTNAME3203"
+	desc = "flavor_rus.EVTDESC3203"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3203 }
+		is_year = 1620
+		NOT = { is_year = 1661 }
+		NOT = { advisor_exists = 1038 }
+		owns = 295		# Moskva
+	}
+	
+	mean_time_to_happen = { years = 25 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3203
+	}
+	
+	option = {			# An Excellent Minister!
+		name = "EXCELLENTCMNISTER"
+		add_adm_power = 25
+		define_advisor = {
+			type = treasurer
+			name = "Boris Morozov"
+			location = 295
+			skill = 2
+			discount = yes
+		}
+	}
+}
+
+# Nikons Reform and the Raskolniks
+country_event = {
+	id = flavor_rus.3418
+	title = "flavor_rus.EVTNAME3418"
+	desc = "flavor_rus.EVTDESC3418"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3418 }
+		NOT = { has_country_flag = RUS_had_event_1006 }
+		is_year = 1650
+		NOT = { is_year = 1750 }
+		religion = orthodox
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3418
+	}
+	
+	option = {		# Let us Modernize the Church
+		name = "flavor_rus.EVTOPTA3418"
+		ai_chance = { factor = 75 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+		add_patriarch_authority = 0.25
+	}
+	option = {		# Follow the heed of the Raskolniks
+		name = "flavor_rus.EVTOPTB3418"
+		ai_chance = { factor = 25 }
+		add_stability_1 = yes
+		add_patriarch_authority = -0.25
+	}
+}
+
+# Raskol
+country_event = {
+	id = flavor_rus.1006
+	title = "flavor_rus.EVTNAME1006"
+	desc = "flavor_rus.EVTDESC1006"
+	picture = ORTHODOX_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_1006 }
+		NOT = { has_country_flag = RUS_had_event_3418 }
+		is_year = 1600
+		NOT = { is_year = 1700 }
+		religion = orthodox
+	}
+	
+	mean_time_to_happen = {
+		years = 166
+		modifier = {
+			factor = 0.5
+			has_country_flag = RUS_had_event_1005
+		}
+	}
+	
+	option = {		# These reforms are necessary
+		name = "flavor_rus.EVTOPTA1006"
+		ai_chance = { factor = 75 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+		add_patriarch_authority = 0.5
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = peasants_organizing }
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "peasants_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = peasants_organizing }
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "peasants_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = peasants_organizing }
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "peasants_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+	}
+	option = {		# Support the Old traditions
+		name = "flavor_rus.EVTOPTB1006"
+		ai_chance = { factor = 25 }
+		add_stability_1 = yes
+		add_patriarch_authority = -0.5
+	}
+}
+
+# Fjodor Baikov's Diplomatic Incident
+country_event = {
+	id = flavor_rus.3419
+	title = "flavor_rus.EVTNAME3419"
+	desc = "flavor_rus.EVTDESC3419"
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3419 }
+		is_year = 1650
+		NOT = { is_year = 1750 }
+		exists = MNG
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3419
+	}
+	
+	option = {		# Ignore the demands
+		name = "flavor_rus.EVTOPTA3419"
+		ai_chance = { factor = 75 }
+		MNG = {
+			add_opinion = {
+				who = ROOT
+				modifier = rus_ignored_vassal_demands
+			}
+		}
+	}
+	option = {		# Pretend to be a Chinese Vassal
+		name = "flavor_rus.EVTOPTB3419"
+		ai_chance = { factor = 20 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+		MNG = {
+			add_opinion = {
+				who = ROOT
+				modifier = rus_paid_vassal_respect
+			}
+		}
+	}
+	option = {		# Pretend to be a Chinese Vassal and pay Tribute
+		name = "flavor_rus.EVTOPTC3419"
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				NOT = { stability = 1 }
+			}
+		}
+		subtract_stability_2 = yes
+		add_years_of_income = -0.25
+		MNG = {
+			add_opinion = {
+				who = ROOT
+				modifier = rus_paid_vassal_tribute
+			}
+		}
+	}
+}
+
+# The Treaty of Nerchiinsk
+country_event = {
+	id = flavor_rus.3421
+	title = "flavor_rus.EVTNAME3421"
+	desc = "flavor_rus.EVTDESC3421"
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3421 }
+		is_year = 1650
+		NOT = { is_year = 1750 }
+		OR = {
+			exists = MNG
+			exists = QNG
+		}
+		any_owned_province = {
+			region = west_siberia_region
+		}
+		OR = {
+			MNG = {
+				NOT = { war_with = ROOT }
+				any_owned_province = {
+					any_neighbor_province = {
+						OR = {
+							region = east_manchuria_region
+							region = west_manchuria_region
+						}
+						owned_by = ROOT
+					}
+				}
+			}
+			QNG = {
+				NOT = { war_with = ROOT }
+				any_owned_province = {
+					any_neighbor_province = {
+						OR = {
+							region = east_manchuria_region
+							region = west_manchuria_region
+						}
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = RUS_had_event_3421
+			if = {
+				limit = {
+					MNG = {
+						NOT = { war_with = ROOT }
+						any_owned_province = {
+							any_neighbor_province = {
+								OR = {
+									region = east_manchuria_region
+									region = west_manchuria_region
+								}
+								owned_by = ROOT
+							}
+						}
+					}
+				}
+				MNG = {
+					set_country_flag = nerchiinsk_treaty
+				}
+			}
+			if = {
+				limit = {
+					MNG = {
+						NOT = { has_country_flag = nerchiinsk_treaty }
+					}
+					QNG = {
+						NOT = { war_with = ROOT }
+						any_owned_province = {
+							any_neighbor_province = {
+								OR = {
+									region = east_manchuria_region
+									region = west_manchuria_region
+								}
+								owned_by = ROOT
+							}
+						}
+					}
+				}
+				QNG = {
+					set_country_flag = nerchiinsk_treaty
+				}
+			}
+		}
+	}
+	
+	option = {		# Accept the Treaty
+		name = "flavor_rus.EVTOPTA3421"
+		ai_chance = { factor = 45 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+		random_country = {
+			limit = {
+				has_country_flag = nerchiinsk_treaty
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = rus_treaty_of_nerchiinsk
+			}
+			every_province = {
+				limit = {
+					is_city = yes
+					owned_by = ROOT
+					OR = {
+						region = east_manchuria_region
+						region = west_manchuria_region
+					}
+				}
+				cede_province = PREV
+			}
+			clr_country_flag = nerchiinsk_treaty
+		}
+		every_province = {
+			limit = {
+				is_city = yes
+				region = west_siberia_region
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+		every_country = {
+			limit = {
+				any_owned_province = {
+					region = west_siberia_region
+				}
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = rus_claimed_western_siberia
+			}
+		}
+	}
+	option = {		# Reject the Treaty as Preposterous
+		name = "flavor_rus.EVTOPTB3421"
+		ai_chance = { factor = 45 }
+		random_country = {
+			limit = {
+				has_country_flag = nerchiinsk_treaty
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = rus_refused_treaty_of_nerchiinsk
+			}
+			clr_country_flag = nerchiinsk_treaty
+		}
+		every_province = {
+			limit = {
+				is_city = yes
+				region = west_siberia_region
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+		every_country = {
+			limit = {
+				any_owned_province = {
+					region = west_siberia_region
+				}
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = rus_claimed_western_siberia
+			}
+		}
+	}
+	option = {		# Better not upset our diplomacy in the region
+		name = "flavor_rus.EVTOPTC3421"
+		ai_chance = { factor = 10 }
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+	}
+}
+
+# The Great Northern Conflict
+country_event = {
+	id = flavor_rus.3422
+	title = "flavor_rus.EVTNAME3422"
+	desc = "flavor_rus.EVTDESC3422"
+	picture = MILITARY_CAMP_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3422 }
+		is_year = 1650
+		NOT = { is_year = 1750 }
+		SWE = {
+			any_owned_province = {
+				is_core = ROOT
+			}
+			any_enemy_country = {
+				NOT = { is_rival = ROOT }
+				NOT = { is_enemy = ROOT }
+			}
+		}
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3422
+	}
+	
+	option = {		# Seek closer ties with their enemies
+		name = "flavor_rus.EVTOPTA3422"
+		ai_chance = { factor = 75 }
+		add_opinion = {
+			who = SWE
+			modifier = rus_political_aggressions
+		}
+		SWE = {
+			every_enemy_country = {
+				limit = {
+					NOT = { is_rival = ROOT }
+					NOT = { is_enemy = ROOT }
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = rus_enemy_of_sweden
+				}
+				ROOT = {
+					add_opinion = {
+						who = PREV
+						modifier = rus_enemy_of_sweden
+					}
+				}
+			}
+		}
+	}
+	option = {		# Let others move first
+		name = "flavor_rus.EVTOPTB3422"
+		ai_chance = { factor = 25 }
+		add_prestige = -25
+	}
+}
+
+# The State take control of the Russian Church
+country_event = {
+	id = flavor_rus.3427
+	title = "flavor_rus.EVTNAME3427"
+	desc = "flavor_rus.EVTDESC3427"
+	picture = ORTHODOX_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3427 }
+		is_year = 1700
+		NOT = { is_year = 1800 }
+		religion = orthodox
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3427
+	}
+	
+	option = {		# Abolish the Patriarchate
+		name = "flavor_rus.EVTOPTA3427"
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				NOT = { stability = 1 }
+			}
+		}
+		subtract_stability_2 = yes
+		add_patriarch_authority = -1.0
+	}
+	option = {		# Leave the Patriarchate alone
+		name = "flavor_rus.EVTOPTB3427"
+		ai_chance = { factor = 25 }
+		add_stability_1 = yes
+		add_patriarch_authority = 0.25
+	}
+}
+
+# The Courland Succession of 1726
+country_event = {
+	id = flavor_rus.3430
+	title = "flavor_rus.EVTNAME3430"
+	desc = "flavor_rus.EVTDESC3430"
+	picture = COURT_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3430 }
+		is_year = 1500
+		NOT = { is_year = 1800 }
+		exists = KUR
+		KUR = {
+			has_heir = no
+			any_owned_province = {
+				NOT = { is_core = ROOT }
+			}
+		}
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = RUS_had_event_3430
+			KUR = {
+				every_owned_province = {
+					every_core_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							exists = yes
+						}
+						set_country_flag = courland_succession
+					}
+				}
+			}
+		}
+	}
+	
+	option = {		# Prepare to grab Kurland
+		name = "flavor_rus.EVTOPTA3430"
+		ai_chance = { factor = 90 }
+		KUR = {
+			every_owned_province = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+		every_country = {
+			limit = {
+				has_country_flag = courland_succession
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = rus_claimed_courland
+			}
+			clr_country_flag = courland_succession
+		}
+	}
+	option = {		# Ignore this petty matter
+		name = "flavor_rus.EVTOPTB3430"
+		ai_chance = { factor = 10 }
+		every_country = {
+			limit = {
+				has_country_flag = courland_succession
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = rus_did_not_claim_courland
+			}
+			clr_country_flag = courland_succession
+		}
+	}
+}
+
+# The Pugatchev Uprising
+country_event = {
+	id = flavor_rus.3435
+	title = "flavor_rus.EVTNAME3435"
+	desc = "flavor_rus.EVTDESC3435"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3435 }
+		is_year = 1700
+		NOT = { is_year = 1800 }
+		NOT = { stability = 1 }
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3435
+	}
+	
+	option = {		# The Masses are moving...
+		name = "flavor_rus.EVTOPTA3435"
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = peasants_organizing }
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "peasants_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = peasants_organizing }
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "peasants_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = peasants_organizing }
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "peasants_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+	}
+}
+
+# Tsar Alexander I:s Liberal Legislation
+country_event = {
+	id = flavor_rus.3438
+	title = "flavor_rus.EVTNAME3438"
+	desc = "flavor_rus.EVTDESC3438"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3438 }
+		NOT = { has_country_flag = RUS_had_event_3437 }
+		is_year = 1750
+	}
+	
+	mean_time_to_happen = { years = 166 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3438
+	}
+	
+	option = {		# Abolish serfdom
+		name = "flavor_rus.EVTOPTA3438"
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				NOT = { stability = 1 }
+			}
+		}
+		subtract_stability_2 = yes
+		#add_country_modifier = {
+		#	name = restricted_serfdom
+		#	duration = -1
+		#}
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = nobles_organizing }
+			}
+			add_province_modifier = {
+				name = "nobles_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = nobles_organizing }
+			}
+			add_province_modifier = {
+				name = "nobles_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = nobles_organizing }
+			}
+			add_province_modifier = {
+				name = "nobles_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+	}
+	option = {		# Leave it be
+		name = "flavor_rus.EVTOPTB3438"
+		ai_chance = { factor = 25 }
+		add_stability_1 = yes
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = peasants_organizing }
+			}
+			add_province_modifier = {
+				name = "peasants_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+		random_core_province = {
+			limit = {
+				NOT = { has_province_modifier = peasants_organizing }
+			}
+			add_province_modifier = {
+				name = "peasants_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+	}
+}
+
+# The Anjala League
+country_event = {
+	id = flavor_rus.3439
+	title = "flavor_rus.EVTNAME3439"
+	desc = "flavor_rus.EVTDESC3439"
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_3439 }
+		SWE = { has_country_flag = SWE_had_event_3259 }
+		war_with = SWE
+		NOT = { exists = FIN }
+		SWE = {
+			any_owned_province = {
+				is_core = FIN
+			}
+		}
+	}
+	
+	mean_time_to_happen = { years = 25 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_3439
+	}
+	
+	option = {		# Give them our support
+		name = "flavor_rus.EVTOPTA3439"
+		ai_chance = { factor = 90 }
+		add_years_of_income = -0.25
+		SWE = {
+			random_owned_province = {
+				limit = {
+					is_core = FIN
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2
+					friend = ROOT
+				}
+			}
+		}
+	}
+	option = {		# Reject their pleas
+		name = "flavor_rus.EVTOPTB3439"
+		ai_chance = { factor = 10 }
+		SWE = {
+			add_opinion = {
+				who = ROOT
+				modifier = rus_rejected_anjala_league
+			}
+		}
+	}
+}
+
+
+########################################
+# Minor Flavor Events                  #
+########################################
+
+# Mikhailo Shcherbatov
+country_event = {
+	id = flavor_rus.1000
+	title = "flavor_rus.EVTNAME1000"
+	desc = "flavor_rus.EVTDESC1000"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_1000 }
+		is_year = 1763
+		NOT = { is_year = 1790 }
+	}
+	
+	mean_time_to_happen = { years = 25 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_1000
+	}
+	
+	option = {		# Excellent
+		name = "EXCELLENT"
+		add_adm_power = 10
+		add_prestige = 10
+	}
+}
+
+# Vasily Tatishchev
+country_event = {
+	id = flavor_rus.1001
+	title = "flavor_rus.EVTNAME1001"
+	desc = "flavor_rus.EVTDESC1001"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_1001 }
+		is_year = 1716
+		NOT = { is_year = 1750 }
+	}
+	
+	mean_time_to_happen = { years = 25 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_1001
+	}
+	
+	option = {		# Excellent
+		name = "EXCELLENT"
+		add_adm_power = 10
+		add_prestige = 10
+	}
+}
+
+# Mikhail Lomonosov
+country_event = {
+	id = flavor_rus.1002
+	title = "flavor_rus.EVTNAME1002"
+	desc = "flavor_rus.EVTDESC1002"
+	picture = INVENTION_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = RUS_had_event_1002 }
+		is_year = 1741
+		NOT = { is_year = 1765 }
+	}
+	
+	mean_time_to_happen = { years = 25 }
+	
+	immediate = {
+		set_country_flag = RUS_had_event_1002
+	}
+	
+	option = {		# Excellent
+		name = "EXCELLENT"
+		add_adm_power = 10
+		add_prestige = 10
+	}
+}
+
+# Stefan of Perm
+country_event = {
+	id = flavor_rus.1003
+	title = "flavor_rus.1003.t"
+	desc = "flavor_rus.1003.d"
+	picture = orthodox_heresy
+	
+	trigger = {
+		tag = PRM
+		NOT = { has_country_flag = PRM_had_event_1003 }
+		religion = tengri_pagan_reformed
+	}
+	
+	mean_time_to_happen = { years = 50 }
+	
+	immediate = {
+		set_country_flag = PRM_had_event_1003
+	}
+	
+	option = {
+		name = "flavor_rus.1003.a"
+		change_variable = { which = province_religion value = -14 }
+		change_variable = { which = orthodox value = 14 }
+		change_religion = orthodox
+		force_converted = yes
+		random_owned_province = {
+			limit = {
+				is_capital = yes
+				religion = tengri_pagan_reformed
+			}
+			change_variable = { which = tengri_pagan_reformed value = -12 }
+			change_variable = { which = orthodox value = 12 }
+		}
+		every_owned_province = {
+			limit = {
+				is_capital = no
+				religion = tengri_pagan_reformed
+			}
+			change_variable = { which = tengri_pagan_reformed value = -6 }
+			change_variable = { which = orthodox value = 6 }
+		}
+	}
+	option = {
+		name = "flavor_rus.1003.b"
+		add_prestige = 10
+		every_neighbor_country = {
+			limit = {
+				religion = orthodox
+			}
+			add_opinion = { who = ROOT modifier = stefan_of_perm_declined }
+		}
+	}
+}
+
+########################################
+# Time of Troubles
+########################################
+
+# Time of Troubles
+country_event = {
+	id = flavor_rus.1101
+	title = "flavor_rus.EVTNAME1101"
+	desc = "flavor_rus.EVTDESC1101"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = time_of_troubles_ended }
+		NOT = { has_country_modifier = time_of_troubles }
+		NOT = { has_country_flag = RUS_had_event_1101 }
+		is_year = 1550
+		NOT = { is_year = 1650 }
+		NOT = { stability = 0 }
+	}
+	
+	mean_time_to_happen = {
+		years = 83
+		modifier = {
+			factor = 10
+			luck = yes
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { ADM = 3 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { DIP = 3 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { MIL = 3 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { ADM = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { DIP = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { MIL = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { stability = -2 }
+		}
+		modifier = {
+			factor = 1.05
+			stability = 1
+		}
+		modifier = {
+			factor = 1.05
+			stability = 2
+		}
+		modifier = {
+			factor = 1.05
+			stability = 3
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { war_exhaustion = 4 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { war_exhaustion = 8 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { war_exhaustion = 12 }
+		}
+	}
+	
+	immediate = {
+		set_country_flag = RUS_had_event_1101
+		add_country_modifier = { name = time_of_troubles duration = -1 }
+	}
+	
+	option = {		# Hard times are ahead of us
+		name = "flavor_rus.EVTOPTA1101"
+		random_list = {
+			30 = {}
+			40 = {
+				subtract_stability_points_50 = yes
+			}
+			30 = {
+				subtract_stability_1 = yes
+			}
+		}
+	}
+}
+
+# First Dimitri
+country_event = {
+	id = flavor_rus.1106
+	title = "flavor_rus.EVTNAME1106"
+	desc = "flavor_rus.EVTDESC1106"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = time_of_troubles_ended }
+		has_country_modifier = time_of_troubles
+		NOT = { has_country_flag = RUS_had_event_1106 }
+		government = monarchy
+		any_neighbor_country = {
+			OR = {
+				is_rival = ROOT
+				is_enemy = ROOT
+				NOT = { has_opinion = { who = ROOT value = 0 } }
+			}
+			NOT = { alliance_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+			manpower = 10
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 5
+		modifier = {
+			factor = 0.95
+			NOT = { ADM = 3 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { DIP = 3 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { MIL = 3 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { ADM = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { DIP = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { MIL = 1 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { stability = -2 }
+		}
+		modifier = {
+			factor = 1.05
+			stability = 1
+		}
+		modifier = {
+			factor = 1.05
+			stability = 2
+		}
+		modifier = {
+			factor = 1.05
+			stability = 3
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { war_exhaustion = 3 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { war_exhaustion = 5 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { war_exhaustion = 10 }
+		}
+	}
+	
+	immediate = {
+		set_country_flag = RUS_had_event_1106
+	}
+	
+	option = {		# Recognize him as the legitimate ruler
+		name = "flavor_rus.EVTOPTA1106"
+		ai_chance = { factor = 10 }
+		if = {
+			limit = {
+				has_regency = no
+			}
+			tooltip = {
+				kill_ruler = yes
+			}
+		}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+			name = "Dimitri I"
+			dynasty = "Rurikovich"
+		}
+		add_legitimacy = -50
+	}
+	option = {		# Expel him
+		name = "flavor_rus.EVTOPTB1106"
+		ai_chance = { factor = 90 }
+		random_neighbor_country = {
+			limit = {
+				OR = {
+					is_rival = ROOT
+					is_enemy = ROOT
+					NOT = { has_opinion = { who = ROOT value = 0 } }
+				}
+				NOT = { alliance_with = ROOT }
+				NOT = { is_subject_of = ROOT }
+				manpower = 10
+			}
+			ROOT = { set_country_flag = dimitri_supporter_found }
+			if = {
+				limit = { tag = MOS }
+				country_event = { id = flavor_rus.1107 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1106" }
+			}
+			if = {
+				limit = { tag = RUS }
+				country_event = { id = flavor_rus.1111 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1106" }
+			}
+		}
+		clr_country_flag = dimitri_supporter_found
+	}
+}
+
+# False Dimitri (Muskowy)
+country_event = {
+	id = flavor_rus.1107
+	title = "flavor_rus.EVTNAME1107"
+	desc = "flavor_rus.EVTDESC1107"
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {		# Support him with troops
+		name = "flavor_rus.EVTOPTA1107"
+		ai_chance = { factor = 75 }
+		set_country_flag = supporter_of_dimitri
+		if = {
+			limit = { manpower = 30 }
+			set_country_flag = support_dimitri
+			add_manpower = -6
+			FROM = {
+				set_country_flag = support_dimitri_6
+				country_event = { id = flavor_rus.1108 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1107" }
+			}
+		}
+		if = {
+			limit = {
+				manpower = 20
+				NOT = { has_country_flag = support_dimitri }
+			}
+			set_country_flag = support_dimitri
+			add_manpower = -4
+			FROM = {
+				set_country_flag = support_dimitri_4
+				country_event = { id = flavor_rus.1108 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1107" }
+			}
+		}
+		if = {
+			limit = {
+				manpower = 10
+				NOT = { has_country_flag = support_dimitri }
+			}
+			set_country_flag = support_dimitri
+			add_manpower = -2
+			FROM = {
+				set_country_flag = support_dimitri_2
+				country_event = { id = flavor_rus.1108 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1107" }
+			}
+		}
+		clr_country_flag = support_dimitri
+	}
+	option = {		# Expel him from COUNTRY
+		name = "flavor_rus.EVTOPTB1107"
+		ai_chance = { factor = 25 }
+		if = {
+			limit = {
+				FROM = {
+					any_neighbor_country = {
+						NOT = { tag = ROOT }
+						is_rival = PREV
+					}
+				}
+			}
+			FROM = {
+				random_neighbor_country = {
+					limit = {
+						NOT = { tag = ROOT }
+						is_rival = PREV
+						manpower = 10
+					}
+					PREV = { set_country_flag = dimitri_supporter_found }
+					if = {
+						limit = {
+							PREV = { tag = MOS }
+						}
+						country_event = { id = flavor_rus.1107 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1106" }
+					}
+					if = {
+						limit = {
+							PREV = { tag = RUS }
+						}
+						country_event = { id = flavor_rus.1111 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1106" }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					NOT = { has_country_flag = dimitri_supporter_found }
+					any_neighbor_country = {
+						NOT = { tag = ROOT }
+						is_enemy = PREV
+					}
+				}
+			}
+			FROM = {
+				random_neighbor_country = {
+					limit = {
+						NOT = { tag = ROOT }
+						is_enemy = PREV
+						manpower = 10
+					}
+					PREV = { set_country_flag = dimitri_supporter_found }
+					if = {
+						limit = {
+							PREV = { tag = MOS }
+						}
+						country_event = { id = flavor_rus.1107 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1106" }
+					}
+					if = {
+						limit = {
+							PREV = { tag = RUS }
+						}
+						country_event = { id = flavor_rus.1111 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1106" }
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			FROM = { clr_country_flag = dimitri_supporter_found }
+		}
+	}
+}
+
+# False Dimitri (Russia)
+country_event = {
+	id = flavor_rus.1111
+	title = "flavor_rus.EVTNAME1107"
+	desc = "flavor_rus.EVTDESC1111"
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {		# Support him with troops
+		name = "flavor_rus.EVTOPTA1107"
+		ai_chance = { factor = 75 }
+		set_country_flag = supporter_of_dimitri
+		if = {
+			limit = { manpower = 30 }
+			set_country_flag = support_dimitri
+			add_manpower = -6
+			FROM = {
+				set_country_flag = support_dimitri_6
+				country_event = { id = flavor_rus.1108 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1111" }
+			}
+		}
+		if = {
+			limit = {
+				manpower = 20
+				NOT = { has_country_flag = support_dimitri }
+			}
+			set_country_flag = support_dimitri
+			add_manpower = -4
+			FROM = {
+				set_country_flag = support_dimitri_4
+				country_event = { id = flavor_rus.1108 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1111" }
+			}
+		}
+		if = {
+			limit = {
+				manpower = 10
+				NOT = { has_country_flag = support_dimitri }
+			}
+			set_country_flag = support_dimitri
+			add_manpower = -2
+			FROM = {
+				set_country_flag = support_dimitri_2
+				country_event = { id = flavor_rus.1108 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1111" }
+			}
+		}
+		clr_country_flag = support_dimitri
+	}
+	option = {		# Expel him from COUNTRY
+		name = "flavor_rus.EVTOPTB1107"
+		ai_chance = { factor = 25 }
+		if = {
+			limit = {
+				FROM = {
+					any_neighbor_country = {
+						NOT = { tag = ROOT }
+						is_rival = PREV
+					}
+				}
+			}
+			FROM = {
+				random_neighbor_country = {
+					limit = {
+						NOT = { tag = ROOT }
+						is_rival = PREV
+						manpower = 10
+					}
+					PREV = { set_country_flag = dimitri_supporter_found }
+					if = {
+						limit = {
+							PREV = { tag = MOS }
+						}
+						country_event = { id = flavor_rus.1107 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1106" }
+					}
+					if = {
+						limit = {
+							PREV = { tag = RUS }
+						}
+						country_event = { id = flavor_rus.1111 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1106" }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					NOT = { has_country_flag = dimitri_supporter_found }
+					any_neighbor_country = {
+						NOT = { tag = ROOT }
+						is_enemy = PREV
+					}
+				}
+			}
+			FROM = {
+				random_neighbor_country = {
+					limit = {
+						NOT = { tag = ROOT }
+						is_enemy = PREV
+						manpower = 10
+					}
+					PREV = { set_country_flag = dimitri_supporter_found }
+					if = {
+						limit = {
+							PREV = { tag = MOS }
+						}
+						country_event = { id = flavor_rus.1107 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1106" }
+					}
+					if = {
+						limit = {
+							PREV = { tag = RUS }
+						}
+						country_event = { id = flavor_rus.1111 days = 30 tooltip = "flavor_rus.EVTTOOLTIP1106" }
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			FROM = { clr_country_flag = dimitri_supporter_found }
+		}
+	}
+}
+
+# Dimitri Returns
+country_event = {
+	id = flavor_rus.1108
+	title = "flavor_rus.EVTNAME1108"
+	desc = "flavor_rus.EVTDESC1108"
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {		# In time we will crush them both!
+		name = "flavor_rus.EVTOPTA1108"
+		if = {
+			limit = { has_country_flag = support_dimitri_6 }
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = {
+						owner = {
+							tag = FROM
+						}
+					}
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 6
+					leader = "Dimitri I"
+					friend = FROM
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = support_dimitri_4 }
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = {
+						owner = {
+							tag = FROM
+						}
+					}
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 4
+					leader = "Dimitri I"
+					friend = FROM
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = support_dimitri_2 }
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = {
+						owner = {
+							tag = FROM
+						}
+					}
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 2
+					leader = "Dimitri I"
+					friend = FROM
+				}
+			}
+		}
+	}
+}
+
+# False Dimitri Overthrown
+country_event = {
+	id = flavor_rus.1109
+	title = "flavor_rus.EVTNAME1109"
+	desc = "flavor_rus.EVTDESC1109"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = time_of_troubles_ended }
+		has_country_modifier = time_of_troubles
+		NOT = { has_country_flag = RUS_had_event_1109 }
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+		modifier = {
+			factor = 0.95
+			NOT = { stability = 1 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { stability = -2 }
+		}
+	}
+	
+	immediate = {
+		set_country_flag = RUS_had_event_1109
+	}
+	
+	option = {		# Resist these usurpers!
+		name = "flavor_rus.EVTOPTA1109"
+		ai_chance = { factor = 10 }
+		subtract_stability_2 = yes
+		capital_scope = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				leader = "Vasily Shuisky"
+			}
+		}
+	}
+	option = {		# Let the rebels seize power
+		name = "flavor_rus.EVTOPTB1109"
+		ai_chance = { factor = 90 }
+		if = {
+			limit = {
+				has_regency = no
+			}
+			tooltip = {
+				kill_ruler = yes
+			}
+		}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+			name = "Vasily"
+			dynasty = "Shuisky"
+		}
+		random_known_country = {
+			limit = {
+				has_country_flag = supporter_of_dimitri
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = rus_overthrow_dimitri
+			}
+			add_casus_belli = {
+				type = cb_fabricated_claims
+				months = 24
+				target = ROOT
+			}
+		}
+	}
+}
+
+# End of the Time of Troubles
+country_event = {
+	id = flavor_rus.1110
+	title = "flavor_rus.EVTNAME1110"
+	desc = "flavor_rus.EVTDESC1110"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = time_of_troubles_ended }
+		has_country_modifier = time_of_troubles
+		# had_country_flag = { flag = time_of_troubles days = 1000 }
+		NOT = { has_country_flag = RUS_had_event_1110 }
+		stability = 1
+		is_at_war = no
+		NOT = { war_exhaustion = 3 }
+		NOT = { num_of_revolts = 1 }
+	}
+	
+	mean_time_to_happen = {
+		years = 5
+		modifier = {
+			factor = 0.95
+			stability = 1
+		}
+		modifier = {
+			factor = 0.95
+			stability = 2
+		}
+		modifier = {
+			factor = 0.95
+			stability = 3
+		}
+	}
+	
+	immediate = {
+		set_country_flag = RUS_had_event_1110
+		remove_country_modifier = time_of_troubles
+		set_country_flag = time_of_troubles_ended
+	}
+	
+	option = {		# A stronger COUNTRY will emerge!
+		name = "flavor_rus.EVTOPTA1110"
+		add_adm_power = 100
+	}
+	option = {		# COUNTRY needs a new dynasty!
+		name = "flavor_rus.EVTOPTB1110"
+		add_adm_power = 50
+		if = {
+			limit = {
+				has_regency = no
+			}
+			tooltip = {
+				kill_ruler = yes
+			}
+		}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_ruler = {
+			name = "Mikhail I"
+			dynasty = Romanov
+			adm = 4
+			dip = 2
+			mil = 3
+		}
+	}
+}
+
+# Qasim Khanate
+country_event = {
+	id = flavor_rus.1112
+	title = "flavor_rus.EVTNAME1112"
+	desc = "flavor_rus.EVTDESC1112"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				culture_group = east_slavic
+				NOT = { exists = RUS }
+			}
+			tag = RUS
+		}
+		NOT = { has_country_flag = qasim_abolished }
+		NOT = {
+			num_of_owned_provinces_with = {
+				has_province_modifier = qasim_khanate
+				value = 1
+			}
+		}
+		any_neighbor_country = {
+			OR = {
+				government = tribal_nomads_steppe
+				government = tribal_nomads_altaic
+				government = tribal_nomads
+				government = tribal_nomads_hereditary
+			}
+		}
+		num_of_cities = 10
+		stability = 1
+		is_at_war = no
+		owns_core_province = 301 # Ryazan
+		NOT = { num_of_revolts = 1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+		modifier = {
+			factor = 0.95
+			stability = 1
+		}
+		modifier = {
+			factor = 0.95
+			stability = 2
+		}
+		modifier = {
+			factor = 0.95
+			stability = 3
+		}
+	}
+	
+	option = {		# Excellent
+		name = "flavor_rus.EVTOPTA1112"
+		add_adm_power = -25
+		add_country_modifier = {
+			name = qasim_khanate_levies
+			duration = -1
+		}
+		301 = {
+			add_province_modifier = {
+				name = qasim_khanate
+				duration = -1
+			}
+		}
+		cavalry = 301
+		cavalry = 301
+		cavalry = 301
+		cavalry = 301
+		cavalry = 301
+		
+		define_general = {
+			name = "Qasim Genghisid"
+			fire = 0
+			shock = 3
+			manuever = 2
+			siege = 0
+		}
+	}
+	option = {		# We don't need them
+		name = "flavor_rus.EVTOPTB1112"
+		add_adm_power = 50
+		add_prestige = 20
+		301 = {
+			add_province_modifier = {
+				name = "nobles_organizing"
+				duration = 1825
+			}
+			hidden_effect = {
+				set_variable = { which = added_unrest value = 5 }
+				add_base_unrest = yes
+			}
+			custom_tooltip = added_unrest_5
+		}
+	}
+}
+
+# Glorious St. Petersburg
+country_event = {
+	id = flavor_rus.1113
+	title = "flavor_rus.EVTNAME1113"
+	desc = "flavor_rus.EVTDESC1113"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {		# Move the capital.
+		name = "flavor_rus.EVTOPTA1113"
+		3401 = {
+			change_province_name = "Sankt-Peterburg"
+			rename_capital = "Sankt-Peterburg"
+			# add_base_tax = 6
+			# add_base_manpower = 3
+			change_culture = owner
+		}
+		set_capital = 3401
+		hidden_effect = {
+			country_event = {
+				id = miscexpenses.001
+			}
+		}
+	}
+	option = {		# Build the City, but stay in $capital$
+		name = "flavor_rus.EVTOPTB1113"
+		3401 = {
+			change_province_name = "Sankt-Peterburg"
+			rename_capital = "Sankt-Peterburg"
+			# add_base_tax = 6
+			# add_base_manpower = 3
+			change_culture = owner
+		}
+	}
+}
+
+# First Romanov
+country_event = {
+	id = flavor_rus.2001
+	title = "flavor_rus.2001.name"
+	desc = "flavor_rus.2001.desc"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = RUS
+		government = monarchy
+		dynasty = "Romanov"
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		
+		modifier = {
+			factor = 0.95
+			stability = 1
+		}
+		modifier = {
+			factor = 0.95
+			stability = 2
+		}
+		modifier = {
+			factor = 0.95
+			stability = 3
+		}
+		modifier = {
+			factor = 0.50
+			has_heir = no
+		}
+	}
+	
+	option = {
+		name = "flavor_rus.2001.opta"
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		define_heir = {
+			name = "Piotr"
+			dynasty = "Romanov"
+			ADM = 5
+			DIP = 5
+			MIL = 5
+		}
+	}
+}
