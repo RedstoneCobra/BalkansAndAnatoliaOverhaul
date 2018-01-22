@@ -44,5 +44,17 @@ historical_neutral = ARA
 		DIP = 2
 		MIL = 2
 	}
+	define_consort = {
+	name = "Thomais"
+	dynasty = "Doukas"
+	country_of_origin = EPI
+	religion = orthodox
+	culture = grecoroman
+	adm = 3
+	dip = 3
+	mil = 3
+	fixed = yes 
+	age = 26
+	}
 }
 

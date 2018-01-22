@@ -1,7 +1,9 @@
 # 149 - Thessalia
 
-owner = SER
-controller = SER
+owner = EPI
+controller = EPI
+add_core = EPI
+add_core = TSL
 add_core = SER
 
 capital = "Lárissa"

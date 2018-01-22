@@ -15,16 +15,27 @@ capital = 154
 	add_absolutism = 0
 }
 1356.1.1   = {
-#	monarch = {
-#		name = "Nikephoros II"
-#		dynasty = "Orsini"
-#		DIP = 2
-#		ADM = 3
-#		MIL = 2
-#	}
+	monarch = {
+		name = "Nikephoros II"
+		dynasty = "Orsini"
+		DIP = 2
+		ADM = 3
+		MIL = 2
+		birth_date = 1327.6.6
+	}
+	define_consort = {
+		name = "Maria"
+		dynasty = "Kantakouzenos"
+		country_of_origin = MOE
+		religion = orthodox
+		culture = grecoroman
+		adm = 3
+		dip = 5
+		mil = 3
+		fixed = yes 
+		age = 24
+	}
 	set_country_flag = native_greek_state
-	add_country_modifier = { name = obstacle_shifting_loyalties duration = -1 }
-	add_country_modifier = { name = obstacle_feuding duration = -1 }
 }
 
 1359.1.1   = {

@@ -1,7 +1,7 @@
 # 3871 - Orestis
 
-owner = SER
-controller = SER
+owner = TSL
+controller = TSL
 add_core = SER
 add_core = TSL
 

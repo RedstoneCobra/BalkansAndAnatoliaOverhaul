@@ -1,7 +1,9 @@
 # 1399 - Angelokastron
 
-owner = SER
-controller = SER
+owner = EPI
+controller = EPI
+add_core = EPI
+add_core = TSL
 add_core = SER
 add_claim = SER
 add_permanent_claim = BYZ

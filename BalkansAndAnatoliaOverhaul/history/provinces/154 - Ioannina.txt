@@ -1,8 +1,10 @@
 # 154 - Ioannina
 
-owner = SER
-controller = SER
+owner = EPI
+controller = EPI
 add_core = SER
+add_core = EPI
+add_core = TSL
 add_permanent_claim = BYZ
 
 capital = "Ioannina"
