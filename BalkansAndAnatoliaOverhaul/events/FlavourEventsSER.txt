@@ -15,11 +15,12 @@
 	
 	trigger = {									#Need to make Custom Trigger
 		tag = SER
-		NOT = { is_year = 1360 }
-		owns = 3775 # Rasina
+		is_year = 1359
+		is_month = 3
+		has_country_modifier = desintegrating_serbian_state
 	}
 	
-	mean_time_to_happen = { months = 12 }      #Need to set custom time 
+	mean_time_to_happen = { days = 10 }      #Need to set custom time 
 	
 	immediate = {
 		release = EPI
@@ -53,6 +54,11 @@
 				age = 24
 			}
 		}
+		hidden_effect = {
+			SER = {
+				country_event = { id = flavor_ser.2 days = 10 } #Need to set custom time
+			}
+		}
 	}
 	
 	option = {
@@ -60,6 +66,7 @@
 		ai_chance = { factor = 100 }
 		add_prestige = -10
 	}
+	
 	option = {
 		name = "flavor_ser.1.b."
 		switch_tag = EPI
@@ -75,11 +82,10 @@
 	picture = SERBIA_eventPicture 		# Need Custom picture
 	
 	fire_only_once = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		tag = SER
-		NOT = { is_year = 1360 }
-		owns = 3775 # Rasina
 	}
 	
 	mean_time_to_happen = { months = 12 }
@@ -117,6 +123,7 @@
 		ai_chance = { factor = 100 }
 		add_prestige = -10
 	}
+	
 	option = {
 		name = "flavor_ser.1.b."
 		switch_tag = TSL
