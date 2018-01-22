@@ -13,7 +13,7 @@
 	
 	fire_only_once = yes
 	
-	trigger = {									#Need to make Custom Trigger
+	trigger = {									#Now fires in Spring 1359
 		tag = SER
 		is_year = 1359
 		is_month = 3
@@ -114,7 +114,30 @@
 				mil = 3
 				fixed = yes 
 				age = 26
-			}	
+			}
+			hidden_effect = {
+				1399 = {
+					add_core = TSL
+				}
+				154 = {
+					add_core = TSL
+				}
+				144 = {
+					add_core = TSL
+				}
+				805 = {
+					add_core = TSL
+				}
+				3778 = {
+					add_core = TSL
+				}
+				5523 = {
+					add_core = TSL
+				}
+				5524 = {
+					add_core = TSL
+				}
+			}
 		}
 	}
 	
@@ -164,6 +187,7 @@
 		ai_chance = { factor = 100 }
 		add_country_modifier = {
 			name = claimant_serbian_empire
+			duration = -1
 		}
 	}
 }

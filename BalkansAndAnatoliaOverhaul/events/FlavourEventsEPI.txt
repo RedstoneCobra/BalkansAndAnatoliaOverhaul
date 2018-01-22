@@ -109,6 +109,7 @@
 			country_event = { id = flavor_epi.5 days = 10 } #Need to set custom time
 		}
 	}
+	
 	option = {		#option I'm not remarrying that bitch :) # needs more bad effects then. 
 		ai_chance = { factor = 0}
 		name = flavor_epi.3.b

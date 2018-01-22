@@ -3,7 +3,6 @@
 owner = SER
 controller = SER
 add_core = SER
-add_Core = TSL
 add_permanent_claim = BYZ
 
 capital = "Gjirokaster"
