@@ -16,23 +16,30 @@
 	
 	trigger = {									#Need to make Custom Trigger
 		tag = EPI
+		is_year = 1357
+		has_ruler = "Nikephoros II"
 	}
 	
-	mean_time_to_happen = { months = 12 }      #Need to set custom time # in 1359 somewhere
+	mean_time_to_happen = { months = 1 }      #Need to set custom time 
 	
 	option = {
 		name = "flavor_epi.1.a"
-		ai_chance = { factor = 10 }
+		ai_chance = { factor = 5 }
+		hidden_effect = {
+			EPI = {
+				country_event = { id = flavor_epi.6 days = 10 } #Need to set custom time # Information event that Albanians are mobilising
+			}
+		}
 	}
 	
 	option = {
 		name = "flavor_epi.1.b"
-		ai_chance = { factor = 90 }
+		ai_chance = { factor = 95 }
 		remove_consort = yes
 		hidden_effect = {
 			EPI = {
 				country_event = { id = flavor_epi.2 days = 10 } #Need to set custom time
-				country_event = { id = flavor_epi.6 days = 10 } #Need to set custom time # Information event that Albanians are mobilising
+				country_event = { id = flavor_epi.5 days = 10 } #Need to set custom time # Information event that Albanians are mobilising
 			}
 		}
 	}
@@ -47,26 +54,26 @@
 	picture = SERBIA_eventPicture 	# Need Custom picture
 	
 	fire_only_once = yes
+	is_triggered_only = yes
 	
 	trigger = {									#Need to make Custom Trigger
 		tag = EPI
+		has_ruler = "Nikephoros II"
 	}
-	
-	mean_time_to_happen = { months = 12 }      #Need to set custom time # in 1359 somewhere
 	
 	option = { 
 		ai_chance = { factor = 100}
 		name = flavor_epi.2.a
 		hidden_effect = {
-		random_list = {
-			90 = {
-				EPI = {
-					country_event = { id = flavor_epi.3 days = 10 } #Need to set custom time
+			random_list = {
+				90 = {
+					EPI = {
+						country_event = { id = flavor_epi.3 days = 10 } #Need to set custom time
 					}
 				}	
-			10 = {
-				EPI = {
-					country_event = { id = flavor_epi.4 days = 10 } #Need to set custom time
+				10 = {
+					EPI = {
+						country_event = { id = flavor_epi.4 days = 10 } #Need to set custom time
 					}
 				}
 			}	
@@ -83,12 +90,12 @@
 	picture = SERBIA_eventPicture 	# Need Custom picture
 	
 	fire_only_once = yes
+	is_triggered_only = yes
 	
 	trigger = {									#Need to make Custom Trigger
 		tag = EPI
+		has_ruler = "Nikephoros II"
 	}
-	
-	mean_time_to_happen = { months = 12 }      #Need to set custom time # in 1359 somewhere
 	
 	option = {
 		ai_chance = { factor = 100}
@@ -128,14 +135,14 @@
 	picture = SERBIA_eventPicture 	# Need Custom picture
 	
 	fire_only_once = yes
+	is_triggered_only = yes
 	
 	trigger = {									#Need to make Custom Trigger
 		tag = EPI
+		has_ruler = "Nikephoros II"
 	}
 	
-	mean_time_to_happen = { months = 12 }      #Need to set custom time # in 1359 somewhere
-	
-	option = {
+	option = {                                                             #Need to change this to another event to later date!!!
 		ai_chance = { factor = 100}
 		name = flavor_epi.4.a
 		define_consort = {
@@ -158,7 +165,7 @@
 	}
 }
 
-# Albanians rise up in revolt after deposing the popular despota Maria Kantakouzenos. 
+# Information event that the Albanians are going to rebel. 
 
 	country_event = {
 	id = flavor_epi.5
@@ -167,12 +174,20 @@
 	picture = SERBIA_eventPicture 	# Need Custom picture
 	
 	fire_only_once = yes
+	is_triggered_only = yes
 	
 	trigger = {									#Need to make Custom Trigger
 		tag = EPI
 	}
 	
-# Information event that the Albanians are going to rebel. 
+	option = {
+		name = "flavor_epi.5.a"
+		ai_chance = { factor = 100 }
+	}
+}
+	
+	
+# Information event that the Albanians are going to rebel. Not Divorce Option
 
 	country_event = {
 	id = flavor_epi.6
@@ -181,8 +196,28 @@
 	picture = SERBIA_eventPicture 	# Need Custom picture
 	
 	fire_only_once = yes
+	is_triggered_only = yes
 	
 	trigger = {									#Need to make Custom Trigger
 		tag = EPI
 	}
 	
+		option = {
+		name = "flavor_epi.6.a"
+		ai_chance = { factor = 100 }
+	}
+}
+	
+# Albanians rise up in revolt after deposing the popular despota Maria Kantakouzenos. 
+
+	#country_event = {
+	#id = flavor_epi.7
+	#title = "flavor_epi.7.n"
+	#desc = "flavor_epi.7.t"
+	#picture = SERBIA_eventPicture 	# Need Custom picture
+	#
+	#fire_only_once = yes
+	#
+	#trigger = {									#Need to make Custom Trigger
+	#	tag = EPI
+	#}

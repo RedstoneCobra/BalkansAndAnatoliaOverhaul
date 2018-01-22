@@ -17,11 +17,13 @@ capital = 154
 1356.1.1   = {
 	monarch = {
 		name = "Nikephoros II"
-		dynasty = "Orsini"
+		dynasty = "Doukas"
 		DIP = 2
 		ADM = 3
 		MIL = 2
-		birth_date = 1327.6.6
+		birth_date = 1328.1.1
+		culture = grecoroman
+		religion = orthodox
 	}
 	define_consort = {
 		name = "Maria"

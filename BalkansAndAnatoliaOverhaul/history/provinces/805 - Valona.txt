@@ -1,7 +1,8 @@
 # 2374 - Vlorë
 
-owner = EPI
-controller = EPI
+owner = ALB
+controller = ALB
+add_core = ALB
 add_core = EPI
 add_core = TSL
 add_core = SER
