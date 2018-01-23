@@ -32,6 +32,8 @@ historical_neutral = BUL
 		DIP = 3
 		MIL = 3
 		birth_date = 1347.1.1
+		culture = grecoroman
+		religion = orthodox
 	}
 	define_consort = {
 		name = "Anna"

@@ -918,7 +918,7 @@ vardar_macedonia_area = {
 }
 
 albania_area = {
-	1424 2374 2373 3778 805 
+	1424 2374 2373 3778 805 5528
 }
 
 morea_area = {

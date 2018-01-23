@@ -29,6 +29,7 @@ historical_neutral = GEN
 	add_country_modifier = { name = obstacle_succession duration = -1 }
 	set_country_flag = native_greek_state
 	set_country_flag = pre_set_privileges
+	add_corruption = 20
 }
 
 1328.05.24 = {
