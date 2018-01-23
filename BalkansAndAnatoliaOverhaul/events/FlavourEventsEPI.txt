@@ -28,6 +28,7 @@
 		hidden_effect = {
 			EPI = {
 				country_event = { id = flavor_epi.6 days = 10 } #Need to set custom time # Information event that Albanians are mobilising
+				country_event = { id = flavor_epi.7 days = 20 } #Need to set custom time
 			}
 		}
 	}
@@ -40,6 +41,7 @@
 			EPI = {
 				country_event = { id = flavor_epi.2 days = 10 } #Need to set custom time
 				country_event = { id = flavor_epi.5 days = 10 } #Need to set custom time # Information event that Albanians are mobilising
+				country_event = { id = flavor_epi.8 days = 20 } #Need to set custom time
 			}
 		}
 	}
@@ -208,15 +210,71 @@
 	}
 }
 	
+# Albanians rise up in revolt after deposing the popular despota Maria Kantakouzenos. Not divorce option. 
+
+	country_event = {
+	id = flavor_epi.7
+	title = "flavor_epi.7.n"
+	desc = "flavor_epi.7.t"
+	picture = SERBIA_eventPicture 	# Need Custom picture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {									#Need to make Custom Trigger
+		tag = EPI
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { province_id = 149 } #Thessalia
+					NOT = { province_id = 3385 } #Magnesia
+					NOT = { province_id = 144 } #Argyrokastron
+					NOT = { province_id = 5524 } #Agioi Saranta
+					NOT = { province_id = 154 } #Ioannina
+				}
+			change_culture = albanian
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 1
+				leader = "John Spata"
+				}
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { province_id = 149 } #Thessalia
+					NOT = { province_id = 3385 } #Magnesia
+					NOT = { province_id = 5523 } #Vonitsa
+					NOT = { province_id = 1399 } #Anglokastron
+				}
+			change_culture = albanian
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 1
+				leader = "Peter Losha"
+				}
+			}	
+		}
+	}
+	
+	option = {									# Need to add Greek culture back here, or modders channel responds :)
+		name = "flavor_epi.7.a"
+		ai_chance = { factor = 100 }
+	}
+}
+	
 # Albanians rise up in revolt after deposing the popular despota Maria Kantakouzenos. 
 
 	#country_event = {
-	#id = flavor_epi.7
-	#title = "flavor_epi.7.n"
-	#desc = "flavor_epi.7.t"
+	#id = flavor_epi.8
+	#title = "flavor_epi.8.n"
+	#desc = "flavor_epi.8.t"
 	#picture = SERBIA_eventPicture 	# Need Custom picture
 	#
 	#fire_only_once = yes
+	#is_triggered_only = yes
 	#
 	#trigger = {									#Need to make Custom Trigger
 	#	tag = EPI
