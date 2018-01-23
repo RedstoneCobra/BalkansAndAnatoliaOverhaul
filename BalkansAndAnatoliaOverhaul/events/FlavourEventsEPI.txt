@@ -363,6 +363,37 @@
 		}	
 	}
 }
+
+# Albanians swear fealty to Simeon (TSL)
+
+	country_event = {
+	id = flavor_epi.10
+	title = "flavor_epi.10.n"
+	desc = "flavor_epi.10.t"
+	picture = SERBIA_eventPicture 	# Need Custom picture
+	
+	fire_only_once = yes
+	
+	trigger = {									#Need to make Custom Trigger, Can make this after certain province or after certain time. 
+		tag = EPI
+		has_country_flag = albanian_revolt
+		has_ruler = "Interregnum"
+		AND = {
+			exist = TSL
+			TSL = {
+				has_ruler = "Simeon Uros"
+			}
+		}
+	}	
+	
+	option = {
+		name = "flavor_epi.10.a"
+		ai_chance = { factor = 100 }
+		TSL = {
+			inherit = EPI
+		}	
+	}
+}
 	
 	
 	
