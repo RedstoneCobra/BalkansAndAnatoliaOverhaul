@@ -227,6 +227,7 @@
 	
 	immediate = {                                            # Might need to add Area trigger
 		hidden_effect = {
+			set_country_flag = albanian_revolt
 			random_owned_province = {
 				limit = {
 					NOT = { province_id = 149 } #Thessalia
@@ -238,7 +239,7 @@
 			change_culture = albanian
 			spawn_rebels = {
 				type = nationalist_rebels
-				size = 0.5
+				size = 1                        #Need to check rebel size
 				leader = "John Spata"
 				}
 			change_culture = grecoroman
@@ -253,7 +254,7 @@
 			change_culture = albanian
 			spawn_rebels = {
 				type = nationalist_rebels
-				size = 0.5
+				size = 1						#Need to check rebel size
 				leader = "Peter Losha"
 				}
 			change_culture = grecoroman
@@ -269,15 +270,106 @@
 	
 # Albanians rise up in revolt after deposing the popular despota Maria Kantakouzenos. 
 
-	#country_event = {
-	#id = flavor_epi.8
-	#title = "flavor_epi.8.n"
-	#desc = "flavor_epi.8.t"
-	#picture = SERBIA_eventPicture 	# Need Custom picture
-	#
-	#fire_only_once = yes
-	#is_triggered_only = yes
-	#
-	#trigger = {									#Need to make Custom Trigger
-	#	tag = EPI
-	#}
+	country_event = {
+	id = flavor_epi.8
+	title = "flavor_epi.8.n"
+	desc = "flavor_epi.8.t"
+	picture = SERBIA_eventPicture 	# Need Custom picture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {									#Need to make Custom Trigger
+		tag = EPI
+	}
+	
+	immediate = {                                            # Might need to add Area trigger
+		hidden_effect = {
+			set_country_flag = albanian_revolt
+			random_owned_province = {
+				limit = {
+					NOT = { province_id = 149 } #Thessalia
+					NOT = { province_id = 3385 } #Magnesia
+					NOT = { province_id = 144 } #Argyrokastron
+					NOT = { province_id = 5524 } #Agioi Saranta
+					NOT = { province_id = 154 } #Ioannina
+				}
+			change_culture = albanian
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2                   			#Need to check rebel size           
+				leader = "John Spata"
+				}
+			change_culture = grecoroman
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { province_id = 149 } #Thessalia
+					NOT = { province_id = 3385 } #Magnesia
+					NOT = { province_id = 5523 } #Vonitsa
+					NOT = { province_id = 1399 } #Anglokastron
+				}
+			change_culture = albanian
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2							#Need to check rebel size
+				leader = "Peter Losha"
+				}
+			change_culture = grecoroman
+			}	
+		}
+	}
+	
+	option = {
+		name = "flavor_epi.8.a"
+		ai_chance = { factor = 100 }
+	}
+}
+
+# Albanians in revolt Nikephoros II dies.
+
+	country_event = {
+	id = flavor_epi.9
+	title = "flavor_epi.9.n"
+	desc = "flavor_epi.9.t"
+	picture = SERBIA_eventPicture 	# Need Custom picture
+	
+	fire_only_once = yes
+	
+	trigger = {									#Need to make Custom Trigger, Can make this after certain province or after certain time. # Want to find trigger in battle or battle lost
+		tag = EPI
+		has_country_flag = albanian_revolt
+		any_owned_province = {
+			controlled_by = nationalist_rebels
+		}
+	}	
+	
+	option = {
+		name = "flavor_epi.9.a"
+		ai_chance = { factor = 100 }
+		kill_ruler = yes
+		kill_heir = yes
+		define_ruler = {
+			regency = yes
+			ADM = 0
+			DIP = 0
+			MIL = 0
+		}
+		149 = {
+			cede_province = TSL
+		}
+		3385 = {
+			cede_province = TSL
+		}	
+	}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
