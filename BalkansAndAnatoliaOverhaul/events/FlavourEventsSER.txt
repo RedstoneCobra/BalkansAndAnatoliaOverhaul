@@ -192,3 +192,130 @@
 	}
 }
 
+# Release as vassal Kosovo	#Name change
+	country_event = {
+	id = flavor_ser.3
+	title = "flavor_ser.3.n"
+	desc = "flavor_ser.3.t"
+	picture = SERBIA_eventPicture # Need Custom picture
+	
+	fire_only_once = yes
+	
+	trigger = {									
+		tag = SER
+		is_year = 1359
+		is_month = 3
+		has_country_modifier = desintegrating_serbian_state
+	}
+	
+	immediate = {
+		release = VUK
+		SER = {
+			create_subject = {
+				who = VUK
+				subject_type = decentralized_vassal		
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_ser.3.a"
+		ai_chance = { factor = 100 }
+	}
+}
+
+# Release as vassal Velbazhd	#Name change
+	country_event = {
+	id = flavor_ser.4
+	title = "flavor_ser.4.n"
+	desc = "flavor_ser.4.t"
+	picture = SERBIA_eventPicture # Need Custom picture
+	
+	fire_only_once = yes
+	
+	trigger = {									
+		tag = SER
+		is_year = 1359
+		is_month = 3
+		has_country_modifier = desintegrating_serbian_state
+	}
+	
+	immediate = {
+		release = VBZ
+		SER = {
+			create_subject = {
+				who = VBZ
+				subject_type = decentralized_vassal		
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_ser.4.a"
+		ai_chance = { factor = 100 }
+	}
+}
+	
+# Release as vassal Macedonia	#Name change
+	country_event = {
+	id = flavor_ser.5
+	title = "flavor_ser.5.n"
+	desc = "flavor_ser.5.t"
+	picture = SERBIA_eventPicture # Need Custom picture
+	
+	fire_only_once = yes
+	
+	trigger = {									
+		tag = SER
+		is_year = 1359
+		is_month = 3
+		has_country_modifier = desintegrating_serbian_state
+	}
+	
+	immediate = {
+		release = MKO
+		SER = {
+			create_subject = {
+				who = MKO
+				subject_type = decentralized_vassal		
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_ser.5.a"
+		ai_chance = { factor = 100 }
+	}
+}
+
+# Release as vassal Serres	#Name change
+	country_event = {
+	id = flavor_ser.6
+	title = "flavor_ser.6.n"
+	desc = "flavor_ser.6.t"
+	picture = SERBIA_eventPicture # Need Custom picture
+	
+	fire_only_once = yes
+	
+	trigger = {									
+		tag = SER
+		is_year = 1359
+		is_month = 3
+		has_country_modifier = desintegrating_serbian_state
+	}
+	
+	immediate = {
+		release = SRR
+		SER = {
+			create_subject = {
+				who = SRR
+				subject_type = decentralized_vassal		
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_ser.6.a"
+		ai_chance = { factor = 100 }
+	}
+}
