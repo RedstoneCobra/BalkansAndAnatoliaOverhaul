@@ -225,7 +225,7 @@
 		tag = EPI
 	}
 	
-	immediate = {
+	immediate = {                                            # Might need to add Area trigger
 		hidden_effect = {
 			random_owned_province = {
 				limit = {
@@ -238,9 +238,10 @@
 			change_culture = albanian
 			spawn_rebels = {
 				type = nationalist_rebels
-				size = 1
+				size = 0.5
 				leader = "John Spata"
 				}
+			change_culture = grecoroman
 			}
 			random_owned_province = {
 				limit = {
@@ -252,14 +253,15 @@
 			change_culture = albanian
 			spawn_rebels = {
 				type = nationalist_rebels
-				size = 1
+				size = 0.5
 				leader = "Peter Losha"
 				}
+			change_culture = grecoroman
 			}	
 		}
 	}
 	
-	option = {									# Need to add Greek culture back here, or modders channel responds :)
+	option = {
 		name = "flavor_epi.7.a"
 		ai_chance = { factor = 100 }
 	}
