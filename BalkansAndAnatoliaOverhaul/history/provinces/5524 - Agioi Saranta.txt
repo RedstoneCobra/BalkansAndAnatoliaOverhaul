@@ -4,7 +4,7 @@ add_core = SER
 add_core = EPI
 add_core = TSL
 add_core = ALB
-add_permanent_claim = BYZ
+add_core = BYZ
 add_claim = KNP
 
 capital = "Agioi Saranta"

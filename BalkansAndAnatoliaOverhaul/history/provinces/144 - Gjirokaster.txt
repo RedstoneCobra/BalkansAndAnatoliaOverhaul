@@ -6,7 +6,7 @@ add_core = EPI
 add_core = TSL
 add_core = SER
 add_core = ALB
-add_permanent_claim = BYZ
+add_core = BYZ
 
 capital = "Gjirokaster"
 trade_goods = wool

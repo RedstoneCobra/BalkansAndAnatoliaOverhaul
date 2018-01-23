@@ -2,6 +2,7 @@
 
 owner = BYZ
 controller = BYZ
+add_permanent_claim = BYZ
 
 capital = "Velbazhd"
 trade_goods = wine

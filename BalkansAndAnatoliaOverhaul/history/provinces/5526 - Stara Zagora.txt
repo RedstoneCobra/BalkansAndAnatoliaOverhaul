@@ -1,6 +1,7 @@
 owner = BUL
 controller = BUL
 add_core = BUL
+add_permanent_claim = BYZ
 
 capital = "Stara Zagora"
 trade_goods = wheat

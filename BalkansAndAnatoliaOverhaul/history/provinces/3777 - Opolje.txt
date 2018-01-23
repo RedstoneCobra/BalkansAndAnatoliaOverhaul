@@ -3,6 +3,7 @@
 owner = VUK
 controller = VUK
 add_core = VUK
+add_permanent_claim = BYZ
 
 capital = "Prizren"
 trade_goods = wheat

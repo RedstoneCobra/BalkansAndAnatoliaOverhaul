@@ -7,7 +7,7 @@ add_core = AYD
 capital = "Tire"
 trade_goods = olive
 culture = grecoroman
-religion = sunni
+religion = orthodox
 
 hre = no
 

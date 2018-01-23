@@ -6,8 +6,8 @@ add_core = EPI
 add_core = TSL
 add_core = SER
 add_core = ALB
+add_core = BYZ
 add_claim = SER
-add_permanent_claim = BYZ
 
 capital = "Angelokastron"
 trade_goods = olive
