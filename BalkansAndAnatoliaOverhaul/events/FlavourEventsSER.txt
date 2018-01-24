@@ -148,7 +148,7 @@
 	}
 	
 	option = {
-		name = "flavor_ser.1.b."
+		name = "flavor_ser.2.b."
 		switch_tag = TSL
 		add_prestige = -10
 	}
@@ -174,6 +174,7 @@
 				tag = VUK	
 				tag = MKO
 				tag = VBZ
+				tag = SRR
 			}
 			NOT = {
 				has_country_flag = claimant_serbian_empire				# I know this is double can be fixed later
@@ -201,7 +202,7 @@
 	
 	fire_only_once = yes
 	
-	trigger = {									
+	trigger = {									#custom trigger needed
 		tag = SER
 		is_year = 1359
 		is_month = 3
@@ -213,7 +214,7 @@
 		SER = {
 			create_subject = {
 				who = VUK
-				subject_type = decentralized_vassal		
+				subject_type = vassal		
 			}
 		}
 	}
@@ -221,6 +222,13 @@
 	option = {
 		name = "flavor_ser.3.a"
 		ai_chance = { factor = 100 }
+		add_prestige = -10
+	}
+	
+	option = {
+		name = "flavor_ser.3.b."
+		switch_tag = VUK
+		add_prestige = -10
 	}
 }
 
@@ -233,7 +241,7 @@
 	
 	fire_only_once = yes
 	
-	trigger = {									
+	trigger = {									#custom trigger needed
 		tag = SER
 		is_year = 1359
 		is_month = 3
@@ -245,7 +253,7 @@
 		SER = {
 			create_subject = {
 				who = VBZ
-				subject_type = decentralized_vassal		
+				subject_type = vassal		
 			}
 		}
 	}
@@ -253,6 +261,13 @@
 	option = {
 		name = "flavor_ser.4.a"
 		ai_chance = { factor = 100 }
+		add_prestige = -10
+	}
+	
+	option = {
+		name = "flavor_ser.4.b."
+		switch_tag = VBZ
+		add_prestige = -10
 	}
 }
 	
@@ -265,7 +280,7 @@
 	
 	fire_only_once = yes
 	
-	trigger = {									
+	trigger = {									#custom trigger needed
 		tag = SER
 		is_year = 1359
 		is_month = 3
@@ -277,7 +292,7 @@
 		SER = {
 			create_subject = {
 				who = MKO
-				subject_type = decentralized_vassal		
+				subject_type = vassal	
 			}
 		}
 	}
@@ -285,6 +300,13 @@
 	option = {
 		name = "flavor_ser.5.a"
 		ai_chance = { factor = 100 }
+		add_prestige = -10
+	}
+	
+	option = {
+		name = "flavor_ser.5.b."
+		switch_tag = MKO
+		add_prestige = -10
 	}
 }
 
@@ -297,7 +319,7 @@
 	
 	fire_only_once = yes
 	
-	trigger = {									
+	trigger = {									#custom trigger needed
 		tag = SER
 		is_year = 1359
 		is_month = 3
@@ -309,7 +331,7 @@
 		SER = {
 			create_subject = {
 				who = SRR
-				subject_type = decentralized_vassal		
+				subject_type = vassal	
 			}
 		}
 	}
@@ -317,5 +339,45 @@
 	option = {
 		name = "flavor_ser.6.a"
 		ai_chance = { factor = 100 }
+		add_prestige = -10
+	}
+	
+	option = {
+		name = "flavor_ser.6.b."
+		switch_tag = SRR
+		add_prestige = -10
+	}
+}
+
+# Demand more autonomy	#Name change
+	country_event = {
+	id = flavor_ser.7
+	title = "flavor_ser.7.n"
+	desc = "flavor_ser.7.t"
+	picture = SERBIA_eventPicture # Need Custom picture
+	
+	trigger = {		
+		OR = {
+			tag = VUK
+			tag = VBZ
+			tag = MKO
+			tag = SRR
+		}
+		PREV = {
+			is_subject_of = SER
+		}
+		SER ={
+			has_country_modifier = desintegrating_serbian_state
+		}
+	}
+		
+	option = {
+		name = "flavor_ser.3.a"
+		ai_chance = { factor = 100 }	
+	}
+	
+	option = {
+		name = "flavor_ser.3."
+		ai_chance = { factor = 100 }	
 	}
 }
