@@ -4,6 +4,7 @@ owner = SER
 controller = SER
 add_core = SER
 add_core = BUL
+add_core = VBZ
 
 capital = "Melnik"
 trade_goods = lumber
