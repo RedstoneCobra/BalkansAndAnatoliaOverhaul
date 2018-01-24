@@ -372,12 +372,43 @@
 	}
 		
 	option = {
-		name = "flavor_ser.3.a"
+		name = "flavor_ser.7.a"
 		ai_chance = { factor = 100 }	
+		hidden_effect = {
+			SER = {
+				country_event = { id = flavor_ser.8 days = 1 } #Need to set custom time
+			}
+		}
 	}
 	
 	option = {
-		name = "flavor_ser.3."
-		ai_chance = { factor = 100 }	
+		name = "flavor_ser.7.b"
+		ai_chance = { factor = 0 }	
 	}
 }
+
+# Demand more autonomy to Serbia event	#Name change
+	country_event = {
+	id = flavor_ser.8
+	title = "flavor_ser.8.n"
+	desc = "flavor_ser.8.t"
+	picture = SERBIA_eventPicture # Need Custom picture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_ser.8.a"
+		ai_chance = { factor = 100 }
+		SER = {
+			create_subject = {
+				who = FROM
+				subject_type = decentralized_vassal				}
+	}
+	
+	option = {
+		name = "flavor_ser.8.b"
+		ai_chance = { factor = 0 }	
+	}
+}
+	
+	
