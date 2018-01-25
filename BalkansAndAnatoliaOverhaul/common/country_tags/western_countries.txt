@@ -135,6 +135,7 @@ BSI	= "countries/Sion.txt"								#/*
 BYR	= "countries/Bayreuth.txt"							#/*
 
 DCP	= "countries/Decapolis.txt"							#/*
+DIT	= "countries/Ditmarschen.txt"	
 ERF	= "countries/Erfurt.txt"							#/*
 FAL	= "countries/Falkenstein.txt"						#/*
 FRE	= "countries/Freiburg.txt"							#/*
