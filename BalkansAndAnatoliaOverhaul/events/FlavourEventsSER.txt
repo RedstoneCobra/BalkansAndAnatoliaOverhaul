@@ -290,7 +290,13 @@
 	immediate = {
 		release = MKO
 		MKO = {
-			define_ruler = {
+			hidden_effect = {
+				define_ruler =						# There to make birth_date work
+					name = "Vukasin"
+					dynasty = "Mrnjavcevic"
+				}
+			}
+			define_heir = {
 				name = "Vukasin"
 				dynasty = "Mrnjavcevic"
 				country_of_origin = SER
@@ -301,6 +307,9 @@
 				mil = 3
 				fixed = yes 
 				birth_date = 1320.1.1				
+			}
+			hidden_effect = {
+				kill_ruler = yes
 			}
 			define_heir = {
 				name = "Marko"
@@ -355,7 +364,13 @@
 	immediate = {
 		release = SRR
 		SRR = {
-			define_ruler = {
+			hidden_effect = {
+				define_ruler =						# There to make birth_date work
+					name = "Helena"
+					dynasty = "Asen"
+				}
+			}			
+			define_heir = {
 				name = "Helena"
 				dynasty = "Asen"
 				country_of_origin = BUL
@@ -367,6 +382,9 @@
 				fixed = yes 
 				female = yes
 				birth_date = 1310.1.1				#born date unknown, siter of Ivan of Bulgaria
+			}
+			hidden_effect = {
+				kill_ruler = yes
 			}
 			define_heir = {
 				name = "Jovan Ugljesa"
