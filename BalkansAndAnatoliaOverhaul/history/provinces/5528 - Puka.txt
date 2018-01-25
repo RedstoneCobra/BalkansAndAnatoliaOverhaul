@@ -3,6 +3,7 @@
 owner = ALC
 controller = ALC
 add_core = ALC
+add_core = ALK
 
 capital = "Puka"
 trade_goods = wool

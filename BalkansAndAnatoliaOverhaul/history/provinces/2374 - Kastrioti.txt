@@ -3,6 +3,7 @@
 owner = ALC
 controller = ALC
 add_core = ALC
+add_core = ALK
 add_permanent_claim = BYZ
 
 capital = "Krujë"
