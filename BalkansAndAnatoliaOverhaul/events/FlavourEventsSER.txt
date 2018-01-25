@@ -211,6 +211,41 @@
 	
 	immediate = {
 		release = VUK
+		VUK = {
+			hidden_effect = {
+				define_ruler =						# There to make birth_date work
+					name = "Branko"
+					dynasty = "Brankovic"
+				}
+			}
+			define_heir = {
+				name = "Branko"
+				dynasty = "Brankovic"
+				country_of_origin = SER
+				religion = orthodox
+				culture = serbian
+				adm = 3
+				dip = 3
+				mil = 3
+				fixed = yes 
+				birth_date = 1324.1.1		#birth_date unknown		
+			}
+			hidden_effect = {
+				kill_ruler = yes
+			}
+			define_heir = {
+				name = "Vuk"
+				dynasty = "Brankovic"
+				country_of_origin = SER
+				religion = orthodox
+				culture = serbian
+				adm = 2
+				dip = 2
+				mil = 2
+				fixed = yes 
+				birth_date = 1345.1.1				
+			}
+		}
 		SER = {
 			create_subject = {
 				who = VUK
@@ -250,6 +285,54 @@
 	
 	immediate = {
 		release = VBZ
+		VBZ = {
+			hidden_effect = {
+				define_ruler =						# There to make birth_date work
+					name = "Dejan"
+					dynasty = "Dejanovic"
+				}
+			}
+			define_heir = {
+				name = "Dejan"
+				dynasty = "Dejanovic"
+				country_of_origin = SER
+				religion = orthodox
+				culture = serbian
+				adm = 3
+				dip = 3
+				mil = 3
+				fixed = yes 
+				birth_date = 1325.1.1		#birth_date unknown		
+			}
+			hidden_effect = {
+				kill_ruler = yes
+			}
+			define_consort ={
+				name = "Teodora"
+				dynasty = "Nemanjic"
+				country_of_origin = SER
+				religion = orthodox
+				culture = serbian
+				adm = 3
+				dip = 3
+				mil = 3
+				fixed = yes 
+				female = yes
+				birth_date = 1330.1.1		
+			}			
+			define_heir = {
+				name = "Jovan Dragas"
+				dynasty = "Dejanovic"
+				country_of_origin = SER
+				religion = orthodox
+				culture = serbian
+				adm = 3
+				dip = 3
+				mil = 3
+				fixed = yes 
+				birth_date = 1343.1.1				
+			}
+		}
 		SER = {
 			create_subject = {
 				who = VBZ
@@ -311,6 +394,19 @@
 			hidden_effect = {
 				kill_ruler = yes
 			}
+			define_consort ={
+				name = "Jelena"
+				dynasty = "Mrnjavcevic"
+				country_of_origin = SER
+				religion = orthodox
+				culture = serbian
+				adm = 3
+				dip = 3
+				mil = 3
+				fixed = yes 
+				female = yes
+				birth_date = 1325.1.1		# birth_date unknown
+			}						
 			define_heir = {
 				name = "Marko"
 				dynasty = "Mrnjavcevic"
