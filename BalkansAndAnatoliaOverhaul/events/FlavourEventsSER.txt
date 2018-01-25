@@ -328,6 +328,33 @@
 	
 	immediate = {
 		release = SRR
+		SRR = {
+			define_ruler = {
+				name = "Helena"
+				dynasty = "Asen"
+				country_of_origin = BUL
+				religion = orthodox
+				culture = bulgarian
+				adm = 3
+				dip = 3
+				mil = 3
+				fixed = yes 
+				female = yes
+				birth_date = 1310.1.1				#born date unknown, siter of Ivan of Bulgaria
+			}
+			define_heir = {
+				name = "Jovan Uglješa"
+				dynasty = "Mrnjavcevic"
+				country_of_origin = SER
+				religion = orthodox
+				culture = serbian
+				adm = 2
+				dip = 2
+				mil = 2
+				fixed = yes 
+				birth_date = 1320.1.1				
+			}
+		}
 		SER = {
 			create_subject = {
 				who = SRR
@@ -365,6 +392,7 @@
 		}
 		PREV = {
 			is_subject_of = SER
+			is_subject_of_type = vassal
 		}
 		SER ={
 			has_country_modifier = desintegrating_serbian_state
@@ -402,13 +430,39 @@
 		SER = {
 			create_subject = {
 				who = FROM
-				subject_type = decentralized_vassal				}
+				subject_type = decentralized_vassal			
+			}
+		}	
 	}
 	
 	option = {
 		name = "flavor_ser.8.b"
 		ai_chance = { factor = 0 }	
+		hidden_effect = {
+			FROM = {
+				country_event = { id = flavor_ser.9 days = 1 } #Need to set custom time
+			}
+		}
 	}
 }
+
+# Demand more autonomy refused By Serbia	#Name change
+	country_event = {
+	id = flavor_ser.9
+	title = "flavor_ser.9.n"
+	desc = "flavor_ser.9.t"
+	picture = SERBIA_eventPicture # Need Custom picture
 	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_ser.9.b"
+		ai_chance = { factor = 50 }	
+	}
+	
+	option = {
+		name = "flavor_ser.9.b"
+		ai_chance = { factor = 50 }	
+	}
+}
 	
